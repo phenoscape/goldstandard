@@ -93,7 +93,7 @@ p3<-ggplot(data = jsimdf_melted, aes(x = CurationRound, y = value, group = Ontol
   geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("Curation Round")+ylab("Similarity to Gold Standard") + 
   geom_errorbar(width=0.2,aes(ymin=jsimdf_melted['value']-errorlist,ymax=jsimdf_melted['value']+errorlist), position = dodge) + 
   geom_text(hjust = 2, position = dodge)+theme(legend.position="none",plot.title = element_text(hjust = 0.5,face='italic'),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle("Jsim")
+panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle(expression(J[sim]))
 
 
 
@@ -109,12 +109,12 @@ p4<-ggplot(data = Indf_melted, aes(x = CurationRound, y = value, group = Ontolog
   geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("Curation Round")+ylab("") + 
   geom_errorbar(width=0.2,aes(ymin=Indf_melted['value']-errorlist,ymax=Indf_melted['value']+errorlist), position = dodge) + 
   geom_text(hjust = 2, position = dodge)+theme(legend.position="none",plot.title = element_text(hjust = 0.5,face='italic'),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle("In")
+panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle(expression(I[n]))
 
 
 
 plot<-grid.arrange(p1, p2, p3, p4, ncol = 2)
-savePlot(plot,"../results/Figure2.png")
+file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "GS-OntCompleteness.pdf"))
 
 
 

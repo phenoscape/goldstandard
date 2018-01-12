@@ -45,20 +45,21 @@ savePlot <- function(myPlot,name) {
 
 errorlist=c(2*(sd(IntC_N_Curators_PP)/sqrt(length(IntC_N_Curators_PP))),2*(sd(IntC_K_Curators_PP)/sqrt(length(IntC_K_Curators_PP))),2*(sd(SCP_Initial_Curators_PP)/sqrt(length(SCP_Initial_Curators_PP))),2*(sd(SCP_Aug_Curators_PP)/sqrt(length(SCP_Aug_Curators_PP))),2*(sd(SCP_Merged_Curators_PP)/sqrt(length(SCP_Merged_Curators_PP))),2*(sd(IntC_N_Curators_PR)/sqrt(length(IntC_N_Curators_PR))),2*(sd(IntC_K_Curators_PR)/sqrt(length(IntC_K_Curators_PR))),2*(sd(SCP_Initial_Curators_PR)/sqrt(length(SCP_Initial_Curators_PR))),2*(sd(SCP_Aug_Curators_PR)/sqrt(length(SCP_Aug_Curators_PR))),2*(sd(SCP_Merged_Curators_PR)/sqrt(length(SCP_Merged_Curators_PR))),3*(sd(IntC_N_Curators_Jsim)/sqrt(length(IntC_N_Curators_Jsim))),3*(sd(IntC_K_Curators_Jsim)/sqrt(length(IntC_K_Curators_Jsim))),3*(sd(SCP_Initial_Curators_Jsim)/sqrt(length(SCP_Initial_Curators_Jsim))),3*(sd(SCP_Aug_Curators_Jsim)/sqrt(length(SCP_Aug_Curators_Jsim))),3*(sd(SCP_Merged_Curators_Jsim)/sqrt(length(SCP_Merged_Curators_Jsim))),4*(sd(IntC_N_Curators_In)/sqrt(length(IntC_N_Curators_In))),4*(sd(IntC_K_Curators_In)/sqrt(length(IntC_K_Curators_In))),4*(sd(SCP_Initial_Curators_In)/sqrt(length(SCP_Initial_Curators_In))),4*(sd(SCP_Aug_Curators_In)/sqrt(length(SCP_Aug_Curators_In))),4*(sd(SCP_Merged_Curators_In)/sqrt(length(SCP_Merged_Curators_In))))
 
-
+xlabels<-c(expression(italic(PP)),expression(italic(PR)),expression(italic(J)[sim]),expression(italic(I[n])))
+print (xlabels)
 df_melted <- melt(df, id.vars=c("Ontology"))
 colnames(df_melted)[2] <- "SimilarityMetric"
 dodge <- position_dodge(0.7)
-p1<-ggplot(data = df_melted, aes(x = SimilarityMetric, y = value, group = Ontology, label = "")) + 
+ggplot(data = df_melted, aes(x = SimilarityMetric, y = value, group = Ontology, label = "")) + 
   geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("")+xlab("Similarity Metric")+ylab("Similarity to Gold Standard")  + 
   geom_errorbar(width=0.2,aes(ymin=df_melted['value']-errorlist,ymax=df_melted['value']+errorlist), position = dodge)+
   geom_text(hjust = 2, position = dodge)+theme(legend.title = element_blank(),legend.position = c(.3, .95),
   legend.justification = c("right", "top"),
   legend.box.just = "right",
   legend.margin = margin(6, 6, 6, 6),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"),axis.text.x = element_text(face="italic"))
+panel.background = element_blank(), axis.line = element_line(colour = "black"),axis.text.x = element_text(face="italic"))+scale_x_discrete(labels=xlabels)
 
-savePlot(p1,"../results/figure3.png")
+file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "SCP-OntCompleteness.pdf"))
 
 
 
