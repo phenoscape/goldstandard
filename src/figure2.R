@@ -98,7 +98,7 @@ data_summary <- function(x) {
 
 
 pp <- ggplot(pp_df, aes(x=Curator, y=Similarity,fill=Round)) + 
-  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity Score",x="")+ggtitle(expression(italic(PP)))+theme(plot.title = element_text(hjust = 0.5))
+  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity to Gold Standard",x="")+ggtitle(expression(italic(PP)))+theme(plot.title = element_text(hjust = 0.5))
 
 
 
@@ -155,7 +155,7 @@ C3_Jsim_Knowledge_df$round<-"Knowledge"
 Jsim_df<-rbind(C1_Jsim_Naive_df,C2_Jsim_Naive_df,C3_Jsim_Naive_df,C1_Jsim_Knowledge_df,C2_Jsim_Knowledge_df,C3_Jsim_Knowledge_df)
 names(Jsim_df)<-c("Similarity","Curator","Round")
 Jsim <- ggplot(Jsim_df, aes(x=Curator, y=Similarity,fill=Round)) + 
-  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity Score")+ggtitle(expression(italic(J)[sim]))+theme(plot.title = element_text(hjust = 0.5))
+  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity to Gold Standard")+ggtitle(expression(italic(J)[sim]))+theme(plot.title = element_text(hjust = 0.5))
 
 
 C1_In_Knowledge_df=data.frame(datalist[16])
