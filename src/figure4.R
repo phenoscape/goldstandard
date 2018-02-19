@@ -2,30 +2,135 @@ library(ggplot2)
 library(reshape2)
 library(Rmisc)
 library(gridExtra)
+options(scipen=999)
 
 savePlot <- function(myPlot,name) {
         png(name)
         print(myPlot)
         dev.off()
 }
+getmeanJsim <- function(filename1,filename2,filename3){
+	
+	df = read.table(filename1,header=TRUE,sep="\t")
+ 	mean1=(colMeans(df["SimJ.Score"], na.rm = TRUE))
+	
+	df = read.table(filename2,header=TRUE,sep="\t")
+ 	mean2=(colMeans(df["SimJ.Score"], na.rm = TRUE))
+	
+	df = read.table(filename3,header=TRUE,sep="\t")
+ 	mean3=(colMeans(df["SimJ.Score"], na.rm = TRUE))
+	return(c(mean1,mean2,mean3))
+}
+
+getmeanNIC <- function(filename1,filename2,filename3){
+	
+	df = read.table(filename1,header=TRUE,sep="\t")
+ 	mean1=(colMeans(df["NIC.Score"], na.rm = TRUE))
+	
+	df = read.table(filename2,header=TRUE,sep="\t")
+ 	mean2=(colMeans(df["NIC.Score"], na.rm = TRUE))
+	
+	df = read.table(filename3,header=TRUE,sep="\t")
+ 	mean3=(colMeans(df["NIC.Score"], na.rm = TRUE))
+	return(c(mean1,mean2,mean3))
+}
+
+getmeanPartialRecall <- function(filename1,filename2,filename3){
+	
+	df = read.table(filename1,header=TRUE,sep="\t")
+ 	mean1=(colMeans(df["SimJ.Partial.Recall"], na.rm = TRUE))
+
+ 	df = read.table(filename2,header=TRUE,sep="\t")
+ 	mean2=(colMeans(df["SimJ.Partial.Recall"], na.rm = TRUE))
+
+ 	df = read.table(filename3,header=TRUE,sep="\t")
+ 	mean3=(colMeans(df["SimJ.Partial.Recall"], na.rm = TRUE))
+	return(c(mean1,mean2,mean3))
+}
+
+getmeanPartialPrecision <- function(filename1,filename2,filename3){
+	
+	df = read.table(filename1,header=TRUE,sep="\t")
+ 	mean1=(colMeans(df["SimJ.Partial.Precision"], na.rm = TRUE))
+
+ 	df = read.table(filename2,header=TRUE,sep="\t")
+ 	mean2=(colMeans(df["SimJ.Partial.Precision"], na.rm = TRUE))
+
+ 	df = read.table(filename3,header=TRUE,sep="\t")
+ 	mean3=(colMeans(df["SimJ.Partial.Precision"], na.rm = TRUE))
 
 
-PP_C1Aug=c(0.186 ,0.203)
-	PP_C2Aug=c(0.136,0.145)
-	PP_C3Aug=c(0.162,0.18)
-	PR_C1Aug=c(0.227 ,0.243)
-	PR_C2Aug=c(0.173, 0.183)
-	PR_C3Aug=c(0.202,0.22)
-	Jsim_C1Aug=c(0.249, 0.266)
-	Jsim_C2Aug=c(0.194,0.206)
-	Jsim_C3Aug=c(0.225,0.243)
-	I_C1Aug=c(0.389,0.401)
-	I_C2Aug=c(0.32,0.34)
-	I_C3Aug=c(0.352,0.377)
-	PP_Merged=c(0.155,0.155)
-	PR_Merged=c(0.251,0.251)
-	Jsim_Merged=c(0.276,0.276)
-	I_Merged=c(0.429,0.429)
+	return(c(mean1,mean2,mean3))
+}
+	
+	
+	
+	filename1="../data/CombinedComparisons/PP_Transformed_NR--CP_38484--GS_Dataset.tsv"
+	filename2="../data/CombinedComparisons/PP_Transformed_NR--CP_40674--GS_Dataset.tsv"
+	filename3="../data/CombinedComparisons/PP_Transformed_NR--CP_40676--GS_Dataset.tsv"
+	N_meanPP=getmeanPartialPrecision(filename1,filename2,filename3)
+	
+	filename3="../data/CombinedComparisons/PP_Transformed_KR--CP_40716--GS_Dataset.tsv"
+	filename1="../data/CombinedComparisons/PP_Transformed_KR--CP_40717--GS_Dataset.tsv"
+	filename2="../data/CombinedComparisons/PP_Transformed_KR--CP_40718--GS_Dataset.tsv"
+	K_meanPP=getmeanPartialPrecision(filename1,filename2,filename3)
+	infile="../data/CombinedComparisons/PP_Transformed_CP_best--GS_Dataset.tsv"
+	bestmeanpp=getmeanPartialPrecision(infile,infile,infile)
+	
+	filename3="../data/CombinedComparisons/PR_Transformed_NR--CP_40676--GS_Dataset.tsv"
+	filename1="../data/CombinedComparisons/PR_Transformed_NR--CP_38484--GS_Dataset.tsv"
+	filename2="../data/CombinedComparisons/PR_Transformed_NR--CP_40674--GS_Dataset.tsv"
+	N_meanPR=getmeanPartialRecall(filename1,filename2,filename3)
+
+	
+	filename3="../data/CombinedComparisons/PR_Transformed_KR--CP_40716--GS_Dataset.tsv"
+	filename1="../data/CombinedComparisons/PR_Transformed_KR--CP_40717--GS_Dataset.tsv"
+	filename2="../data/CombinedComparisons/PR_Transformed_KR--CP_40718--GS_Dataset.tsv"
+	K_meanPR=getmeanPartialRecall(filename1,filename2,filename3)
+	infile="../data/CombinedComparisons/PR_Transformed_CP_best--GS_Dataset.tsv"
+	bestmeanpr=getmeanPartialRecall(infile,infile,infile)
+
+
+	filename1="../data/CombinedComparisons/Transformed_NR--CP_38484--GS_Dataset.tsv"
+	filename2="../data/CombinedComparisons/Transformed_NR--CP_40674--GS_Dataset.tsv"
+	filename3="../data/CombinedComparisons/Transformed_NR--CP_40676--GS_Dataset.tsv"
+	N_augmeanJsim=getmeanJsim(filename1,filename2,filename3)
+	N_augmeanNIC=getmeanNIC(filename1,filename2,filename3)
+
+
+
+
+	filename1="../data/CombinedComparisons/Transformed_KR--CP_40717--GS_Dataset.tsv"
+	filename2="../data/CombinedComparisons/Transformed_KR--CP_40718--GS_Dataset.tsv"
+	filename3="../data/CombinedComparisons/Transformed_KR--CP_40716--GS_Dataset.tsv"
+	K_augmeanJsim=getmeanJsim(filename1,filename2,filename3)
+	K_augmeanNIC=getmeanNIC(filename1,filename2,filename3)
+
+	infile="../data/CombinedComparisons/Transformed_CP_best--GS_Dataset.tsv"
+	bestmeanjsim=getmeanJsim(infile,infile,infile)
+	bestmeannic=getmeanNIC(infile,infile,infile)
+ 
+
+
+	PP_C1Aug=c(N_meanPP[1],K_meanPP[1])
+	PP_C2Aug=c(N_meanPP[2],K_meanPP[2])
+	PP_C3Aug=c(N_meanPP[3],K_meanPP[3])
+	PR_C1Aug=c(N_meanPR[1],K_meanPR[1])
+	PR_C2Aug=c(N_meanPR[2],K_meanPR[2])
+	PR_C3Aug=c(N_meanPR[3],K_meanPR[3])
+	
+	Jsim_C1Aug=c(N_augmeanJsim[1],K_augmeanJsim[1])
+	Jsim_C2Aug=c(N_augmeanJsim[2],K_augmeanJsim[2])
+	Jsim_C3Aug=c(N_augmeanJsim[3],K_augmeanJsim[3])
+	I_C1Aug=c(N_augmeanNIC[1],K_augmeanNIC[1])
+	I_C2Aug=c(N_augmeanNIC[2],K_augmeanNIC[2])
+	I_C3Aug=c(N_augmeanNIC[3],K_augmeanNIC[3])
+	PP_Merged=c(bestmeanpp[1],bestmeanpp[1])
+	PR_Merged=c(bestmeanpr[1],bestmeanpr[1])
+
+	Jsim_Merged=c(bestmeanjsim[1],bestmeanjsim[1])
+	I_Merged=c(bestmeannic[1],bestmeannic[1])
+
 
 
 	PP_Aug_N_Curators=c(PP_C1Aug[1],PP_C2Aug[1],PP_C2Aug[1])

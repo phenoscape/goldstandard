@@ -5,15 +5,16 @@ library(gridExtra)
 library(Hmisc)
     load_data<-function()
     {
-        filename="../data/CombinedComparisons/PP_NR--WD_38484--combined_matrix-Gold_Standard.tsv"
+        filename="../data/CombinedComparisons/PP_NR--WD_38484--GS_Dataset.tsv"
     C1_pp_Naive_df = read.table(filename,header = TRUE,sep="\t")
     
 
-    filename="../data/CombinedComparisons/PR_NR--WD_38484--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PR_NR--WD_38484--GS_Dataset.tsv"
+
     C1_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PP_KR--WD_40717--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PP_KR--WD_40717--GS_Dataset.tsv"
     C1_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PR_KR--WD_40717--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PR_KR--WD_40717--GS_Dataset.tsv"
     C1_pr_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
     
     filename="../data/CombinedComparisons/NR--WD_38484--GS_Dataset.tsv"
@@ -22,13 +23,13 @@ library(Hmisc)
     C1_Jsim_and_In_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
     
 
-    filename="../data/CombinedComparisons/PP_NR--AD_40674--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PP_NR--AD_40674--GS_Dataset.tsv"
     C2_pp_Naive_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PR_NR--AD_40674--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PR_NR--AD_40674--GS_Dataset.tsv"
     C2_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PP_KR--AD_40718--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PP_KR--AD_40718--GS_Dataset.tsv"
     C2_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PR_KR--AD_40718--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PR_KR--AD_40718--GS_Dataset.tsv"
     C2_pr_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
 
     filename="../data/CombinedComparisons/NR--AD_40674--GS_Dataset.tsv"
@@ -38,13 +39,13 @@ library(Hmisc)
 
 
 
-    filename="../data/CombinedComparisons/PP_NR--NI_40676--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PP_NR--NI_40676--GS_Dataset.tsv"
     C3_pp_Naive_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PR_NR--NI_40676--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PR_NR--NI_40676--GS_Dataset.tsv"
     C3_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PP_KR--NI_40716--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PP_KR--NI_40716--GS_Dataset.tsv"
     C3_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
-    filename="../data/CombinedComparisons/PR_KR--NI_40716--combined_matrix-Gold_Standard.tsv"
+    filename="../data/CombinedComparisons/PR_KR--NI_40716--GS_Dataset.tsv"
     C3_pr_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
 
     filename="../data/CombinedComparisons/NR--NI_40676--GS_Dataset.tsv"
@@ -53,16 +54,8 @@ library(Hmisc)
     C3_Jsim_and_In_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
 
 
-
     newlist<-list(C1_pp_Naive_df['SimJ.Partial.Precision'],C1_pr_Naive_df['SimJ.Partial.Recall'],C1_pp_Knowledge_df['SimJ.Partial.Precision'],C1_pr_Knowledge_df['SimJ.Partial.Recall'],   C2_pp_Naive_df['SimJ.Partial.Precision'],C2_pr_Naive_df['SimJ.Partial.Recall'],C2_pp_Knowledge_df['SimJ.Partial.Precision'],C2_pr_Knowledge_df['SimJ.Partial.Recall'],  C3_pp_Naive_df['SimJ.Partial.Precision'],C3_pr_Naive_df['SimJ.Partial.Recall'],C3_pp_Knowledge_df['SimJ.Partial.Precision'],C3_pr_Knowledge_df['SimJ.Partial.Recall'],C1_Jsim_and_In_Naive_df['SimJ.Score'],C1_Jsim_and_In_Naive_df['NIC.Score'],C1_Jsim_and_In_Knowledge_df['SimJ.Score'],C1_Jsim_and_In_Knowledge_df['NIC.Score'],C2_Jsim_and_In_Naive_df['SimJ.Score'],C2_Jsim_and_In_Naive_df['NIC.Score'],C2_Jsim_and_In_Knowledge_df['SimJ.Score'],C2_Jsim_and_In_Knowledge_df['NIC.Score'],C3_Jsim_and_In_Naive_df['SimJ.Score'],C3_Jsim_and_In_Naive_df['NIC.Score'],C3_Jsim_and_In_Knowledge_df['SimJ.Score'],C3_Jsim_and_In_Knowledge_df['NIC.Score'])
     return (newlist)
-}
-
-
-savePlot <- function(myPlot,name) {
-        png(name)
-        print(myPlot)
-        dev.off()
 }
 
 
@@ -87,7 +80,7 @@ C3_pp_Knowledge_df$curator<-"C3"
 C3_pp_Knowledge_df$round<-"Knowledge"
 pp_df<-rbind(C1_pp_Naive_df,C2_pp_Naive_df,C3_pp_Naive_df,C1_pp_Knowledge_df,C2_pp_Knowledge_df,C3_pp_Knowledge_df)
 names(pp_df)<-c("Similarity","Curator","Round")
-head(pp_df)
+
 data_summary <- function(x) {
    m <- mean(x)
    se=2*(sd(x)/sqrt(length(x)))
