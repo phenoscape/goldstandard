@@ -2,6 +2,62 @@ library(ggplot2)
 library(reshape2)
 library(Rmisc)
 library(gridExtra)
+library(Hmisc)
+    load_data<-function()
+    {
+        filename="../data/CombinedComparisons/PP_NR--WD_38484--combined_matrix-Gold_Standard.tsv"
+    C1_pp_Naive_df = read.table(filename,header = TRUE,sep="\t")
+    
+
+    filename="../data/CombinedComparisons/PR_NR--WD_38484--combined_matrix-Gold_Standard.tsv"
+    C1_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PP_KR--WD_40717--combined_matrix-Gold_Standard.tsv"
+    C1_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PR_KR--WD_40717--combined_matrix-Gold_Standard.tsv"
+    C1_pr_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+    
+    filename="../data/CombinedComparisons/NR--WD_38484--GS_Dataset.tsv"
+    C1_Jsim_and_In_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/KR--WD_40717--GS_Dataset.tsv"
+    C1_Jsim_and_In_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+    
+
+    filename="../data/CombinedComparisons/PP_NR--AD_40674--combined_matrix-Gold_Standard.tsv"
+    C2_pp_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PR_NR--AD_40674--combined_matrix-Gold_Standard.tsv"
+    C2_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PP_KR--AD_40718--combined_matrix-Gold_Standard.tsv"
+    C2_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PR_KR--AD_40718--combined_matrix-Gold_Standard.tsv"
+    C2_pr_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+
+    filename="../data/CombinedComparisons/NR--AD_40674--GS_Dataset.tsv"
+    C2_Jsim_and_In_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/KR--AD_40718--GS_Dataset.tsv"
+    C2_Jsim_and_In_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+
+
+
+    filename="../data/CombinedComparisons/PP_NR--NI_40676--combined_matrix-Gold_Standard.tsv"
+    C3_pp_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PR_NR--NI_40676--combined_matrix-Gold_Standard.tsv"
+    C3_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PP_KR--NI_40716--combined_matrix-Gold_Standard.tsv"
+    C3_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/PR_KR--NI_40716--combined_matrix-Gold_Standard.tsv"
+    C3_pr_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+
+    filename="../data/CombinedComparisons/NR--NI_40676--GS_Dataset.tsv"
+    C3_Jsim_and_In_Naive_df = read.table(filename,header=TRUE,sep="\t")
+    filename="../data/CombinedComparisons/KR--NI_40716--GS_Dataset.tsv"
+    C3_Jsim_and_In_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
+
+
+
+    newlist<-list(C1_pp_Naive_df['SimJ.Partial.Precision'],C1_pr_Naive_df['SimJ.Partial.Recall'],C1_pp_Knowledge_df['SimJ.Partial.Precision'],C1_pr_Knowledge_df['SimJ.Partial.Recall'],   C2_pp_Naive_df['SimJ.Partial.Precision'],C2_pr_Naive_df['SimJ.Partial.Recall'],C2_pp_Knowledge_df['SimJ.Partial.Precision'],C2_pr_Knowledge_df['SimJ.Partial.Recall'],  C3_pp_Naive_df['SimJ.Partial.Precision'],C3_pr_Naive_df['SimJ.Partial.Recall'],C3_pp_Knowledge_df['SimJ.Partial.Precision'],C3_pr_Knowledge_df['SimJ.Partial.Recall'],C1_Jsim_and_In_Naive_df['SimJ.Score'],C1_Jsim_and_In_Naive_df['NIC.Score'],C1_Jsim_and_In_Knowledge_df['SimJ.Score'],C1_Jsim_and_In_Knowledge_df['NIC.Score'],C2_Jsim_and_In_Naive_df['SimJ.Score'],C2_Jsim_and_In_Naive_df['NIC.Score'],C2_Jsim_and_In_Knowledge_df['SimJ.Score'],C2_Jsim_and_In_Knowledge_df['NIC.Score'],C3_Jsim_and_In_Naive_df['SimJ.Score'],C3_Jsim_and_In_Naive_df['NIC.Score'],C3_Jsim_and_In_Knowledge_df['SimJ.Score'],C3_Jsim_and_In_Knowledge_df['NIC.Score'])
+    return (newlist)
+}
+
 
 savePlot <- function(myPlot,name) {
         png(name)
@@ -10,113 +66,122 @@ savePlot <- function(myPlot,name) {
 }
 
 
-PP_C1Aug=c(0.186 ,0.203)
-	PP_C2Aug=c(0.136,0.145)
-	PP_C3Aug=c(0.162,0.18)
-	PR_C1Aug=c(0.227 ,0.243)
-	PR_C2Aug=c(0.173, 0.183)
-	PR_C3Aug=c(0.202,0.22)
-	Jsim_C1Aug=c(0.249, 0.266)
-	Jsim_C2Aug=c(0.194,0.206)
-	Jsim_C3Aug=c(0.225,0.243)
-	I_C1Aug=c(0.389,0.401)
-	I_C2Aug=c(0.32,0.34)
-	I_C3Aug=c(0.352,0.377)
-	PP_Merged=c(0.155,0.155)
-	PR_Merged=c(0.251,0.251)
-	Jsim_Merged=c(0.276,0.276)
-	I_Merged=c(0.429,0.429)
+datalist=load_data()
+C1_pp_Naive_df=data.frame(datalist[1])
+C1_pp_Naive_df$curator<-"C1"
+C1_pp_Naive_df$round<-"Naive"
+C2_pp_Naive_df=data.frame(datalist[5])
+C2_pp_Naive_df$curator<-"C2"
+C2_pp_Naive_df$round<-"Naive"
+C3_pp_Naive_df=data.frame(datalist[9])
+C3_pp_Naive_df$curator<-"C3"
+C3_pp_Naive_df$round<-"Naive"
+C1_pp_Knowledge_df=data.frame(datalist[3])
+C2_pp_Knowledge_df=data.frame(datalist[7])
+C3_pp_Knowledge_df=data.frame(datalist[11])
+C1_pp_Knowledge_df$curator<-"C1"
+C1_pp_Knowledge_df$round<-"Knowledge"
+C2_pp_Knowledge_df$curator<-"C2"
+C2_pp_Knowledge_df$round<-"Knowledge"
+C3_pp_Knowledge_df$curator<-"C3"
+C3_pp_Knowledge_df$round<-"Knowledge"
+pp_df<-rbind(C1_pp_Naive_df,C2_pp_Naive_df,C3_pp_Naive_df,C1_pp_Knowledge_df,C2_pp_Knowledge_df,C3_pp_Knowledge_df)
+names(pp_df)<-c("Similarity","Curator","Round")
+head(pp_df)
+data_summary <- function(x) {
+   m <- mean(x)
+   se=2*(sd(x)/sqrt(length(x)))
+   ymin <- m-se
+   ymax <- m+se
+   return(c(y=m,ymin=ymin,ymax=ymax))
+}
 
 
-	PP_Aug_N_Curators=c(PP_C1Aug[1],PP_C2Aug[1],PP_C2Aug[1])
-	PP_Aug_K_Curators=c(PP_C1Aug[2],PP_C2Aug[2],PP_C2Aug[2])
-	PR_Aug_N_Curators=c(PR_C1Aug[1],PR_C2Aug[1],PR_C2Aug[1])
-	PR_Aug_K_Curators=c(PR_C1Aug[2],PR_C2Aug[2],PR_C2Aug[2])
-	Jsim_Aug_N_Curators=c(Jsim_C1Aug[1],Jsim_C2Aug[1],Jsim_C2Aug[1])
-	Jsim_Aug_K_Curators=c(Jsim_C1Aug[2],Jsim_C2Aug[2],Jsim_C2Aug[2])
-	I_Aug_N_Curators=c(I_C1Aug[1],I_C2Aug[1],I_C2Aug[1])
-	I_Aug_K_Curators=c(I_C1Aug[2],I_C2Aug[2],I_C2Aug[2])
-
-
-	PP_Aug=c(mean(PP_Aug_N_Curators),mean(PP_Aug_K_Curators))
-	PR_Aug=c(mean(PR_Aug_N_Curators),  mean(PR_Aug_K_Curators))
-	Jsim_Aug=c(mean(Jsim_Aug_N_Curators),  mean(Jsim_Aug_K_Curators))
-	I_Aug=c(mean(I_Aug_N_Curators),  mean(I_Aug_K_Curators))
-
-	x=c(1,2)
-	rounds = c('Naive','Knowledge')
-
-
-PPdf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
-                 Naive=c(PP_Aug[1],PP_Merged[1]), 
-                 Knowledge=c(PP_Aug[2],PP_Merged[2]))
-
-PPdf_melted <- melt(PPdf, id.vars=c("Ontology"))
-colnames(PPdf_melted)[2] <- "CurationRound"
-errorlist=c(2*(sd(PP_Aug_N_Curators)/sqrt(length(PP_Aug_N_Curators))),0,2*(sd(PP_Aug_K_Curators)/sqrt(length(PP_Aug_K_Curators))),0)
-dodge <- position_dodge(.5)
-p1<-ggplot(data = PPdf_melted, aes(x = CurationRound, y = value, group = Ontology, label = "")) + 
-  geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("")+ylab("Similarity to Gold Standard") + 
-  geom_errorbar(width=0.2,aes(ymin=PPdf_melted['value']-errorlist,ymax=PPdf_melted['value']+errorlist), position = dodge) + 
-  geom_text(hjust = 2, position = dodge)+theme(legend.position="none",plot.title = element_text(hjust = 0.5,face='italic'),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle("PP")
+pp <- ggplot(pp_df, aes(x=Curator, y=Similarity,fill=Round)) + 
+  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity to Gold Standard",x="")+ggtitle(expression(italic(PP)))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 
 
-
-PRdf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
-                 Naive=c(PR_Aug[1],PR_Merged[1]), 
-                 Knowledge=c(PR_Aug[2],PR_Merged[2]))
-PRdf_melted <- melt(PRdf, id.vars=c("Ontology"))
-colnames(PRdf_melted)[2] <- "CurationRound"
-errorlist=c(2*(sd(PR_Aug_N_Curators)/sqrt(length(PR_Aug_N_Curators))),0,2*(sd(PR_Aug_K_Curators)/sqrt(length(PR_Aug_K_Curators))),0)
-p2<-ggplot(data = PRdf_melted, aes(x = CurationRound, y = value, group = Ontology, label = "")) + 
-  geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("")+ylab("") + 
-  geom_errorbar(width=0.2,aes(ymin=PRdf_melted['value']-errorlist,ymax=PRdf_melted['value']+errorlist), position = dodge) + 
-  geom_text(hjust = 2, position = dodge)+theme(legend.title = element_blank(),legend.position = c(.95, .95),
-  legend.justification = c("right", "top"),
-  legend.box.just = "right",
-  legend.margin = margin(6, 6, 6, 6),plot.title = element_text(hjust = 0.5,face='italic'),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle("PR")
+C1_pr_Naive_df=data.frame(datalist[2])
+C2_pr_Naive_df=data.frame(datalist[6])
+C3_pr_Naive_df=data.frame(datalist[10])
+C1_pr_Naive_df$curator<-"C1"
+C1_pr_Naive_df$round<-"Naive"
+C2_pr_Naive_df$curator<-"C2"
+C2_pr_Naive_df$round<-"Naive"
+C3_pr_Naive_df$curator<-"C3"
+C3_pr_Naive_df$round<-"Naive"
 
 
+C1_pr_Knowledge_df=data.frame(datalist[4])
+C2_pr_Knowledge_df=data.frame(datalist[8])
+C3_pr_Knowledge_df=data.frame(datalist[12])
+C1_pr_Knowledge_df$curator<-"C1"
+C1_pr_Knowledge_df$round<-"Knowledge"
+C2_pr_Knowledge_df$curator<-"C2"
+C2_pr_Knowledge_df$round<-"Knowledge"
+C3_pr_Knowledge_df$curator<-"C3"
+C3_pr_Knowledge_df$round<-"Knowledge"
+
+pr_df<-rbind(C1_pr_Naive_df,C2_pr_Naive_df,C3_pr_Naive_df,C1_pr_Knowledge_df,C2_pr_Knowledge_df,C3_pr_Knowledge_df)
+names(pr_df)<-c("Similarity","Curator","Round")
+
+pr <- ggplot(pr_df, aes(x=Curator, y=Similarity,fill=Round)) + 
+  geom_violin(position=position_dodge(0.5))+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="",x="")+ggtitle(expression(italic(PR)))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 
-
-jsimdf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
-                 Naive=c(Jsim_Aug[1],Jsim_Merged[1]), 
-                 Knowledge=c(Jsim_Aug[2],Jsim_Merged[2]))
-jsimdf_melted <- melt(jsimdf, id.vars=c("Ontology"))
-colnames(jsimdf_melted)[2] <- "CurationRound"
-errorlist=c(2*(sd(Jsim_Aug_N_Curators)/sqrt(length(Jsim_Aug_N_Curators))),0,2*(sd(Jsim_Aug_K_Curators)/sqrt(length(Jsim_Aug_K_Curators))),0)
-p3<-ggplot(data = jsimdf_melted, aes(x = CurationRound, y = value, group = Ontology, label = "")) + 
-  geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("Curation Round")+ylab("Similarity to Gold Standard") + 
-  geom_errorbar(width=0.2,aes(ymin=jsimdf_melted['value']-errorlist,ymax=jsimdf_melted['value']+errorlist), position = dodge) + 
-  geom_text(hjust = 2, position = dodge)+theme(legend.position="none",plot.title = element_text(hjust = 0.5,face='italic'),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle(expression(J[sim]))
-
-
-
-
-
-Indf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
-                 Naive=c(I_Aug[1],I_Merged[1]), 
-                 Knowledge=c(I_Aug[2],I_Merged[2]))
-Indf_melted <- melt(Indf, id.vars=c("Ontology"))
-colnames(Indf_melted)[2] <- "CurationRound"
-errorlist=c(2*(sd(I_Aug_N_Curators)/sqrt(length(I_Aug_N_Curators))),0,2*(sd(I_Aug_K_Curators)/sqrt(length(I_Aug_K_Curators))),0)
-p4<-ggplot(data = Indf_melted, aes(x = CurationRound, y = value, group = Ontology, label = "")) + 
-  geom_point(size=4, position = dodge,aes(shape=Ontology))+ylim(0,1)+xlab("Curation Round")+ylab("") + 
-  geom_errorbar(width=0.2,aes(ymin=Indf_melted['value']-errorlist,ymax=Indf_melted['value']+errorlist), position = dodge) + 
-  geom_text(hjust = 2, position = dodge)+theme(legend.position="none",plot.title = element_text(hjust = 0.5,face='italic'),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
-panel.background = element_blank(), axis.line = element_line(colour = "black"))+ggtitle(expression(I[n]))
+C1_Jsim_Naive_df=data.frame(datalist[13])
+C2_Jsim_Naive_df=data.frame(datalist[17])
+C3_Jsim_Naive_df=data.frame(datalist[21])
+C1_Jsim_Naive_df$curator<-"C1"
+C1_Jsim_Naive_df$round<-"Naive"
+C2_Jsim_Naive_df$curator<-"C2"
+C2_Jsim_Naive_df$round<-"Naive"
+C3_Jsim_Naive_df$curator<-"C3"
+C3_Jsim_Naive_df$round<-"Naive"
 
 
 
-plot<-grid.arrange(p1, p2, p3, p4, ncol = 2)
-file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "GS-OntCompleteness.pdf"))
+C1_Jsim_Knowledge_df=data.frame(datalist[15])
+C2_Jsim_Knowledge_df=data.frame(datalist[19])
+C3_Jsim_Knowledge_df=data.frame(datalist[23])
+C1_Jsim_Knowledge_df$curator<-"C1"
+C1_Jsim_Knowledge_df$round<-"Knowledge"
+C2_Jsim_Knowledge_df$curator<-"C2"
+C2_Jsim_Knowledge_df$round<-"Knowledge"
+C3_Jsim_Knowledge_df$curator<-"C3"
+C3_Jsim_Knowledge_df$round<-"Knowledge"
+
+Jsim_df<-rbind(C1_Jsim_Naive_df,C2_Jsim_Naive_df,C3_Jsim_Naive_df,C1_Jsim_Knowledge_df,C2_Jsim_Knowledge_df,C3_Jsim_Knowledge_df)
+names(Jsim_df)<-c("Similarity","Curator","Round")
+Jsim <- ggplot(Jsim_df, aes(x=Curator, y=Similarity,fill=Round)) + 
+  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity to Gold Standard")+ggtitle(expression(italic(J)[sim]))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 
+C1_In_Knowledge_df=data.frame(datalist[16])
+C2_In_Knowledge_df=data.frame(datalist[20])
+C3_In_Knowledge_df =data.frame(datalist[24])
+C1_In_Knowledge_df$curator<-"C1"
+C1_In_Knowledge_df$round<-"Knowledge"
+C2_In_Knowledge_df$curator<-"C2"
+C2_In_Knowledge_df$round<-"Knowledge"
+C3_In_Knowledge_df$curator<-"C3"
+C3_In_Knowledge_df$round<-"Knowledge"
 
+C1_In_Naive_df=data.frame(datalist[14])
+C2_In_Naive_df=data.frame(datalist[18])
+C3_In_Naive_df=data.frame(datalist[22])
+C1_In_Naive_df$curator<-"C1"
+C1_In_Naive_df$round<-"Naive"
+C2_In_Naive_df$curator<-"C2"
+C2_In_Naive_df$round<-"Naive"
+C3_In_Naive_df$curator<-"C3"
+C3_In_Naive_df$round<-"Naive"
 
+In_df<-rbind(C1_In_Naive_df,C2_In_Naive_df,C3_In_Naive_df,C1_In_Knowledge_df,C2_In_Knowledge_df,C3_In_Knowledge_df)
+names(In_df)<-c("Similarity","Curator","Round")
+In <- ggplot(In_df, aes(x=Curator, y=Similarity,fill=Round)) + 
+  geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="")+ggtitle(expression(italic(I[n])))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
+plot<-grid.arrange(pp, pr, Jsim, In, ncol = 2)
+file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "CuratorsvsGS.pdf"))
