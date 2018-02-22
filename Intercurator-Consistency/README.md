@@ -81,3 +81,7 @@
 ## Ontology Used in the Analysis
 
 * The ontology used for this analysis is ./Ontologies/Best_Relations.owl. The ontology was used for all intercurator and charaparser-curator analyses.
+
+## Pipeline
+
+* All the commands (in order) used to generate results for the manuscript are listed in ./src/runintercuratoranalysis.sh
