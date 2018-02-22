@@ -27,7 +27,7 @@
       comparisons is the score associated to the character-state
       combination. 
 
-* The following curator-charaparser comparisons were conducted for the 2014 CharaParser version and the 2012 version :
+* The following curator-charaparser comparisons were conducted for CharaParser:
     * **Naive Round:**
 
             38484 -- CP_38484
