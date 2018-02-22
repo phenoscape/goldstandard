@@ -4,13 +4,9 @@ library(Rmisc)
 library(gridExtra)
 options(scipen=999)
 
-savePlot <- function(myPlot,name) {
-        png(name)
-        print(myPlot)
-        dev.off()
-}
+
 getmeanJsim <- function(filename1,filename2,filename3){
-	
+	# takes three curator comparison files and returns mean Jsim from each file
 	df = read.table(filename1,header=TRUE,sep="\t")
  	mean1=(colMeans(df["SimJ.Score"], na.rm = TRUE))
 	
@@ -23,7 +19,7 @@ getmeanJsim <- function(filename1,filename2,filename3){
 }
 
 getmeanNIC <- function(filename1,filename2,filename3){
-	
+	# takes three curator comparison files and returns mean NIC from each file
 	df = read.table(filename1,header=TRUE,sep="\t")
  	mean1=(colMeans(df["NIC.Score"], na.rm = TRUE))
 	
@@ -36,7 +32,7 @@ getmeanNIC <- function(filename1,filename2,filename3){
 }
 
 getmeanPartialRecall <- function(filename1,filename2,filename3){
-	
+	# takes three curator comparison files and returns mean PR from each file
 	df = read.table(filename1,header=TRUE,sep="\t")
  	mean1=(colMeans(df["SimJ.Partial.Recall"], na.rm = TRUE))
 
@@ -49,7 +45,7 @@ getmeanPartialRecall <- function(filename1,filename2,filename3){
 }
 
 getmeanPartialPrecision <- function(filename1,filename2,filename3){
-	
+	# takes three curator comparison files and returns mean PP from each file
 	df = read.table(filename1,header=TRUE,sep="\t")
  	mean1=(colMeans(df["SimJ.Partial.Precision"], na.rm = TRUE))
 
@@ -64,85 +60,94 @@ getmeanPartialPrecision <- function(filename1,filename2,filename3){
 }
 	
 	
-	
+	# get mean PP for CP - GS in Naive round
 	filename1="../data/CombinedComparisons/PP_Transformed_NR--CP_38484--GS_Dataset.tsv"
 	filename2="../data/CombinedComparisons/PP_Transformed_NR--CP_40674--GS_Dataset.tsv"
 	filename3="../data/CombinedComparisons/PP_Transformed_NR--CP_40676--GS_Dataset.tsv"
 	N_meanPP=getmeanPartialPrecision(filename1,filename2,filename3)
 	
+	# get mean PP for CP - GS in Knowledge round
 	filename3="../data/CombinedComparisons/PP_Transformed_KR--CP_40716--GS_Dataset.tsv"
 	filename1="../data/CombinedComparisons/PP_Transformed_KR--CP_40717--GS_Dataset.tsv"
 	filename2="../data/CombinedComparisons/PP_Transformed_KR--CP_40718--GS_Dataset.tsv"
 	K_meanPP=getmeanPartialPrecision(filename1,filename2,filename3)
+
+	# get mean PP for CP Best - GS
 	infile="../data/CombinedComparisons/PP_Transformed_CP_best--GS_Dataset.tsv"
 	bestmeanpp=getmeanPartialPrecision(infile,infile,infile)
 	
+	# get mean PR for CP - GS in Naive round
 	filename3="../data/CombinedComparisons/PR_Transformed_NR--CP_40676--GS_Dataset.tsv"
 	filename1="../data/CombinedComparisons/PR_Transformed_NR--CP_38484--GS_Dataset.tsv"
 	filename2="../data/CombinedComparisons/PR_Transformed_NR--CP_40674--GS_Dataset.tsv"
 	N_meanPR=getmeanPartialRecall(filename1,filename2,filename3)
 
-	
+	# get mean PR for CP - GS in Knowledge round
 	filename3="../data/CombinedComparisons/PR_Transformed_KR--CP_40716--GS_Dataset.tsv"
 	filename1="../data/CombinedComparisons/PR_Transformed_KR--CP_40717--GS_Dataset.tsv"
 	filename2="../data/CombinedComparisons/PR_Transformed_KR--CP_40718--GS_Dataset.tsv"
 	K_meanPR=getmeanPartialRecall(filename1,filename2,filename3)
+	
+	# get mean PR for CP Best - GS
 	infile="../data/CombinedComparisons/PR_Transformed_CP_best--GS_Dataset.tsv"
 	bestmeanpr=getmeanPartialRecall(infile,infile,infile)
 
-
+	# get mean Jsim and NIC for CP - GS in Naive round
 	filename1="../data/CombinedComparisons/Transformed_NR--CP_38484--GS_Dataset.tsv"
 	filename2="../data/CombinedComparisons/Transformed_NR--CP_40674--GS_Dataset.tsv"
 	filename3="../data/CombinedComparisons/Transformed_NR--CP_40676--GS_Dataset.tsv"
 	N_augmeanJsim=getmeanJsim(filename1,filename2,filename3)
 	N_augmeanNIC=getmeanNIC(filename1,filename2,filename3)
 
-
-
-
+	# get mean Jsim and NIC for CP - GS in Knowledge round
 	filename1="../data/CombinedComparisons/Transformed_KR--CP_40717--GS_Dataset.tsv"
 	filename2="../data/CombinedComparisons/Transformed_KR--CP_40718--GS_Dataset.tsv"
 	filename3="../data/CombinedComparisons/Transformed_KR--CP_40716--GS_Dataset.tsv"
 	K_augmeanJsim=getmeanJsim(filename1,filename2,filename3)
 	K_augmeanNIC=getmeanNIC(filename1,filename2,filename3)
 
+	# get mean Jsim and NIC for CP Best - GS
 	infile="../data/CombinedComparisons/Transformed_CP_best--GS_Dataset.tsv"
 	bestmeanjsim=getmeanJsim(infile,infile,infile)
 	bestmeannic=getmeanNIC(infile,infile,infile)
  
 
-
+	# getting PP series (Naive, Knowledge) using Aug ontologies
 	PP_C1Aug=c(N_meanPP[1],K_meanPP[1])
 	PP_C2Aug=c(N_meanPP[2],K_meanPP[2])
 	PP_C3Aug=c(N_meanPP[3],K_meanPP[3])
+
+	# getting PR series (Naive, Knowledge) using Aug ontologies
 	PR_C1Aug=c(N_meanPR[1],K_meanPR[1])
 	PR_C2Aug=c(N_meanPR[2],K_meanPR[2])
 	PR_C3Aug=c(N_meanPR[3],K_meanPR[3])
-	
+
+	# getting Jsim series (Naive, Knowledge) using Aug ontologies
 	Jsim_C1Aug=c(N_augmeanJsim[1],K_augmeanJsim[1])
 	Jsim_C2Aug=c(N_augmeanJsim[2],K_augmeanJsim[2])
 	Jsim_C3Aug=c(N_augmeanJsim[3],K_augmeanJsim[3])
+
+	# getting NIC series (Naive, Knowledge) using Aug ontologies
 	I_C1Aug=c(N_augmeanNIC[1],K_augmeanNIC[1])
 	I_C2Aug=c(N_augmeanNIC[2],K_augmeanNIC[2])
 	I_C3Aug=c(N_augmeanNIC[3],K_augmeanNIC[3])
+
+	# getting PP, PR, Jsim, NIC series (Naive, Knowledge) using Best ontologies
 	PP_Merged=c(bestmeanpp[1],bestmeanpp[1])
 	PR_Merged=c(bestmeanpr[1],bestmeanpr[1])
-
 	Jsim_Merged=c(bestmeanjsim[1],bestmeanjsim[1])
 	I_Merged=c(bestmeannic[1],bestmeannic[1])
 
 
-
-	PP_Aug_N_Curators=c(PP_C1Aug[1],PP_C2Aug[1],PP_C2Aug[1])
-	PP_Aug_K_Curators=c(PP_C1Aug[2],PP_C2Aug[2],PP_C2Aug[2])
-	PR_Aug_N_Curators=c(PR_C1Aug[1],PR_C2Aug[1],PR_C2Aug[1])
-	PR_Aug_K_Curators=c(PR_C1Aug[2],PR_C2Aug[2],PR_C2Aug[2])
-	Jsim_Aug_N_Curators=c(Jsim_C1Aug[1],Jsim_C2Aug[1],Jsim_C2Aug[1])
-	Jsim_Aug_K_Curators=c(Jsim_C1Aug[2],Jsim_C2Aug[2],Jsim_C2Aug[2])
-	I_Aug_N_Curators=c(I_C1Aug[1],I_C2Aug[1],I_C2Aug[1])
-	I_Aug_K_Curators=c(I_C1Aug[2],I_C2Aug[2],I_C2Aug[2])
-
-
+	# getting distribution of PP/PR/Jsim/NIC using Aug ontologies in Naive/Knowledge round for three curators
+	PP_Aug_N_Curators=c(PP_C1Aug[1],PP_C2Aug[1],PP_C3Aug[1])
+	PP_Aug_K_Curators=c(PP_C1Aug[2],PP_C2Aug[2],PP_C3Aug[2])
+	PR_Aug_N_Curators=c(PR_C1Aug[1],PR_C2Aug[1],PR_C3Aug[1])
+	PR_Aug_K_Curators=c(PR_C1Aug[2],PR_C2Aug[2],PR_C3Aug[2])
+	Jsim_Aug_N_Curators=c(Jsim_C1Aug[1],Jsim_C2Aug[1],Jsim_C3Aug[1])
+	Jsim_Aug_K_Curators=c(Jsim_C1Aug[2],Jsim_C2Aug[2],Jsim_C3Aug[2])
+	I_Aug_N_Curators=c(I_C1Aug[1],I_C2Aug[1],I_C3Aug[1])
+	I_Aug_K_Curators=c(I_C1Aug[2],I_C2Aug[2],I_C3Aug[2])
 	PP_Aug=c(mean(PP_Aug_N_Curators),mean(PP_Aug_K_Curators))
 	PR_Aug=c(mean(PR_Aug_N_Curators),  mean(PR_Aug_K_Curators))
 	Jsim_Aug=c(mean(Jsim_Aug_N_Curators),  mean(Jsim_Aug_K_Curators))
@@ -151,7 +156,7 @@ getmeanPartialPrecision <- function(filename1,filename2,filename3){
 	x=c(1,2)
 	rounds = c('Naive','Knowledge')
 
-
+# plotting PP series for Aug and Merged ontologies
 PPdf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
                  Naive=c(PP_Aug[1],PP_Merged[1]), 
                  Knowledge=c(PP_Aug[2],PP_Merged[2]))
@@ -168,7 +173,7 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"))+
 
 
 
-
+# plotting PR series for Aug and Merged ontologies
 PRdf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
                  Naive=c(PR_Aug[1],PR_Merged[1]), 
                  Knowledge=c(PR_Aug[2],PR_Merged[2]))
@@ -187,7 +192,7 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"))+
 
 
 
-
+# plotting Jsim series for Aug and Merged ontologies
 jsimdf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
                  Naive=c(Jsim_Aug[1],Jsim_Merged[1]), 
                  Knowledge=c(Jsim_Aug[2],Jsim_Merged[2]))
@@ -203,7 +208,7 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"))+
 
 
 
-
+# plotting In series for Aug and Merged ontologies
 Indf <- data.frame(Ontology= c("Mean Augmented", "Merged"),
                  Naive=c(I_Aug[1],I_Merged[1]), 
                  Knowledge=c(I_Aug[2],I_Merged[2]))

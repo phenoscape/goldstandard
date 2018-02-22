@@ -5,12 +5,12 @@ library(gridExtra)
 library(Hmisc)
     load_data<-function()
     {
-        filename="../data/CombinedComparisons/PP_NR--WD_38484--GS_Dataset.tsv"
+        # This function loads similarity scores for the three curator-GS comparisons in Naive and Knowledge rounds into dataframes. Returns these dataframes.
+    filename="../data/CombinedComparisons/PP_NR--WD_38484--GS_Dataset.tsv"
     C1_pp_Naive_df = read.table(filename,header = TRUE,sep="\t")
     
 
     filename="../data/CombinedComparisons/PR_NR--WD_38484--GS_Dataset.tsv"
-
     C1_pr_Naive_df = read.table(filename,header=TRUE,sep="\t")
     filename="../data/CombinedComparisons/PP_KR--WD_40717--GS_Dataset.tsv"
     C1_pp_Knowledge_df = read.table(filename,header=TRUE,sep="\t")
@@ -60,6 +60,7 @@ library(Hmisc)
 
 
 datalist=load_data()
+# grabbing PP scores from the dataframes
 C1_pp_Naive_df=data.frame(datalist[1])
 C1_pp_Naive_df$curator<-"C1"
 C1_pp_Naive_df$round<-"Naive"
@@ -82,6 +83,7 @@ pp_df<-rbind(C1_pp_Naive_df,C2_pp_Naive_df,C3_pp_Naive_df,C1_pp_Knowledge_df,C2_
 names(pp_df)<-c("Similarity","Curator","Round")
 
 data_summary <- function(x) {
+    # takes a distribution as input and calculates the mean and two standard errors of the mean to plot as errorbars.
    m <- mean(x)
    se=2*(sd(x)/sqrt(length(x)))
    ymin <- m-se
@@ -89,12 +91,12 @@ data_summary <- function(x) {
    return(c(y=m,ymin=ymin,ymax=ymax))
 }
 
-
+# plotting Partial Precision series
 pp <- ggplot(pp_df, aes(x=Curator, y=Similarity,fill=Round)) + 
   geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity to Gold Standard",x="")+ggtitle(expression(italic(PP)))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
 
-
+# # grabbing PR scores from the dataframes
 C1_pr_Naive_df=data.frame(datalist[2])
 C2_pr_Naive_df=data.frame(datalist[6])
 C3_pr_Naive_df=data.frame(datalist[10])
@@ -104,8 +106,6 @@ C2_pr_Naive_df$curator<-"C2"
 C2_pr_Naive_df$round<-"Naive"
 C3_pr_Naive_df$curator<-"C3"
 C3_pr_Naive_df$round<-"Naive"
-
-
 C1_pr_Knowledge_df=data.frame(datalist[4])
 C2_pr_Knowledge_df=data.frame(datalist[8])
 C3_pr_Knowledge_df=data.frame(datalist[12])
@@ -115,14 +115,14 @@ C2_pr_Knowledge_df$curator<-"C2"
 C2_pr_Knowledge_df$round<-"Knowledge"
 C3_pr_Knowledge_df$curator<-"C3"
 C3_pr_Knowledge_df$round<-"Knowledge"
-
 pr_df<-rbind(C1_pr_Naive_df,C2_pr_Naive_df,C3_pr_Naive_df,C1_pr_Knowledge_df,C2_pr_Knowledge_df,C3_pr_Knowledge_df)
 names(pr_df)<-c("Similarity","Curator","Round")
 
+# plotting Partial Recall series
 pr <- ggplot(pr_df, aes(x=Curator, y=Similarity,fill=Round)) + 
   geom_violin(position=position_dodge(0.5))+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="",x="")+ggtitle(expression(italic(PR)))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-
+# grabbing Jsim scores from the dataframes
 C1_Jsim_Naive_df=data.frame(datalist[13])
 C2_Jsim_Naive_df=data.frame(datalist[17])
 C3_Jsim_Naive_df=data.frame(datalist[21])
@@ -132,9 +132,6 @@ C2_Jsim_Naive_df$curator<-"C2"
 C2_Jsim_Naive_df$round<-"Naive"
 C3_Jsim_Naive_df$curator<-"C3"
 C3_Jsim_Naive_df$round<-"Naive"
-
-
-
 C1_Jsim_Knowledge_df=data.frame(datalist[15])
 C2_Jsim_Knowledge_df=data.frame(datalist[19])
 C3_Jsim_Knowledge_df=data.frame(datalist[23])
@@ -145,12 +142,13 @@ C2_Jsim_Knowledge_df$round<-"Knowledge"
 C3_Jsim_Knowledge_df$curator<-"C3"
 C3_Jsim_Knowledge_df$round<-"Knowledge"
 
+# plotting Jsim series
 Jsim_df<-rbind(C1_Jsim_Naive_df,C2_Jsim_Naive_df,C3_Jsim_Naive_df,C1_Jsim_Knowledge_df,C2_Jsim_Knowledge_df,C3_Jsim_Knowledge_df)
 names(Jsim_df)<-c("Similarity","Curator","Round")
 Jsim <- ggplot(Jsim_df, aes(x=Curator, y=Similarity,fill=Round)) + 
   geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="Similarity to Gold Standard")+ggtitle(expression(italic(J)[sim]))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
-
+# grabbing In scores from the dataframes
 C1_In_Knowledge_df=data.frame(datalist[16])
 C2_In_Knowledge_df=data.frame(datalist[20])
 C3_In_Knowledge_df =data.frame(datalist[24])
@@ -160,7 +158,6 @@ C2_In_Knowledge_df$curator<-"C2"
 C2_In_Knowledge_df$round<-"Knowledge"
 C3_In_Knowledge_df$curator<-"C3"
 C3_In_Knowledge_df$round<-"Knowledge"
-
 C1_In_Naive_df=data.frame(datalist[14])
 C2_In_Naive_df=data.frame(datalist[18])
 C3_In_Naive_df=data.frame(datalist[22])
@@ -171,10 +168,12 @@ C2_In_Naive_df$round<-"Naive"
 C3_In_Naive_df$curator<-"C3"
 C3_In_Naive_df$round<-"Naive"
 
+#plotting In series
 In_df<-rbind(C1_In_Naive_df,C2_In_Naive_df,C3_In_Naive_df,C1_In_Knowledge_df,C2_In_Knowledge_df,C3_In_Knowledge_df)
 names(In_df)<-c("Similarity","Curator","Round")
 In <- ggplot(In_df, aes(x=Curator, y=Similarity,fill=Round)) + 
   geom_violin(position=position_dodge(0.5),show.legend=FALSE)+stat_summary(fun.data=data_summary,geom="pointrange", show.legend=FALSE, color="black",position=position_dodge(0.5))+scale_fill_manual(values=c("#999999", "#FFFFFF"))+labs(fill="",y="")+ggtitle(expression(italic(I[n])))+theme(plot.title = element_text(hjust = 0.5),panel.background = element_blank(), axis.line = element_line(colour = "black"))
 
+# combining the four plots to a single plot
 plot<-grid.arrange(pp, pr, Jsim, In, ncol = 2)
 file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "CuratorsvsGS.pdf"))
