@@ -64,7 +64,7 @@ LOAD DATA INFILE 'AllAncestorsCurationExperiment.txt' IGNORE INTO TABLE tbl_alla
 EOF
 
 
-rm AllAncestors_Combinations.txt
+rm ../../data/AllAncestors_Combinations.txt
 
 python transform.py ../data/NR--CP_40674.tsv
 python transform.py ../data/NR--CP_40676.tsv
