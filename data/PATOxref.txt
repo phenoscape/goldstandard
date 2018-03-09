@@ -1,0 +1,137 @@
+PATOTEMP:b65b4440-adac-459d-a9ec-dd491662621e	aligned vertically with
+PATOTEMP:3345d85f-be6b-4edb-aeec-f81fa3643a63	amalgam of
+PATOTEMP:48780822-3fd1-43cb-a9d1-1d81e973da86	amphicoelous shape
+PATOTEMP:84d9e937-e6fa-4f66-8b9c-d5be0aecc840	amphiplatyan
+PATOTEMP:16d43756-56ce-46c0-97b3-cb9e097f6029	anterodorsal angle
+PATOTEMP:013a4a3e-3bb5-4942-9f11-fa4f27f9f0cd	anterodorsally oriented
+PATOTEMP:fe029f00-ea5f-4a9e-8679-f1936c74503f	anterolaterally
+PATOTEMP:07538b58-954a-4d9f-8d4d-ac5d453e4615	anteromedial directed
+PATOTEMP:b415c39d-99b0-4745-a81d-ede3cfe8e963	anteroposteriorly expanded
+PATOTEMP:8a147598-37b4-4f8d-9192-babf0d09e76a	asquamate
+PATOTEMP:517eec99-06f8-46b2-a906-c20b72edcd9d	bar-like
+PATOTEMP:05e2dbcc-ba43-40e1-a80c-af1fdcb368b2	bicapitate
+PATOTEMP:85fc2166-d11b-4aae-95f5-21522ee77e9c	bicuspid
+PATOTEMP:8266f831-455f-44f9-ab48-af5e68f51391	bipartite
+PATOTEMP:22a6171a-d202-4f19-baa9-e90d18079c0f	boomerang-shaped
+PATOTEMP:7b012680-6ad6-4036-98d8-eb31353901e0	brachydont
+PATOTEMP:54859750-f781-473b-914e-5fd28d57d5a1	C shaped
+PATOTEMP:251eb770-5822-400b-9c99-b3e238edd6d1	complete
+PATOTEMP:be5ee941-906d-4f7d-9995-8f7c5dc0fcfe	composed of
+PATOTEMP:e8217f0e-e93c-4fa2-8261-216a8ca47dd9	concavoconvex
+PATOTEMP:d6b48484-612c-4c0d-8c9a-7f3156da1c54	continuous (structure)
+PATOTEMP:7e0f3ba2-db14-4413-bd25-d910c11ac25f	continuous with
+PATOTEMP:ed9e88eb-3494-40d8-88ba-3883a7e5ebbf	continuously distributed
+PATOTEMP:fd76a9ba-0b26-4ccb-9e4a-7bd0efe1ebc7	covered by
+PATOTEMP:983ed41c-a4b3-4183-bee4-d9dfe15f88bb	curved lingually
+PATOTEMP:4c9173de-0026-45c4-ae15-94c5f7be4ca5	deep bodied
+PATOTEMP:eeb348ab-4d7f-4129-9b9d-c0a08341c5ec	dibasal
+PATOTEMP:448e80cf-a273-43dc-a02a-fe4e6b6ed1c5	differentiated from
+PATOTEMP:84f4e356-7c38-4736-9c6f-0dbd4a11f407	discontinuous
+PATOTEMP:9cc98a1a-825a-4b19-9859-219e4c72f26e	discontinuously distributed
+PATOTEMP:292cb96b-99ee-4c20-94f6-e8b356c13fc4	distinct from
+PATOTEMP:ae31beca-4250-4216-a596-14036ab9f02a	distributed throughout
+PATOTEMP:9266c86f-2d4b-476c-8aeb-31caf1d0935b	dorsally located
+PATOTEMP:7fd31c13-108e-4462-9094-660d6cd13f0c	dorsally open
+PATOTEMP:4640b718-d72c-4ffa-8a84-f98dfe31cdc4	dorsoventral height
+PATOTEMP:7f09ce31-2209-4b59-b8db-84fe70b35342	dorsoventrally extends over
+PATOTEMP:7955e78d-e692-4c12-ae63-0f2ed12465b4	edentulous
+PATOTEMP:90175bd2-30b1-4133-8ff4-223f0f820d83	elongate pitting
+PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	enclosed by
+GOTEMP:700e3679-c375-450b-88a2-3afc9e97b160	epithelial cilia
+PATOTEMP:ed00b66e-529a-4f57-ae41-c6f2028ea439	equal diameter
+PATOTEMP:0bedf10a-5d59-4a03-894a-3d057303b20e	equal height
+PATOTEMP:08f33581-2b05-477a-9213-dda0e0972f7a	equal length
+PATOTEMP:1661abba-22d3-4266-b0a2-d7b7d3a7e086	equal size
+PATOTEMP:52f3e901-bb22-4109-a2ea-9abcc859dd66	even to
+PATOTEMP:415a0841-9e34-4e88-b4d4-f2e437bb0e07	exit into
+PATOTEMP:806b4c46-359e-4bdb-ab4d-651f1f542e60	exits through
+PATOTEMP:cff1bd0c-3563-4142-af20-cbc4d984b6f6	extends beyond
+PATOTEMP:26b4adcf-95bf-4295-84e0-63725be720e0	extends dorsoventrally over
+PATOTEMP:8db5b1bf-0fd1-4d65-a1d3-6fbb9c48b74a	extends to
+PATOTEMP:8ad65288-ef27-4669-bf71-de5846a2148e	external
+PATOTEMP:729cd099-ed78-472c-847b-9532908bc286	external to
+PATOTEMP:063e55fe-434e-4c02-8a33-b8ee6ce48f56	gently curved
+PATOTEMP:48f330a2-e7e6-4170-b41b-05294420d337	high spatial distribution
+PATOTEMP:a5ae04f1-1601-4881-b043-f326b6a2861b	horizontal band
+PATOTEMP:ec46b9e3-49c1-4a90-affe-4d9f4b71cfa0	hypsodont
+PATOTEMP:816868b2-c80a-4b17-b111-a4c37f4bb1f6	incipient division
+PATOTEMP:1f6f1f3a-7529-4b9f-b5ed-edeb5f00b249	incomplete structure
+PATOTEMP:a37eda36-7bb0-4386-a24d-383cf3a9d474	inertial
+BSPOTEMP:aede1f44-ef1c-477d-b5aa-b5fb9a9f2b15	inferior margin
+PATOTEMP:3e330874-e8c0-487c-9288-3dd24b00881e	intermediate depth
+PATOTEMP:04e01d50-b0fd-431f-9aea-10856ba1d8c3	irregular shape
+PATOTEMP:29ad821b-73f5-4581-b432-4ebe605ca098	labiolingually compressed
+PATOTEMP:4cd5d463-bbe6-44ed-aacf-a77869cfb03a	laterally directed
+PATOTEMP:8822e54b-89f9-431a-8a20-25698b53353c	lingual orientation
+PATOTEMP:d4b1149b-cd77-4235-97d0-61045b2788ae	lingual position
+BSPOTEMP:7535b6a1-f4ae-467a-8401-8e5ad78bc50b	lingual region
+PATOTEMP:cd7f52a3-bf7b-4fcf-be82-1ce52f794b17	located on
+PATOTEMP:d475253e-b1cf-44e9-9585-cfc88bab1ea1	longitudinal position
+PATOTEMP:a5dea2e1-2a2f-47df-8850-d22c6e64dfcf	low spatial distribution
+PATOTEMP:b1843d7f-65ff-47bf-97bd-a26c947056dc	marginal
+PATOTEMP:05123c51-5519-4ec7-b486-0ea6ed5f7634	medially located on
+BSPOTEMP:659dc02e-cee1-49ee-96db-fd1988ce4f99	mesial region
+BSPOTEMP:1ef09e5c-4200-415a-8320-2830150a839d	mesial side
+PATOTEMP:087499bc-048c-457c-9c34-825be4871066	mesiodistally compressed
+PATOTEMP:36446e65-e986-4e46-8d62-bc7830f6d407	molariform
+PATOTEMP:ac648762-1528-41d6-8bfb-778707732343	morphologically similar to
+PATOTEMP:83838d86-b1f2-49ab-84e7-27e0a6983134	neurovascular pitting
+PATOTEMP:1e4e19ed-2075-484e-af76-86d15f19c11a	oblique
+PATOTEMP:2c9f9e29-141a-4967-aec3-202cf1773e52	oligocotyldonary
+PATOTEMP:072ac5e5-a47a-476b-a651-cd9bc268c491	originate anterior to
+PATOTEMP:2ed71749-ce64-49f4-a0f9-fded4f421183	originate from
+PATOTEMP:6a28ed54-c745-4e42-8d39-2b9de4629fd1	originate near
+PATOTEMP:4f64ba78-f8f2-49ac-a6e4-a7a45344b603	overhanging
+PATOTEMP:90107b2b-e954-4469-8e9f-f19a5c6eb557	paired
+PATOTEMP:2c9b5f55-81ea-49f8-ae62-206012b21b6f	parasagittal
+PATOTEMP:acd25a22-5161-4959-b157-75e741582b90	partial contact with
+PATOTEMP:93532faa-3257-4395-8d05-3ad8a817c343	passes through
+PATOTEMP:2266f70e-e115-486f-b436-0daaf195910f	peaked
+PATOTEMP:3a9e79e5-a7d3-457c-951e-90a9618983e3	peg-like
+PATOTEMP:6734e62a-dd4a-43cc-8e59-c6ac7280e12c	pitted
+PATOTEMP:1bf5985d-5bbc-49df-ac82-969979dd9c3c	plowshare-shaped
+PATOTEMP:a10fad4c-eac4-4098-b00a-2e1b9e449dba	polycotyledonary
+PATOTEMP:7244ce25-b6cc-4e02-a4e2-b7136878f502	poorly developed
+PATOTEMP:a8d36563-bd4d-4f7e-ab33-dd28adf1ce80	posteriolaterally extended
+PATOTEMP:d6bdbb19-8950-4dfd-af6f-2794c50b1c02	posteriorly directed
+PATOTEMP:ec8f9d28-a318-40be-9091-46837e481b29	posterolateral orientation
+PATOTEMP:2cb8366e-4a95-4249-825e-5faab0104952	posterolateral to
+PATOTEMP:06e7ed2c-caa3-4c16-b1cf-c156eda2f04b	posterolateral to anteromedial orientation
+PATOTEMP:e76c6090-bd06-405b-9487-9b25ed5e341e	posterolingual
+PATOTEMP:36bb9fe9-9879-4809-9aaa-f4a115f36332	posterolingual position
+BSPOTEMP:43b08bf0-7b79-4c56-a8a8-a5a175646bca	posterolingual region
+BSPOTEMP:5d0de219-6a62-4de6-ad60-b36fcef9a878	postfrontal margin
+PATOTEMP:26c2aad8-84b2-4a78-b697-cc8f02712462	procoelous
+PATOTEMP:775f4e48-89f2-43b3-9b64-94c3a77ea21c	prolonged size
+PATOTEMP:1887dd11-7fac-432b-8c69-ece4f0f69222	protrude over
+PATOTEMP:9d816e6d-d647-4a6a-83a4-6df7f4579052	restricted to
+PATOTEMP:67a7a0b3-d7ee-4c62-bf1d-b9360ee09bff	ring shaped
+BSPOTEMP:58938a8e-359c-49d8-b3f7-5e1fd7e1a109	rostral margin of orbit
+PATOTEMP:1d3b5aa9-5552-4c1b-ab2b-6c5ccb8dcdf6	separating
+PATOTEMP:0a36947e-06bd-4568-8839-91625bb902e4	set apart from
+PATOTEMP:499c1f37-c1fe-456a-86be-ce5f94a44782	single
+PATOTEMP:58a10227-3af1-4cea-8dbb-cc56e78a7b9b	size gradient
+PATOTEMP:37a095ce-53fc-4746-80ff-f7ce2a70ffa4	slot-shaped
+PATOTEMP:1077a5a0-91fa-4b04-bf06-0ab12a965272	straddling
+PATOTEMP:41c01dfb-58d6-496f-ba30-1dd765dac4a4	straight mesiodistally
+PATOTEMP:a4fdce41-a94e-44b8-af9f-733cad982efb	strongly angled relative to
+PATOTEMP:57cab68c-c801-4761-a30c-fc13df3947df	subequal length to
+PATOTEMP:6e4effdc-8eb7-46bc-a140-cb47734c2b2f	subequal size to
+PATOTEMP:12674d9d-b375-4f82-8707-76249cafcb65	subovoid
+PATOTEMP:197a5ae7-fc5a-4ab1-bbc7-f90a332275ef	subspherical
+PATOTEMP:31bc4d29-9a48-4581-be6f-41132c77efb7	subspherical pitting
+PATOTEMP:5ecbb067-bdff-405c-9ea6-d2dac28b99b5	sutured with
+PATOTEMP:57a2092d-7ca1-4bb0-b34f-afa8a5b8114a	tectorial
+PATOTEMP:e7a5a00e-cf75-44e7-b26d-391526249555	tendinous
+PATOTEMP:0acbdd0a-cfcf-441f-b842-b0d0542a17c7	transversely broad
+PATOTEMP:0c40ec8a-5635-4721-9bea-e57057db26f6	two
+PATOTEMP:d6dbfefa-5751-495d-bc11-83bcad8e5e82	uneven
+PATOTEMP:09c64970-0329-4bad-9e19-2d2a9995742c	unicapitate
+PATOTEMP:e3db5ce9-cd00-46fd-ac2a-4e826fc6e84a	unicuspid
+PATOTEMP:72338a24-4cae-4c52-9e10-13f3fa0b4e72	uniform size
+PATOTEMP:90096f39-aa24-414f-b81a-58ac76cd112c	unipartite
+PATOTEMP:42d65518-01ca-417d-a4f2-bbffefc4b6e0	unpaired
+PATOTEMP:3d71e1e4-d61c-4d81-b443-ee4391ba0fde	variable size
+PATOTEMP:61fccf20-f648-4108-b17e-4c330b909458	weakly sculpted surface
+UBERONTEMP:dbdc82c9-12e8-4775-95ed-8da329b3d743	hypsodonty
+UNKNOWNTEMP:3862c8c3-40e0-4488-a240-f93bc32739eb	tooth replacement
