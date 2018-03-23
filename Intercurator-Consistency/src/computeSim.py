@@ -10,7 +10,6 @@ def populateIC():
 		if re.match('^[0-9.]+$',ic):
 			ic_dict[term]=float(ic)
 		else:
-			print ic,term
 			ic_dict[term]=ic
 
 
@@ -119,12 +118,9 @@ def main():
 			ic=0
 			if character1 == character2 and state1 == state2:
 				if class1.strip() !="" and class2.strip()!="":
-					#print "C "+character1+" S "+state1+ " class1 "+class1+" class2 "+class2
-					#print " doing curator1 character "+character1+ " state "+state1+" doing curator2 character "+ character2+ " state2 "+state2
 					ancestors1=getancestors(class1) #this is a set
 					ancestors2=getancestors(class2)
 					ic=getIC(ancestors1,ancestors2)
-					normicmean=str(round(numpy.mean(IClist,3)))
 					unionset=set.union(ancestors1,ancestors2)
 					commonancestors= set.intersection(ancestors1,ancestors2)
 	
