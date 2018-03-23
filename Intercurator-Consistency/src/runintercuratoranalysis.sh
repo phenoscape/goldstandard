@@ -95,6 +95,11 @@ python populategroupedancestors.py ../data/Transformed_CP_InitialOntologies.tsv 
 # Computing IC of subsumers
 python getIC-combination.py ../data/AllAncestors_Combinations.txt ../data/IC-combination.txt
 
+# Create output directories
+mkdir ../data/CombinedComparisons
+mkdir ../data/CombinedComparisons/PerEQSimScores
+
+
 # Computing semantic similarity for all comparisons
 python computeSim.py ../data/NR--WD_38484.tsv ../data/NR--AD_40674.tsv 1
 python computeSim.py ../data/NR--WD_38484.tsv ../data/NR--NI_40676.tsv 1
