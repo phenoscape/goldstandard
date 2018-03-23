@@ -1,4 +1,3 @@
-
 # Map Uberon temp IDs to permanent IDs
 python convertUBERONTEMP.py > ../data/UnaccountedTerms.txt
 
@@ -50,16 +49,3 @@ python populategroupedancestors.py ../data/MappedAnnotations/Transformed_NR--CP_
 python populategroupedancestors.py ../data/MappedAnnotations/Transformed_KR--CP_40716.tsv 1 tbl_goldstandardanalysis CP_EQ_
 python populategroupedancestors.py ../data/MappedAnnotations/Transformed_KR--CP_40717.tsv 1 tbl_goldstandardanalysis CP_EQ_
 python populategroupedancestors.py ../data/MappedAnnotations/Transformed_KR--CP_40718.tsv 1 tbl_goldstandardanalysis CP_EQ_
-
-# compute semantic similarity between curators, CP to the Gold Standard in different settings
-python computeSim.py
-# compute Partial Precision and Partial Recall for all comparisons
-python compute-PR-PP.py
-
-# run statistical tests
-python stats.py
-
-# generate figures
-Rscript figure3.R
-Rscript figure4.R
-Rscript figure5.R
