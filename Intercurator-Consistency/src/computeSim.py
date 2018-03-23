@@ -77,9 +77,9 @@ def main():
 	out=open("../data/LatexTableOut.txt",'a')
 	pereqscorefile="../data/CombinedComparisons/PerEQSimScores/"+"PerEQ_"+inputfile1.replace("../data/","").replace(".tsv","").replace("Classes-","")+ "--"+inputfile2.replace("../data/","").replace("NR--","").replace("Transformed_","").replace("KR--","").replace(".tsv","").replace("Classes-","")+".tsv"
 	if qualities==1:
-		outputfile="../data/CombinedComparisons/"+inputfile1.replace(".tsv","").replace("Classes-","")+ "--"+inputfile2.replace("NR--","").replace("Transformed_","").replace("KR--","").replace(".tsv","").replace("Classes-","")+".tsv"
+		outputfile="../data/CombinedComparisons/"+inputfile1.replace(".tsv","").replace("Classes-","").replace("../data/","")+ "--"+inputfile2.replace("NR--","").replace("Transformed_","").replace("KR--","").replace(".tsv","").replace("Classes-","").replace("../data/","")+".tsv"
 	else:
-		outputfile="../data/CombinedComparisons/NoQualitites_"+inputfile1.replace(".tsv","").replace("Classes-","")+ "--"+inputfile2.replace("NR--","").replace("Transformed_","").replace("KR--","").replace(".tsv","").replace("Classes-","")+".tsv"
+		outputfile="../data/CombinedComparisons/NoQualitites_"+inputfile1.replace(".tsv","").replace("Classes-","").replace("../data/","")+ "--"+inputfile2.replace("NR--","").replace("Transformed_","").replace("KR--","").replace(".tsv","").replace("Classes-","").replace("../data/","")+".tsv"
 	
 
 
