@@ -3,6 +3,8 @@ library(reshape2)
 library(Rmisc)
 library(gridExtra)
 library(Hmisc)
+setEPS()
+postscript("../results/CuratorsvsGS.eps")
     load_data<-function()
     {
         # This function loads similarity scores for the three curator-GS comparisons in Naive and Knowledge rounds into dataframes. Returns these dataframes.
@@ -176,4 +178,3 @@ In <- ggplot(In_df, aes(x=Curator, y=Similarity,fill=Round)) +
 
 # combining the four plots to a single plot
 plot<-grid.arrange(pp, pr, Jsim, In, ncol = 2)
-file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "CuratorsvsGS.pdf"))

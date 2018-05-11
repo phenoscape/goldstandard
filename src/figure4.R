@@ -3,7 +3,8 @@ library(reshape2)
 library(Rmisc)
 library(gridExtra)
 options(scipen=999)
-
+setEPS()
+postscript("../results/GS-OntCompleteness.eps")
 
 getmeanJsim <- function(filename1,filename2,filename3){
 	# takes three curator comparison files and returns mean Jsim from each file
@@ -224,7 +225,6 @@ panel.background = element_blank(), axis.line = element_line(colour = "black"))+
 
 
 plot<-grid.arrange(p1, p2, p3, p4, ncol = 2)
-file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "GS-OntCompleteness.pdf"))
 
 
 

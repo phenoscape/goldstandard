@@ -3,6 +3,8 @@ library(reshape2)
 library(Rmisc)
 library(gridExtra)
 options(scipen=999)
+setEPS()
+postscript("../results/SCP-OntCompleteness.eps")
 
 getmeanJsim <- function(filename1,filename2,filename3){
 	# takes three curator comparison files and returns mean Jsim from each file
@@ -190,7 +192,6 @@ ggplot(data = df_melted, aes(x = SimilarityMetric, y = value, group = Ontology, 
   legend.margin = margin(6, 6, 6, 6),panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
 panel.background = element_blank(), axis.line = element_line(colour = "black"),axis.text.x = element_text(face="italic"))+scale_x_discrete(labels=xlabels)
 
-file.rename(from = file.path("./", "Rplots.pdf"), to = file.path("../results/", "SCP-OntCompleteness.pdf"))
 
 
 
