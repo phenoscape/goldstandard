@@ -108,7 +108,7 @@ def main():
 							unaccountedlist.add(term)
 		infile.close()
 	for term in unaccountedlist:	
-		print term
+		print(term)
 
 
 

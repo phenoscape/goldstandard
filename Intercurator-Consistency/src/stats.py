@@ -135,16 +135,16 @@ def Intercurator_Naive_vs_Knowledge():
 
 	# Testing Inter-curator Naive vs Knowledge Round
 	t,p=scipy.stats.wilcoxon(x=naive_Avg_CC_SimJ,y=knowledge_Avg_CC_SimJ)
-	print "Naive vs Knowledge Inter-curator SimJ p-value",p
+	print("Naive vs Knowledge Inter-curator SimJ p-value",p)
 
 	t,p=scipy.stats.wilcoxon(x=naive_Avg_CC_IC,y=knowledge_Avg_CC_IC)
-	print "Naive vs Knowledge Inter-curator SimJ p-value",p
+	print("Naive vs Knowledge Inter-curator SimJ p-value",p)
 
 	t,p=scipy.stats.wilcoxon(x=naive_Avg_CC_PP,y=knowledge_Avg_CC_PP)
-	print "Naive vs Knowledge Inter-curator PP p-value",p
+	print("Naive vs Knowledge Inter-curator PP p-value",p)
 
 	t,p=scipy.stats.wilcoxon(x=naive_Avg_CC_PR,y=knowledge_Avg_CC_PR)
-	print "Naive vs Knowledge Inter-curator PR p-value",p
+	print("Naive vs Knowledge Inter-curator PR p-value",p)
 	
 	return knowledge_Avg_CC_PP,knowledge_Avg_CC_PR,knowledge_Avg_CC_SimJ,knowledge_Avg_CC_IC
 
@@ -180,16 +180,16 @@ def Human_CP(knowledge_Avg_CC_PP,knowledge_Avg_CC_PR,knowledge_Avg_CC_SimJ,knowl
 
 	
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_CC_SimJ,y=knowledge_Avg_CPCC_SimJ)
-	print "Knowledge CP Best vs CC SimJ p-value",p
+	print("Knowledge CP Best vs CC SimJ p-value",p)
 
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_CC_IC,y=knowledge_Avg_CPCC_IC)
-	print "Knowledge CP Best vs CC IC p-value",p
+	print("Knowledge CP Best vs CC IC p-value",p)
 
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_CC_PP,y=knowledge_Avg_CPCC_PP)
-	print "Knowledge CP Best vs CC PP p-value",p
+	print("Knowledge CP Best vs CC PP p-value",p)
 
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_CC_PR,y=knowledge_Avg_CPCC_PR)
-	print "Knowledge CP Best vs CC PR p-value",p
+	print("Knowledge CP Best vs CC PR p-value",p)
 
 def OntologyCompleteness():
 
@@ -277,13 +277,13 @@ def OntologyCompleteness():
 
 	#### Initial vs Aug
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Initial_CPCC_PR,y=knowledge_Avg_Aug_CPCC_PR)
-	print "Knowledge Initial vs Aug PR p-value",p
+	print("Knowledge Initial vs Aug PR p-value",p)
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Initial_CPCC_PP,y=knowledge_Avg_Aug_CPCC_PP)
-	print "Knowledge Initial vs Aug PP p-value",p
+	print("Knowledge Initial vs Aug PP p-value",p)
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Initial_CPCC_SimJ,y=knowledge_Avg_Aug_CPCC_SimJ)
-	print "Knowledge Initial vs Aug SimJ p-value",p
+	print("Knowledge Initial vs Aug SimJ p-value",p)
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Initial_CPCC_IC,y=knowledge_Avg_Aug_CPCC_IC)
-	print "Knowledge Initial vs Aug IC p-value",p
+	print("Knowledge Initial vs Aug IC p-value",p)
 
 
 	
@@ -291,13 +291,13 @@ def OntologyCompleteness():
 
 	#### Aug vs Merged
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Aug_CPCC_PR,y=knowledge_Avg_Best_CPCC_PR)
-	print "Knowledge Aug vs Best PR p-value",p
+	print("Knowledge Aug vs Best PR p-value",p)
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Aug_CPCC_PP,y=knowledge_Avg_Best_CPCC_PP)
-	print "Knowledge Aug vs Best PP p-value",p
+	print("Knowledge Aug vs Best PP p-value",p)
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Aug_CPCC_SimJ,y=knowledge_Avg_Best_CPCC_SimJ)
-	print "Knowledge Aug vs Best SimJ p-value",p
+	print("Knowledge Aug vs Best SimJ p-value",p)
 	t,p=scipy.stats.wilcoxon(x=knowledge_Avg_Aug_CPCC_IC,y=knowledge_Avg_Best_CPCC_IC)
-	print "Knowledge Aug vs Best IC p-value",p
+	print("Knowledge Aug vs Best IC p-value",p)
 
 
 if __name__ == "__main__":

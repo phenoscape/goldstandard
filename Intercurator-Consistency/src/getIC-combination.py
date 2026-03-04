@@ -15,7 +15,7 @@ def main():
 		else:
 			ancestors_dict[line]=1
 	f=open(infile,'r')
-	print "Corpus size "+str(corpussize)
+	print("Corpus size "+str(corpussize))
 	p=float(1)/float(corpussize)
 	maxic=-math.log(p,2)
 	w.write("Maximum"+"\t"+""+"\t"+str(maxic)+"\n")

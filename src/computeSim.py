@@ -64,7 +64,7 @@ def populateancestors(file):
 
 def main():
 	ic_dict= populateIC()
-	print "Populated IC"
+	print("Populated IC")
 
 	#GS to Curators - Naive round
 	compute("../data/MappedAnnotations/NR--WD_38484.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
@@ -191,10 +191,10 @@ def compute(inputfile1,inputfile2,qualities,ic_dict):
 	normicmean=str(round(numpy.mean(IClist),3))
 	normicmedian=str(round(numpy.median(IClist),3))
 
-	print "\n\n"+outputfile.replace("CombinedComparisons","").replace(".//","").replace("Classes-","")
-	print "\tMean SimJ",simjmean
+	print("\n\n"+outputfile.replace("CombinedComparisons","").replace(".//","").replace("Classes-",""))
+	print("\tMean SimJ",simjmean)
 
-	print "\tMean IC",normicmean
+	print("\tMean IC",normicmean)
 	
 	
 	outfile=outputfile.replace("CombinedComparisons","").replace(".//","").replace("Classes-","")

@@ -1,6 +1,6 @@
 def load_pereqscores(filename):
 	infile=open(filename)
-	infile.next()
+	next(infile)
 	gs=dict()
 	cp=dict()
 	for line in infile:
@@ -43,7 +43,7 @@ def compute_partial_precision(cp):
 			precision=0
 			maxscores=[]
 			for cpeqno in cp[chno][stateno]['simj']:
-				maxscores.append(max(cp[chno][stateno]['simj'][cpeqno].iteritems(), key=operator.itemgetter(1))[1])
+				maxscores.append(max(cp[chno][stateno]['simj'][cpeqno].items(), key=operator.itemgetter(1))[1])
 			precision=np.sum(maxscores)/len(maxscores)
 			pp[chno][stateno]['simj']=precision
 			simjprecisionlist.append(precision)
@@ -63,7 +63,7 @@ def compute_partial_recall(gs):
 			recall=0
 			maxscores=[]
 			for gseqno in gs[chno][stateno]['simj']:
-				maxscores.append(max(gs[chno][stateno]['simj'][gseqno].iteritems(), key=operator.itemgetter(1))[1])
+				maxscores.append(max(gs[chno][stateno]['simj'][gseqno].items(), key=operator.itemgetter(1))[1])
 			recall=np.sum(maxscores)/len(maxscores)
 			pr[chno][stateno]['simj']=recall
 			simjrecalllist.append(recall)
@@ -100,47 +100,47 @@ def CP_GS():
 	# PP and PR similarity between CP and GS using C1 Aug ontology
 	infile="../data/CombinedComparisons/PerEQ_Transformed_NR--CP_38484--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP C1 Naive Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP C1 Naive Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	infile="../data/CombinedComparisons/PerEQ_Transformed_KR--CP_40717--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP C1 Knowledge Aug-GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP C1 Knowledge Aug-GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 
 
 	# PP and PR similarity between CP and GS using C2 Aug ontology
 	infile="../data/CombinedComparisons/PerEQ_Transformed_NR--CP_40674--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP C2 Naive Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP C2 Naive Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	infile="../data/CombinedComparisons/PerEQ_Transformed_KR--CP_40718--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP C2 Naive Aug-GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP C2 Naive Aug-GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 
 	
 	# PP and PR similarity between CP and GS using C3 Aug ontology
 	infile="../data/CombinedComparisons/PerEQ_Transformed_NR--CP_40676--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP C3 Naive Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP C3 Naive Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	infile="../data/CombinedComparisons/PerEQ_Transformed_KR--CP_40716--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP C3 Knowledge Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP C3 Knowledge Aug-GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 
 	# PP and PR similarity between CP and GS using CP best ontology
 	infile="../data/CombinedComparisons/PerEQ_Transformed_CP_best--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "CP Best - GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("CP Best - GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 	
 def C1_GS():
 	# PP and PR similarity between C1 and GS
 	infile="../data/CombinedComparisons/PerEQ_NR--WD_38484--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "C1 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("C1 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 	infile="../data/CombinedComparisons/PerEQ_KR--WD_40717--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "C1 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("C1 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 
 
@@ -148,11 +148,11 @@ def C2_GS():
 	# PP and PR similarity between C2 and GS
 	infile="../data/CombinedComparisons/PerEQ_NR--AD_40674--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "C2 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("C2 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 	infile="../data/CombinedComparisons/PerEQ_KR--AD_40718--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "C2 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("C2 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 
 
@@ -160,11 +160,11 @@ def C3_GS():
 	# PP and PR similarity between C3 and GS
 	infile="../data/CombinedComparisons/PerEQ_NR--NI_40676--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "C3 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("C3 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 	infile="../data/CombinedComparisons/PerEQ_KR--NI_40716--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print "C3 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3)
+	print("C3 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 	
 
 

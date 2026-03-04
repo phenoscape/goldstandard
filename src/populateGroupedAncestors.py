@@ -34,7 +34,19 @@ def getExpression(E1,Q1,E2):
 
 
 
-def getancestors(term,cc,database):
+def load_subsumers(filepath):
+	subsumers = {}
+	with open(filepath) as f:
+		for line in f:
+			parts = line.strip().split("\t")
+			if len(parts) == 2:
+				term, ancestor = parts
+				if term not in subsumers:
+					subsumers[term] = []
+				subsumers[term].append(ancestor)
+	return subsumers
+
+def getancestors(term,subsumers):
 	term=term.strip()
 	#NOTE: The term itself needs to be added to the list of ancestors
 	global ancestor_dict
@@ -44,11 +56,8 @@ def getancestors(term,cc,database):
 			ancestor_dict[term].append(term)
 	else:
 		ancestor_dict[term]=[term]
-	query="select ancestor from "+database+" where term = "+ "\""+term+"\""
-	cc.execute(query)	
-	data = cc.fetchall()
-	for row in data:
-		ancestor=row[0]
+	data = subsumers.get(term, [])
+	for ancestor in data:
 		if term in ancestor_dict:
 			if ancestor not in ancestor_dict[term]:
 				ancestor_dict[term].append(ancestor)
@@ -57,33 +66,29 @@ def getancestors(term,cc,database):
 			if term not in ancestor_dict[term]:
 				ancestor_dict[term].append(term)
 
-def getqueryresult(term,cc,database):
-	query="select ancestor from "+database+" where term = "+ "\""+term+"\""
-	cc.execute(query)	
-	data = cc.fetchall()
+def getqueryresult(term,subsumers):
+	data = subsumers.get(term, [])
 	ancestorlist=""
-	for row in data:
-		ancestorlist=ancestorlist+","+row[0]
+	for ancestor in data:
+		ancestorlist=ancestorlist+","+ancestor
 	return ancestorlist
 
 
 
 def main():
 
-	import MySQLdb
 	import sys
 	inputfile=str(sys.argv[1])
 	qualities=int(sys.argv[2])
-	database=sys.argv[3]
+	database=sys.argv[3]  # kept for CLI compatibility, unused
 	source=str(sys.argv[4])
 	eqnumber={}
-	db = MySQLdb.connect("localhost","root","","ontologies") # add password
-	cursor = db.cursor()
+	subsumers = load_subsumers('../data/AnnotationSubsumers_Relations.txt')
 	w=open('../data/AllAncestors_Combinations.txt','a')
 	ANN=open(inputfile,'r')
 	inputfile=inputfile.replace("../data/MappedAnnotations/","")
 	ancestorfile="../data/Ancestors-"+inputfile
-	print ancestorfile
+	print(ancestorfile)
 	PUT=open(ancestorfile,'w')
 	classfile="../data/Classes-"+inputfile
 	Out=open(classfile,'w')
@@ -117,7 +122,7 @@ def main():
 			if "null" not in child:
 				expression=getExpression(E1,Q1,E2)
 				if expression != "null":
-					topclass= getqueryresult(expression,cursor,database)
+					topclass= getqueryresult(expression,subsumers)
 					if len(topclass)==0:
 						#print "No Anc"+expression
 						1
@@ -136,18 +141,18 @@ def main():
 
 				if E1:
 					if E1 not in ancestor_dict:
-						getancestors(E1,cursor,database)
+						getancestors(E1,subsumers)
 					
 
 						
 				if E2:
 					if E2 not in ancestor_dict:
-						getancestors(E2,cursor,database)
+						getancestors(E2,subsumers)
 						
 
 				if Q1:
 					if Q1 not in ancestor_dict:
-						getancestors(Q1,cursor,database)
+						getancestors(Q1,subsumers)
 					
 
 				if Q1 and E1 and E2:
@@ -214,12 +219,12 @@ def main():
 
 				for anc in ancestorgroup:
 					PUT.write(child+"\t"+getName(anc)+"\n")
-  			else:
-  				eqnumber[key]+=1
-  				#null is in the expression like "null and" 
-  				eqnumberstring=source+str(eqnumber[key])
+			else:
+				eqnumber[key]+=1
+				#null is in the expression like "null and"
+				eqnumberstring=source+str(eqnumber[key])
 				Out.write(character+"\t"+state+"\t"+" "+ "\t"+eqnumberstring+  "\n")
-					
+
 if __name__ == "__main__":
-    ancestor_dict={}
-    main()
+	ancestor_dict={}
+	main()
