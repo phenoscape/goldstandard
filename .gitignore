@@ -1,0 +1,8 @@
+__pycache__/
+*.pyc
+.venv/
+
+# Large generated data files
+data/AllAncestors_Combinations.txt
+data/Ancestors-*.tsv
+data/CombinedComparisons_original/
