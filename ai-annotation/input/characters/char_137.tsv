@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label
+137	Radius/ulna length	0	radius shorter than ulna
+137	Radius/ulna length	1	radius longer than ulna
+137	Radius/ulna length	2	radius and ulna subequal

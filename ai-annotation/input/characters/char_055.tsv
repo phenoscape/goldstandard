@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label
+55	Coracoid foramen	0	enclosed by coracoid only
+55	Coracoid foramen	1	enclosed by scapula and coracoid
+55	Coracoid foramen	2	absent

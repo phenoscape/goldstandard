@@ -93,100 +93,143 @@ Compare output files against the existing ones before overwriting.
 
 ## Phase 1: Prepare Inputs for AI Annotation
 
-The AI annotation itself will be performed by a separate coding agent in its own
-directory. This phase prepares the input files that agent will need.
+The AI annotation is performed by specialized biocurator agents, each annotating
+one character at a time. The `ai-annotation/` directory is a self-contained
+workspace with agent definitions, ontologies, input files, and validation tools.
 
-### 1.1 Extract character states list
+### 1.1 Per-character input files
 
-Create a TSV file containing only the character/state information (without EQ
-annotations) that the AI agent needs to annotate. Extract from
-`data/MappedAnnotations/GS_Dataset.tsv`, keeping only unique combinations of:
-- Character number
-- Character label
-- State symbol
-- State label
+**[DONE]** Split `data/MappedAnnotations/GS_Dataset.tsv` into 203 per-character
+input files, one per character. Each file has 4 columns (Character, Character
+Label, State Symbol, State Label) with one row per state — the raw material for
+annotation, without EQ columns.
 
-Output: `ai-annotation/input/character_states.tsv`
+Script: `ai-annotation/scripts/split_characters.py` (reproducible).
+Output: `ai-annotation/input/characters/char_001.tsv` through `char_203.tsv`.
 
-### 1.2 Create annotation format specification
+### 1.2 Annotation knowledge (three-layer architecture)
 
-Write a specification document for the coding agent describing:
-- The EQ (Entity-Quality) annotation model and its purpose
-- Column schema (10 columns: Character, Character Label, State Symbol, State Label,
-  Entity ID, Entity Label, Quality ID, Quality Label, Related Entity ID,
-  Related Entity Label)
-- That multiple EQ rows per character state are expected
-- Post-composition syntax for complex expressions:
-  `UBERON:X and (BFO:0000050 some UBERON:Y)` with corresponding labels
-  `'term X' and (part_of some 'term Y')`
-- The relations used: `part_of` (BFO:0000050), `inheres_in`, `towards`, etc.
-- Conventions: labels are single-quoted, IDs use CURIE format (PREFIX:NUMBER)
-- Example annotations (a representative sample from the Gold Standard showing
-  simple and post-composed annotations)
-- Instructions on proposing new terms: the agent should strongly prefer existing
-  ontology terms, but may propose new terms when no suitable term exists. Proposed
-  terms should be clearly marked (e.g., with a `NEW:` prefix or in a separate log)
-  so they can be reviewed.
+**[DONE]** Created a three-layer knowledge architecture:
 
-Output: `ai-annotation/input/annotation_spec.md`
+- **Agent definition** (`ai-annotation/.claude/agents/biocurator.md`) — always
+  loaded into context. Contains: EQ formalism, ontology sources, output format,
+  post-composition syntax (OWL Manchester), 10 essential conventions, common
+  PATO terms table. Distilled to minimize token cost per invocation.
+
+- **Skill definition** (`ai-annotation/.claude/skills/phenotype-eq-annotation.md`)
+  — the annotation procedure. 6 steps: understand phenotype → find Entity terms
+  (using name, def, synonym fields) → find Quality terms → determine Related
+  Entity → write EQ rows → handle unannotatable states. Emphasizes ID/label
+  correspondence and synonym/definition-based term selection.
+
+- **Reference file** (`ai-annotation/input/annotation_guide.md`) — full
+  annotation guide adapted from the Phenoscape Guide to Character Annotation.
+  All examples converted from Phenex caret notation to OWL Manchester syntax.
+  Includes: complete relations table (22 relations), PATO attribute categories,
+  detailed patterns for size comparisons, negation, spatial refinement, bilaterally
+  paired structures, skeletal conventions, etc. Read on-demand by the agent.
+
+**Design rationale:** The agent definition and skill are round-agnostic — they
+contain no knowledge of annotation rounds or ontology enhancement. The
+appropriate ontology files are provided at invocation time. This cleanly
+separates the curation task from the experimental design.
 
 ### 1.3 Convert ontologies from OWL to OBO format
 
-OBO is a plain-text format with `[Term]` stanzas that is much easier for AI
-agents to search with standard text tools (grep, etc.) than OWL/XML.
+**[DONE]** Converted using ROBOT 1.9.8:
 
-Convert the four ontologies used in the analysis:
-- `Ontologies/uberon.owl` → `ai-annotation/input/ontologies/uberon.obo`
-- `Ontologies/pato-simple.owl` → `ai-annotation/input/ontologies/pato.obo`
-- `Ontologies/bspo.owl` → `ai-annotation/input/ontologies/bspo.obo`
-- `Ontologies/go.owl` → `ai-annotation/input/ontologies/go.obo`
+| Ontology | Source | Terms | Typedefs | OBO Size |
+|----------|--------|-------|----------|----------|
+| UBERON | `Ontologies/uberon.owl` | 14,237 | 200 | 12 MB |
+| PATO | `Ontologies/pato-simple.owl` | 2,494 | 23 | 545 KB |
+| BSPO | `Ontologies/bspo.owl` | 146 | 58 | 71 KB |
+| GO | `Ontologies/go.owl.zip` | 43,154 | 10 | 31 MB |
+| BestMerged | `Ontologies/BestMerged.owl` | 17,068 | 209 | 11 MB |
 
-Use ROBOT or OWLTools for conversion:
-```bash
-robot convert --input Ontologies/uberon.owl --output ai-annotation/input/ontologies/uberon.obo
-```
+Note: BestMerged required `--check false` (duplicate `name` tag on BSPO:0000127
+from merging). Output: `ai-annotation/input/ontologies/*.obo`.
 
-Note: Some of these ontologies may already have OBO versions available from their
-upstream sources, which could be used instead of converting.
+### 1.4 ID/label validation script
 
-For the Merged round, also convert `BestMerged.owl` (or build a merged OBO that
-includes the additional terms from all curators):
-- `Ontologies/BestMerged.owl` → `ai-annotation/input/ontologies/best_merged.obo`
+**[DONE]** Created `ai-annotation/scripts/validate_annotations.py` — a
+hallucination detection script that parses OBO files and checks every annotation
+TSV for: unknown term IDs, obsolete terms, unbalanced parentheses, missing
+ID/label pairs, and label mismatches (ID paired with wrong name).
 
-### 1.4 Set up the annotation directory
+Validated against Gold Standard: 0 unknown IDs, 0 obsolete terms, 0 structural
+errors. 22 false-positive label mismatches from edge cases in the alignment
+algorithm (multi-word names containing `and`, relation synonyms).
 
-Two annotation rounds, mirroring the original study's ontology completeness design:
+### 1.5 Split best_merged.obo for round 2
+
+**[TODO]** For round 2 (Merged ontology), need to determine whether to provide
+`best_merged.obo` as-is or split it back into per-source ontology files with
+curator-added terms included. The merged OBO has ~2,800 additional terms beyond
+the base ontologies from curator contributions.
+
+### 1.6 Annotation orchestration
+
+**[TODO]** Two annotation rounds, mirroring the original study's ontology
+completeness design:
 
 **Round 1 — Initial Ontologies** (analogous to Naive Round / SCP-Initial):
-The AI uses only the base ontologies that curators started with. Tests annotation
-ability given incomplete ontology coverage.
+The AI uses only the base ontologies. Tests annotation with incomplete coverage.
 
 **Round 2 — Merged Ontology** (analogous to Knowledge Round / SCP-Merged):
-The AI uses the Merged ontology containing all curator-added terms. Tests
-annotation ability given complete ontology coverage.
+The AI uses the Merged ontology with curator-added terms. Tests annotation with
+complete coverage.
 
-In both rounds, the AI may propose new terms when no suitable existing term can
-be found, but should strongly prefer existing terms. Proposed terms will be logged
-separately for review.
+Each round annotates all 203 characters. A driver script dispatches one
+biocurator agent per character file and collects results.
+
+**Orchestration approaches:**
+
+- **Claude Agent SDK (Python):** Write a driver script that programmatically
+  spawns biocurator agents per character, with batching for rate-limit management.
+  The agent definition and skill from `ai-annotation/.claude/` provide the system
+  prompt and procedure. This is the recommended approach for 203 files.
+
+- **Claude Code CLI (interactive):** For small batches or debugging, the main
+  agent can spawn biocurator sub-agents via the Agent tool within a session.
+
+**Cross-platform portability:** The content layer (input files, ontologies,
+annotation guide, validation script, output format) is entirely LLM-agnostic.
+To run the same experiment with a different AI system (e.g., Qwen, Codex), only
+a thin orchestration adapter is needed — the per-character input/output contract
+and the validation script work unchanged. This enables comparing annotation
+quality across AI systems.
+
+**Assembly:** After annotation, per-character output files are concatenated into
+a single annotation TSV per round:
+- `round1-initial/characters/char_*.tsv` → `AI_Initial.tsv`
+- `round2-merged/characters/char_*.tsv` → `AI_Merged.tsv`
 
 Directory structure:
 ```
 ai-annotation/
+├── .claude/
+│   ├── agents/
+│   │   └── biocurator.md              # Agent definition (domain knowledge)
+│   └── skills/
+│       └── phenotype-eq-annotation.md  # Annotation procedure
 ├── input/
-│   ├── character_states.tsv          # What to annotate (shared across rounds)
-│   ├── annotation_spec.md            # How to annotate (shared across rounds)
+│   ├── characters/
+│   │   ├── char_001.tsv               # 203 per-character input files
+│   │   └── ...
+│   ├── annotation_guide.md            # Full reference (Manchester syntax)
 │   └── ontologies/
-│       ├── uberon.obo                # Base anatomy ontology (Initial)
-│       ├── pato.obo                  # Base quality ontology (Initial)
-│       ├── bspo.obo                  # Base spatial ontology (Initial)
-│       ├── go.obo                    # Base biological process ontology (Initial)
-│       └── best_merged.obo           # Merged ontology (all curator terms added)
-├── round1-initial/                   # AI annotates with Initial ontologies only
-│   ├── AI_Initial.tsv                # Output annotations
-│   └── proposed_terms.txt            # Any new terms the AI proposed
-└── round2-merged/                    # AI annotates with Merged ontology
-    ├── AI_Merged.tsv                 # Output annotations
-    └── proposed_terms.txt            # Any new terms the AI proposed
+│       ├── uberon.obo                 # Base anatomy (Initial round)
+│       ├── pato.obo                   # Base quality (Initial round)
+│       ├── bspo.obo                   # Base spatial (Initial round)
+│       ├── go.obo                     # Base biological process (Initial round)
+│       └── best_merged.obo           # Merged ontology (Merged round)
+├── round1-initial/
+│   └── characters/                    # Per-character output (round 1)
+├── round2-merged/
+│   └── characters/                    # Per-character output (round 2)
+└── scripts/
+    ├── split_characters.py            # Reproducible input generation
+    └── validate_annotations.py        # ID/label hallucination check
 ```
 
 ---
@@ -318,28 +361,31 @@ Create new figure scripts (or extend existing ones) to include AI results:
 ## Phase 3: Execution Order Summary
 
 ```
-Phase 0 (reproduce):
-  0.1  Port all Python scripts to Python 3
-  0.2  Replace MySQL with dict-based lookups in populateGroupedAncestors.py
-  0.3  Reconstruct AllAncestors_Combinations.txt from zip files
-  0.4  Run pipeline, verify results match existing outputs
+Phase 0 (reproduce):                                          [DONE]
+  0.1  Port all Python scripts to Python 3                    [DONE]
+  0.2  Replace MySQL with dict-based lookups                  [DONE]
+  0.3  Reconstruct AllAncestors_Combinations.txt              [DONE]
+  0.4  Run pipeline, verify results match existing outputs    [DONE]
 
 Phase 1 (prepare AI annotation inputs):
-  1.1  Extract character/state list from GS_Dataset.tsv
-  1.2  Write annotation format specification document
-  1.3  Convert ontologies from OWL to OBO format (Initial + Merged)
-  1.4  Set up ai-annotation/ directory with round1-initial/ and round2-merged/
-  --- User runs AI annotation separately in two rounds ---
+  1.1  Split GS_Dataset.tsv into per-character input files    [DONE]
+  1.2  Create annotation knowledge (agent, skill, guide)      [DONE]
+  1.3  Convert ontologies from OWL to OBO format              [DONE]
+  1.4  Create ID/label validation script                      [DONE]
+  1.5  Split best_merged.obo for round 2                      [TODO]
+  1.6  Build annotation orchestration / driver script         [TODO]
+  --- Run AI annotation: 203 characters × 2 rounds ---
 
 Phase 2 (analysis):
-  2.1  Copy AI annotation TSVs to data/MappedAnnotations/
-  2.2  Handle any proposed terms (if AI proposed new ontology terms)
-  2.3  Run populateGroupedAncestors.py on both AI annotation files
-  2.4  Rebuild AllAncestors_Combinations.txt with AI data
-  2.5  Add AI comparisons to computeSim.py, run it
-  2.6  Add AI comparisons to compute-PR-PP.py, run it
-  2.7  Add AI comparisons to stats.py, run it
-  2.8  Update/create R figure scripts, generate new figures
+  2.1  Assemble + validate per-character outputs into TSVs
+  2.2  Copy AI annotation TSVs to data/MappedAnnotations/
+  2.3  Handle any proposed terms (if AI proposed new terms)
+  2.4  Run populateGroupedAncestors.py on both AI files
+  2.5  Rebuild AllAncestors_Combinations.txt with AI data
+  2.6  Add AI comparisons to computeSim.py, run it
+  2.7  Add AI comparisons to compute-PR-PP.py, run it
+  2.8  Add AI comparisons to stats.py, run it
+  2.9  Update/create R figure scripts, generate new figures
 ```
 
 ---
@@ -348,15 +394,28 @@ Phase 2 (analysis):
 
 - **Python version:** Port to Python 3 (mechanical changes, low risk)
 - **MySQL:** Replace with in-memory Python dict (eliminates dependency)
-- **Post-composition:** AI agent should produce post-composed OWL expressions
-  to match what human curators did
+- **Post-composition:** AI agent should produce post-composed OWL Manchester
+  syntax expressions to match what human curators did (not Phenex caret notation)
 - **Ontology format for AI:** Convert OWL to OBO (text-friendly for agent tools)
-- **AI annotation process:** User will run separately in `ai-annotation/` directory
+- **AI annotation workspace:** Self-contained `ai-annotation/` directory with
+  its own `.claude/` structure, so it can serve as an independent project
+- **Three-layer knowledge:** Agent definition (always loaded, distilled rules),
+  skill (procedure), reference guide (on-demand). Agent and skill are
+  round-agnostic — ontologies provided at invocation time
+- **Per-character granularity:** One input file and one output file per character
+  (203 total). Enables parallelism, isolated failure, easy review/redo, and
+  cross-platform portability
+- **Dual ID/label output:** Every term appears as both CURIE and primary label.
+  Validation script checks correspondence against OBO files (hallucination check)
 - **Ontology versions:** Two rounds — Initial ontologies (base uberon/pato/bspo/go)
   and Merged ontology (BestMerged.owl with all curator-added terms). This parallels
-  the original study's ontology completeness analysis.
+  the original study's ontology completeness analysis
 - **New term proposals:** AI may propose new terms when no suitable existing term
-  exists, but should strongly prefer existing terms. Proposals logged separately.
+  exists, but should strongly prefer existing terms. Proposals logged separately
+- **Cross-platform design:** Content layer (inputs, ontologies, guide, validation,
+  output format) is LLM-agnostic. Only the orchestration adapter is
+  platform-specific. This enables running the same experiment with different AI
+  systems (Claude, Qwen, Codex, etc.) and comparing annotation quality
 
 ## Open Questions
 
@@ -365,3 +424,5 @@ Phase 2 (analysis):
 2. **IC corpus decision:** Include AI in the corpus (methodologically correct but
    changes all scores, requiring full recomputation) or keep original corpus
    (simpler, preserves original scores)?
+3. **Cross-platform comparison:** Run the same annotation task with multiple AI
+   systems? Would strengthen the analysis but multiplies the work.
