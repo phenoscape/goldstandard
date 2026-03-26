@@ -111,3 +111,9 @@ The label form mirrors the structure exactly:
 For detailed annotation patterns (size comparisons, spatial refinement with BSPO,
 complementary phenotypes, bilaterally paired structures, etc.), read the full
 annotation guide at `input/annotation_guide.md`.
+
+## Completion Report
+
+After writing the output file, report only: the output file path, the number of
+rows written, and any errors or proposed terms. Do not repeat or summarize the
+annotations themselves.

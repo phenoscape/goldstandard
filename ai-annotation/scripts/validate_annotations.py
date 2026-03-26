@@ -39,7 +39,7 @@ ID_COLUMNS = {4: "Entity ID", 6: "Quality ID", 8: "Related Entity ID"}
 # Corresponding label columns
 LABEL_COLUMNS = {5: "Entity Label", 7: "Quality Label", 9: "Related Entity Label"}
 
-# Known relation IDs used in post-compositions — these won't be in OBO term stanzas
+# Known relation IDs used in post-compositions — these may not be in OBO term stanzas
 # but are valid in Manchester syntax expressions
 KNOWN_RELATION_IDS = {
     "BFO:0000050": "part_of",
@@ -297,7 +297,10 @@ def validate_file(filepath, id_to_names, obsolete_ids):
 
 def main():
     if len(sys.argv) < 2:
-        print(f"Usage: {sys.argv[0]} <annotation.tsv> [<annotation2.tsv> ...]", file=sys.stderr)
+        print(
+            f"Usage: {sys.argv[0]} <annotation.tsv> [<annotation2.tsv> ...]",
+            file=sys.stderr,
+        )
         sys.exit(2)
 
     annotation_files = sys.argv[1:]
