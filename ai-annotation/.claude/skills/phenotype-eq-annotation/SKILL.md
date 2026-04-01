@@ -30,7 +30,7 @@ one for round, one for multicuspidate.
 - **GO** — Gene Ontology (biological processes only, used rarely)
 
 The ontologies are provided in OBO format in `input/ontologies/`. Search them
-using grep or read to find appropriate terms.
+using grep or read to find appropriate terms. Terms may use various OBO ID prefixes in addition to the main namespace in a given ontology (e.g., terms with temporary identifiers).
 
 ### Conventions
 
@@ -59,15 +59,17 @@ Use **OWL Manchester syntax** for post-composed expressions:
 
 The label form mirrors the structure exactly:
 
-- ID:    `BSPO:0000066 and (BFO:0000050 some UBERON:0002397)`
+- ID: `BSPO:0000066 and (BFO:0000050 some UBERON:0002397)`
 - Label: `'anterior region' and (part_of some maxilla)`
 
 **Label conventions:**
+
 - Single-word labels are unquoted: `position`, `absent`, `maxilla`
 - Multi-word labels are single-quoted: `'anterior region'`, `'increased size'`
 - Relation labels in expressions are always unquoted: `part_of some`, `not some`
 
 **Nesting** for spatial refinement (e.g., "anterior process of the maxilla"):
+
 ```
 <projection_ID> and (BFO:0000050 some (<anterior_region_ID> and (BFO:0000050 some <maxilla_ID>)))
 ```
@@ -81,6 +83,7 @@ annotation guide at `input/annotation_guide.md`.
 ## Inputs
 
 You will be given:
+
 - A character input file path (e.g., `input/characters/char_042.tsv`)
 - An output file path for the results
 - The ontology files to use (in `input/ontologies/`)
@@ -96,6 +99,7 @@ For each state in the input file:
 ### Step 1: Understand the phenotype
 
 Read the character label and state label. Identify:
+
 - What anatomical structure(s) are involved?
 - What quality or property is being described?
 - Is there a relationship between two structures?
@@ -141,6 +145,7 @@ For each candidate term, read the full `[Term]` stanza and evaluate:
    alternatives
 
 **Choosing between candidate terms:** When multiple terms could fit:
+
 - Prefer the more specific term (a child over a parent)
 - Check definitions to distinguish terms with similar names
 - Consider the taxonomic scope — some UBERON terms are specific to certain clades
@@ -152,6 +157,7 @@ maxilla"), build a post-composed expression using BSPO region terms and
 ### Step 3: Find Quality terms
 
 Search `pato.obo` for the quality being described. Common patterns:
+
 - "absent" / "present" → `PATO:0000462` / `PATO:0000467`
 - Shape words (round, triangular, etc.) → search PATO by keyword
 - Size words (large, small, elongated) → search PATO
@@ -159,24 +165,24 @@ Search `pato.obo` for the quality being described. Common patterns:
 
 **Common PATO terms for quick reference:**
 
-| Quality | ID | When to use |
-|---------|----|-------------|
-| present | PATO:0000467 | Entity exists |
-| absent | PATO:0000462 | Entity does not exist |
-| fused with | PATO:0000642 | Two structures merged (relational) |
-| separated from | PATO:0001505 | Two structures not touching (relational) |
-| in contact with | PATO:0001961 | Two structures touching (relational) |
-| attached to | PATO:0001667 | Physical attachment (relational) |
-| increased size | PATO:0000586 | Larger than typical |
-| decreased size | PATO:0000587 | Smaller than typical |
-| increased length | PATO:0000573 | Longer than typical |
-| decreased length | PATO:0000574 | Shorter than typical |
-| position | PATO:0000140 | General positional quality |
-| located in | PATO:0002261 | Located within another structure (relational) |
-| anterior to | PATO:0001632 | Positional (relational) |
-| posterior to | PATO:0001633 | Positional (relational) |
-| shape | PATO:0000052 | General shape (use when no specific child applies) |
-| amount | PATO:0000070 | Count/number |
+| Quality          | ID           | When to use                                        |
+| ---------------- | ------------ | -------------------------------------------------- |
+| present          | PATO:0000467 | Entity exists                                      |
+| absent           | PATO:0000462 | Entity does not exist                              |
+| fused with       | PATO:0000642 | Two structures merged (relational)                 |
+| separated from   | PATO:0001505 | Two structures not touching (relational)           |
+| in contact with  | PATO:0001961 | Two structures touching (relational)               |
+| attached to      | PATO:0001667 | Physical attachment (relational)                   |
+| increased size   | PATO:0000586 | Larger than typical                                |
+| decreased size   | PATO:0000587 | Smaller than typical                               |
+| increased length | PATO:0000573 | Longer than typical                                |
+| decreased length | PATO:0000574 | Shorter than typical                               |
+| position         | PATO:0000140 | General positional quality                         |
+| located in       | PATO:0002261 | Located within another structure (relational)      |
+| anterior to      | PATO:0001632 | Positional (relational)                            |
+| posterior to     | PATO:0001633 | Positional (relational)                            |
+| shape            | PATO:0000052 | General shape (use when no specific child applies) |
+| amount           | PATO:0000070 | Count/number                                       |
 
 For PATO terms too, read definitions and synonyms to choose the most appropriate
 quality. For example, "deep" might mean `increased depth` or `increased width`
@@ -200,6 +206,7 @@ Character\tCharacter Label\tState Symbol\tState Label\tEntity ID\tEntity Label\t
 ```
 
 **Critical — ID/Label correspondence:**
+
 - Entity ID `UBERON:0001424` must pair with Entity Label `ulna` (the `name:` field
   from the OBO file for that ID)
 - For post-composed expressions, every CURIE in the ID expression must map to the
@@ -232,6 +239,7 @@ NEW:0001	proposed label	Reason: no existing term for X; closest is UBERON:NNNNNN
 ## Quality Checks
 
 Before writing output, verify:
+
 1. Every term ID you used actually exists in the OBO files
 2. Every label matches the `name:` field for that ID exactly (not a synonym)
 3. Post-composed expressions use correct Manchester syntax with matching parentheses
