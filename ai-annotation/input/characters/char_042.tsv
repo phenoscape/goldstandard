@@ -1,4 +1,4 @@
-Character	Character Label	State Symbol	State Label
-42	Maxillary tooth cross-section	0	labiolingually compressed
-42	Maxillary tooth cross-section	1	nearly circular
-42	Maxillary tooth cross-section	2	mesiodistally compressed
+Character	Character Label	State Symbol	State Label	Paper_PDF
+42	Maxillary tooth cross-section	0	labiolingually compressed	Hill_2005.pdf
+42	Maxillary tooth cross-section	1	nearly circular	Hill_2005.pdf
+42	Maxillary tooth cross-section	2	mesiodistally compressed	Hill_2005.pdf

@@ -1,3 +1,3 @@
-Character	Character Label	State Symbol	State Label
-161	Maximum standard length	0	Standard length 15 cm or more
-161	Maximum standard length	1	Standard length < 15 cm
+Character	Character Label	State Symbol	State Label	Paper_PDF
+161	Maximum standard length	0	Standard length 15 cm or more	Chakrabarty_2007.pdf
+161	Maximum standard length	1	Standard length < 15 cm	Chakrabarty_2007.pdf

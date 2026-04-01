@@ -1,6 +1,6 @@
-Character	Character Label	State Symbol	State Label
-33	Pterygoid process	0	triradiate with distinct anterolateral and posterolateral processes
-33	Pterygoid process	1	with an additional distinct anteromedial process
-33	Pterygoid process	2	boomerang-shaped with distinct anteromedial and posterolateral pr
-33	Pterygoid process	3	bar-like/vestigial
-33	Pterygoid process	4	absent
+Character	Character Label	State Symbol	State Label	Paper_PDF
+33	Pterygoid process	0	triradiate with distinct anterolateral and posterolateral processes	Skutschas_Gubin_2012.pdf
+33	Pterygoid process	1	with an additional distinct anteromedial process	Skutschas_Gubin_2012.pdf
+33	Pterygoid process	2	boomerang-shaped with distinct anteromedial and posterolateral pr	Skutschas_Gubin_2012.pdf
+33	Pterygoid process	3	bar-like/vestigial	Skutschas_Gubin_2012.pdf
+33	Pterygoid process	4	absent	Skutschas_Gubin_2012.pdf

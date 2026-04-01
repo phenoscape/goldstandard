@@ -1,4 +1,4 @@
-Character	Character Label	State Symbol	State Label
-1	Dentition, replacement (E85)	0	develop lingually, large resorption pit
-1	Dentition, replacement (E85)	1	posterolingually, resorption pit
-1	Dentition, replacement (E85)	2	posterolingually, no resorption pit
+Character	Character Label	State Symbol	State Label	Paper_PDF
+1	Dentition, replacement (E85)	0	develop lingually, large resorption pit	Conrad_2008.pdf
+1	Dentition, replacement (E85)	1	posterolingually, resorption pit	Conrad_2008.pdf
+1	Dentition, replacement (E85)	2	posterolingually, no resorption pit	Conrad_2008.pdf

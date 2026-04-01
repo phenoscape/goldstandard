@@ -1,4 +1,4 @@
-Character	Character Label	State Symbol	State Label
-142	Interpterygoid vacuity length	0	short; less than 15% of skull length
-142	Interpterygoid vacuity length	1	absent
-142	Interpterygoid vacuity length	2	long; at least 15% of skull length
+Character	Character Label	State Symbol	State Label	Paper_PDF
+142	Interpterygoid vacuity length	0	short; less than 15% of skull length	Hill_2005.pdf
+142	Interpterygoid vacuity length	1	absent	Hill_2005.pdf
+142	Interpterygoid vacuity length	2	long; at least 15% of skull length	Hill_2005.pdf

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Research analysis pipeline for evaluating phenotype annotation quality. Compares curator-generated annotations against a Gold Standard (GS) and CharaParser (automated tool) using ontology-based semantic similarity metrics (SimJ, NIC, Partial Precision, Partial Recall).
+Research analysis pipeline for evaluating phenotype annotation quality. Compares curator-generated annotations against a Gold Standard (GS) and CharaParser (automated tool) using ontology-based semantic similarity metrics (SimJ, NIC, Partial Precision, Partial Recall). The original publication for this work is in paper/Annotation_of_phenotypes_using_ontologies_a_gold_standard_for_the_training_and_evaluation_of_natural_language_processing_systems_Database.pdf
 
 Three curators (WD, AD, NI) each annotated in two rounds: Naive Round (NR) and Knowledge Round (KR). Python 2 is used for analysis scripts, R for visualization, Java for ontology reasoning.
 

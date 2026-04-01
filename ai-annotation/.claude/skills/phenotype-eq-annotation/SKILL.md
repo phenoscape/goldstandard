@@ -8,6 +8,76 @@ description: Annotate a single character's states with EQ (Entity-Quality) pheno
 Annotate the character states in a given input file with Entity-Quality (EQ)
 statements, producing a TSV output file.
 
+## Background
+
+### The EQ Model
+
+Each phenotype annotation is an EQ statement with up to three components:
+
+- **Entity (E):** The anatomical structure (from UBERON, BSPO, or GO)
+- **Quality (Q):** The phenotypic property (from PATO)
+- **Related Entity (RE):** A second anatomical structure for relational qualities (optional)
+
+A single character state may require **multiple EQ rows** to fully capture its
+phenotype. For example, "round and multicuspidate teeth" requires two rows:
+one for round, one for multicuspidate.
+
+### Ontology Sources
+
+- **UBERON** — anatomy (structures, bones, organs, regions)
+- **PATO** — phenotypic qualities (shape, size, position, presence/absence, etc.)
+- **BSPO** — biological spatial terms (regions, surfaces, sides, spatial relations)
+- **GO** — Gene Ontology (biological processes only, used rarely)
+
+The ontologies are provided in OBO format in `input/ontologies/`. Search them
+using grep or read to find appropriate terms.
+
+### Conventions
+
+1. **Specificity:** Always use the most specific ontology term available
+2. **Singular form:** Use `'basihyal tooth'` not `'basihyal teeth'`
+3. **Inferred presence:** Do not annotate presence when other qualities imply it
+   (e.g., "round frontal bone" only needs `Q: round`, not a separate `Q: present` row)
+4. **Absence:** Use `PATO:0000462 absent` / **Presence:** Use `PATO:0000467 present`
+5. **Negation:** Use `Q_parent and (PHENOSCAPE:complement_of some Q_specific)`;
+   in labels write `not` for `complement_of`
+6. **No obsolete terms:** Check `is_obsolete: true` in OBO stanzas — never use these
+7. **Skeletal convention:** Assume "bone" unless "cartilage" is explicitly stated
+8. **Polymorphic states:** "reduced or absent" gets two separate EQ rows
+9. **Unannotatable states:** If a state has no meaningful phenotype description
+   (e.g., "State 4"), include it in the output with empty EQ columns
+10. **Prefer existing terms:** Strongly prefer terms already in the ontology.
+    If no suitable term exists, note it in proposed_terms.txt
+
+### Post-Composition Syntax
+
+Use **OWL Manchester syntax** for post-composed expressions:
+
+```
+<genus_ID> and (<relation_ID> some <differentia_ID>)
+```
+
+The label form mirrors the structure exactly:
+
+- ID:    `BSPO:0000066 and (BFO:0000050 some UBERON:0002397)`
+- Label: `'anterior region' and (part_of some maxilla)`
+
+**Label conventions:**
+- Single-word labels are unquoted: `position`, `absent`, `maxilla`
+- Multi-word labels are single-quoted: `'anterior region'`, `'increased size'`
+- Relation labels in expressions are always unquoted: `part_of some`, `not some`
+
+**Nesting** for spatial refinement (e.g., "anterior process of the maxilla"):
+```
+<projection_ID> and (BFO:0000050 some (<anterior_region_ID> and (BFO:0000050 some <maxilla_ID>)))
+```
+
+### Reference
+
+For detailed annotation patterns (size comparisons, spatial refinement with BSPO,
+complementary phenotypes, bilaterally paired structures, etc.), read the full
+annotation guide at `input/annotation_guide.md`.
+
 ## Inputs
 
 You will be given:
@@ -15,7 +85,9 @@ You will be given:
 - An output file path for the results
 - The ontology files to use (in `input/ontologies/`)
 
-The input file has 4 columns: Character, Character Label, State Symbol, State Label.
+The input file has 5 columns: Character, Character Label, State Symbol, State Label, Paper_PDF.
+The `Paper_PDF` column contains the filename of the source publication in
+`input/papers/` (e.g., `Conrad_2008.pdf`).
 
 ## Procedure
 
@@ -28,6 +100,10 @@ Read the character label and state label. Identify:
 - What quality or property is being described?
 - Is there a relationship between two structures?
 - Is this presence/absence, shape, size, position, fusion, or another quality type?
+
+If the character or state description is ambiguous or uses unfamiliar
+terminology, you may consult the source publication PDF (listed in the
+`Paper_PDF` column) at `input/papers/<filename>` for additional context.
 
 ### Step 2: Find Entity terms
 
@@ -71,7 +147,7 @@ For each candidate term, read the full `[Term]` stanza and evaluate:
 
 If the entity requires spatial refinement (e.g., "anterior process of the
 maxilla"), build a post-composed expression using BSPO region terms and
-`BFO:0000050` (part_of).
+`BFO:0000050` (part_of). See the Post-Composition Syntax section above.
 
 ### Step 3: Find Quality terms
 
@@ -80,6 +156,27 @@ Search `pato.obo` for the quality being described. Common patterns:
 - Shape words (round, triangular, etc.) → search PATO by keyword
 - Size words (large, small, elongated) → search PATO
 - Relational qualities (fused, in contact, separated) → search PATO
+
+**Common PATO terms for quick reference:**
+
+| Quality | ID | When to use |
+|---------|----|-------------|
+| present | PATO:0000467 | Entity exists |
+| absent | PATO:0000462 | Entity does not exist |
+| fused with | PATO:0000642 | Two structures merged (relational) |
+| separated from | PATO:0001505 | Two structures not touching (relational) |
+| in contact with | PATO:0001961 | Two structures touching (relational) |
+| attached to | PATO:0001667 | Physical attachment (relational) |
+| increased size | PATO:0000586 | Larger than typical |
+| decreased size | PATO:0000587 | Smaller than typical |
+| increased length | PATO:0000573 | Longer than typical |
+| decreased length | PATO:0000574 | Shorter than typical |
+| position | PATO:0000140 | General positional quality |
+| located in | PATO:0002261 | Located within another structure (relational) |
+| anterior to | PATO:0001632 | Positional (relational) |
+| posterior to | PATO:0001633 | Positional (relational) |
+| shape | PATO:0000052 | General shape (use when no specific child applies) |
+| amount | PATO:0000070 | Count/number |
 
 For PATO terms too, read definitions and synonyms to choose the most appropriate
 quality. For example, "deep" might mean `increased depth` or `increased width`
@@ -140,3 +237,9 @@ Before writing output, verify:
 3. Post-composed expressions use correct Manchester syntax with matching parentheses
 4. No obsolete terms are used
 5. Relational qualities have a Related Entity; non-relational qualities do not
+
+## Completion Report
+
+After writing the output file, report only: the output file path, the number of
+rows written, and any errors or proposed terms. Do not repeat or summarize the
+annotations themselves.

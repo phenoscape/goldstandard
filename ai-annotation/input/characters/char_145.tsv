@@ -1,5 +1,5 @@
-Character	Character Label	State Symbol	State Label
-145	Maxillary tooth crown shape	0	recurved
-145	Maxillary tooth crown shape	1	conical
-145	Maxillary tooth crown shape	2	peg-like
-145	Maxillary tooth crown shape	3	leaf-like
+Character	Character Label	State Symbol	State Label	Paper_PDF
+145	Maxillary tooth crown shape	0	recurved	Hill_2005.pdf
+145	Maxillary tooth crown shape	1	conical	Hill_2005.pdf
+145	Maxillary tooth crown shape	2	peg-like	Hill_2005.pdf
+145	Maxillary tooth crown shape	3	leaf-like	Hill_2005.pdf

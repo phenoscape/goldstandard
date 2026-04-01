@@ -3,14 +3,13 @@
 This workspace is for annotating morphological character states with
 Entity-Quality (EQ) phenotype annotations using ontology terms.
 
-## Available Agent and Skill
+## Available Skill
 
-- **biocurator** agent — specialized for EQ annotation using UBERON, PATO, BSPO, and GO
-- **phenotype-eq-annotation** skill — procedure for annotating a single character file
+- **phenotype-eq-annotation** skill — annotate a single character file with EQ statements using UBERON, PATO, BSPO, and GO
 
 ## Key Resources
 
-- `input/characters/` — per-character input files (one per character, 203 total)
+- `input/characters/` — per-character input files (one character with multiple states in one file)
 - `input/ontologies/` — ontology files in OBO format for term lookup
 - `input/annotation_guide.md` — detailed reference for annotation patterns and conventions
 

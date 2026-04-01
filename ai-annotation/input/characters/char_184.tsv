@@ -1,5 +1,5 @@
-Character	Character Label	State Symbol	State Label
-184	MAN dentary, body, inferior edge, shape in lateral view	0	straight
-184	MAN dentary, body, inferior edge, shape in lateral view	1	concave
-184	MAN dentary, body, inferior edge, shape in lateral view	2	convex
-184	MAN dentary, body, inferior edge, shape in lateral view	3	concavoconvex
+Character	Character Label	State Symbol	State Label	Paper_PDF
+184	MAN dentary, body, inferior edge, shape in lateral view	0	straight	OLeary_etal_2013.pdf
+184	MAN dentary, body, inferior edge, shape in lateral view	1	concave	OLeary_etal_2013.pdf
+184	MAN dentary, body, inferior edge, shape in lateral view	2	convex	OLeary_etal_2013.pdf
+184	MAN dentary, body, inferior edge, shape in lateral view	3	concavoconvex	OLeary_etal_2013.pdf
