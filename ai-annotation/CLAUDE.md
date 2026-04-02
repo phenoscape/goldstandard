@@ -12,6 +12,7 @@ Entity-Quality (EQ) phenotype annotations using ontology terms.
 - `input/characters/` — per-character input files (one character with multiple states in one file)
 - `input/ontologies/` — ontology files in OBO format for term lookup
 - `input/annotation_guide.md` — detailed reference for annotation patterns and conventions
+- `input/papers` — source publications for characters being annotated
 
 ## Important Constraints
 
