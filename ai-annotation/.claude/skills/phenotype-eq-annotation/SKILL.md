@@ -105,9 +105,18 @@ Read the character label and state label. Identify:
 - Is there a relationship between two structures?
 - Is this presence/absence, shape, size, position, fusion, or another quality type?
 
-If the character or state description is ambiguous or uses unfamiliar
-terminology, you may consult the source publication PDF (listed in the
-`Paper_PDF` column) at `input/papers/<filename>` for additional context.
+**Read the source publication.** Character descriptions are often abbreviations
+that require context about the study organism, anatomical system, and taxonomic
+scope. Before annotating, read the publication PDF (listed in the `Paper_PDF`
+column) at `input/papers/<filename>`. Pay attention to:
+
+- The methods section for what organism group and anatomical system is studied
+- Figures and figure legends showing the structures being described
+- The character list introduction explaining any conventions used
+- Any character state descriptions that elaborate on the terse labels
+
+Many annotation errors trace to not understanding what the character is asking
+about. A few minutes reading the paper prevents wrong entity/quality choices.
 
 ### Step 2: Find Entity terms
 
@@ -144,15 +153,83 @@ For each candidate term, read the full `[Term]` stanza and evaluate:
    understanding the term's position in the hierarchy and finding more specific
    alternatives
 
+**Term search hierarchy — before creating any TEMP ID, exhaust these in order:**
+
+1. **Exact label:** `grep -i "^name: .*keyword" input/ontologies/*.obo`
+2. **Synonyms:** `grep -i -B5 'synonym:.*"keyword"' input/ontologies/*.obo`
+3. **Alternate spellings:** Try `-ate`/`-ous`/`-iform` suffixes, hyphenated vs
+   unhyphenated, singular vs plural (e.g., `unicuspid` → `unicuspidate`,
+   `boomerang-shaped` → `boomerang shaped`)
+4. **Definition search:** `grep -i -A1 'def:.*keyword' input/ontologies/*.obo`
+5. **Post-compose from existing terms:** e.g., `'sesamoid bone' and (part_of some
+'tarsal skeleton')` instead of a TEMP `intertarsal sesamoid`
+6. **Most specific subsuming parent + relation:** If no exact term exists, use the
+   most specific parent that subsumes the intended concept, post-composed with
+   relations if needed. E.g., `'vertebral element' and (posterior_to some
+'vertebral bone 1')` for "postatlantal vertebra".
+7. **TEMP ID (absolute last resort):** Only after exhausting all above options.
+
+**Note about approximation:** A most-specific subsuming parent term
+can produce a produce meaningful annotation. A sibling or neighbor term is WORSE than a parent
+because it may introduce incorrect ancestors. A TEMP ID is worst of all — it
+adds no semantics because it has no ontological relationships.
+
 **Choosing between candidate terms:** When multiple terms could fit:
 
 - Prefer the more specific term (a child over a parent)
 - Check definitions to distinguish terms with similar names
 - Consider the taxonomic scope — some UBERON terms are specific to certain clades
 
-If the entity requires spatial refinement (e.g., "anterior process of the
-maxilla"), build a post-composed expression using BSPO region terms and
-`BFO:0000050` (part_of). See the Post-Composition Syntax section above.
+**Surface features as qualities, not entities:** When a character describes a
+surface feature or texture (pitting, tuberculation, tooth-like projections,
+ridging), model it as a **quality of the bearer entity**, not as a separate
+sub-entity that is present/absent. Examples:
+
+- "neurovascular pitting on beak" → Entity: `beak`, Quality: `foveate`
+- "toothed plate of clasper" → Entity: `clasper`, Quality: `dentated`
+- "basal bulb on hair shaft" → Entity: `'proximal region' and (part_of some 'hair shaft')`, Quality: `swollen`
+
+**Entity specification with part_of:** If the entity requires spatial refinement
+(e.g., "anterior process of the maxilla"), build a post-composed expression
+using BSPO region terms and `BFO:0000050` (part_of). See the Post-Composition
+Syntax section above.
+
+**Spatial post-composition checklist:** When a character includes spatial
+qualifiers, they MUST be reflected in the Entity post-composition. The examples
+below show the **Label** form; the ID form mirrors the structure exactly with
+CURIEs in place of labels (see Post-Composition Syntax above).
+
+- **"in female/male"** → add `part_of some 'female organism'` /
+  `part_of some 'male organism'`
+- **"left/right X"** or fusion of paired structures → use
+  `in_left_side_of` / `in_right_side_of` with `'whole organism'` or the
+  appropriate parent structure
+- **"vertebra 1 and 2"** → separate rows with `part_of` each specific vertebra
+- **"dorsal margin of X"** → `'dorsal margin' and (part_of some X)`,
+  not just `X`
+- **"anterior region of X"** → `'anterior region' and (part_of some X)`
+- **Two-level nesting** (e.g., "fossa on dorsal surface of phalanx") →
+  `'bone fossa' and (part_of some ('dorsal region' and (part_of some phalanx)))`
+
+**Relation choice guide:** Do not default to `part_of` for all post-compositions.
+Choose the biologically appropriate relation:
+
+- `attaches_to` (RO:0002371) — teeth on jaws/toothplates, ligaments on bones
+- `adjacent_to` (RO:0002220) — proximity (replacement tooth near target position)
+- `connected_to` (RO:0002170) — articular connections between bones
+- `connects` (RO:0002176) — ternary: joint connects bone1, joint connects bone2
+- `continuous_with` (RO:0002150) — structures sharing a boundary without separation
+- `posterior_to` (BSPO:0000099) / `anterior_to` (BSPO:0000096) — serial homologs
+  (vertebral position relative to another vertebra)
+- `part_of` (BFO:0000050) — ONLY for true mereological containment (a structure
+  physically contained within another)
+
+**OBO Typedef relation IDs:** OBO Typedef stanzas define relations with shortname
+IDs (e.g., `part_of`, `attaches_to`). Many have an `xref:` field pointing to a
+standard CURIE (e.g., `xref: BFO:0000050`). In annotation output, **always use
+the CURIE from the xref**, never the shortname. This applies only to relations,
+not class terms. The relations table in `input/annotation_guide.md` lists the
+correct CURIEs for each relation.
 
 ### Step 3: Find Quality terms
 
@@ -188,16 +265,67 @@ For PATO terms too, read definitions and synonyms to choose the most appropriate
 quality. For example, "deep" might mean `increased depth` or `increased width`
 depending on anatomical context.
 
-For negation ("not round"), use the complement pattern:
-`PATO:0000052 and (PHENOSCAPE:complement_of some PATO:0000411)`
+**Relational qualities vs present/absent:** When a character describes a
+_relationship between two structures_ (fusion, contact, attachment,
+articulation), use the appropriate relational quality with a Related Entity.
+**Never** model a relationship as present/absent of a combined structure.
+
+- "sacral vertebra attached to ilium" → Q: `attached to`, RE: `ilium`
+  (NOT: Entity: `sacral vertebra`, Q: `present`)
+- "left and right puboischiadic bars fused" → Q: `fused with`, RE: right bar
+  (NOT: Entity: `fused puboischiadic bar`, Q: `present`)
+
+Use `PATO:0000462 absent` / `PATO:0000467 present` **only** when an entire
+discrete anatomical structure is truly present or absent.
+
+**Complement_of negation pattern:** When a character has states like "quality X
+present" / "quality X absent" where X is a specific quality (not a structure):
+
+- The "present" state uses the specific quality directly
+- The "absent" state uses: `Q_PARENT and (PHENOSCAPE:complement_of some Q_SPECIFIC)`
+- In the Label column, write `not` for `complement_of`
+
+Examples (showing Label form):
+
+| State                                    | Quality ID                                                      | Quality Label                              |
+| ---------------------------------------- | --------------------------------------------------------------- | ------------------------------------------ |
+| "extends beyond caudal peduncle"         | `PATO:0002464`                                                  | `'extends beyond'`                         |
+| "does not extend beyond caudal peduncle" | `PATO:0000140 and (PHENOSCAPE:complement_of some PATO:0002464)` | `position and (not some 'extends beyond')` |
+| "semicircular pelvic plate"              | `PATO:0000411`                                                  | `semicircular`                             |
+| "not semicircular pelvic plate"          | `PATO:0000052 and (PHENOSCAPE:complement_of some PATO:0000411)` | `shape and (not some semicircular)`        |
+
+Reserve simple `PATO:0000462 absent` only for when an entire anatomical
+structure is absent, not for the absence of a quality.
+
+**Magnitude-relative-to pattern:** When a character explicitly compares two
+measurable properties (e.g., "longer than wide", "height exceeds length"), use
+the `increased_in_magnitude_relative_to` pattern to encode the comparison
+target. Do NOT substitute a simpler quality like `elongated`. Example:
+
+- "gill raker longer than wide" →
+  - Quality ID: `PATO:0000122 and (PATO:0002305 some (PATO:0000921 and (BFO:0000052 some UBERON:0011323)))`
+  - Quality Label: `length and (increased_in_magnitude_relative_to some (width and (inheres_in some 'gill raker')))`
 
 ### Step 4: Determine if Related Entity is needed
 
 Relational qualities (fused with, anterior to, in contact with, etc.) require
 a Related Entity. Check the quality's definition in PATO — if it describes a
-relationship between two things, you need an RE.
+relationship between two things, you need an RE. **Qualities in PATO's
+`relational_slim` subset always require a Related Entity.** The validation
+script will flag missing REs for relational qualities.
 
 ### Step 5: Write the EQ row(s)
+
+**Each distinct phenotypic aspect = a separate EQ row.** When a state description
+contains multiple phenotypic adjectives, multiple referenced structures, or a
+compound description, decompose it fully. A good heuristic: if the state
+mentions N structures and M qualities, expect at least N × M rows. Examples:
+
+- "trifid processus ventralis on T1 and T2" → rows for each vertebra × each
+  process feature (4+ rows)
+- "elongated and narrow gill raker" → one row for elongated, one for narrow
+- "triradiate with distinct anterolateral and posterolateral processes" →
+  rows for triradiate shape + each process presence
 
 Produce one or more TSV rows per state. Each row has 10 columns:
 
@@ -245,9 +373,31 @@ Before writing output, verify:
 3. Post-composed expressions use correct Manchester syntax with matching parentheses
 4. No obsolete terms are used
 5. Relational qualities have a Related Entity; non-relational qualities do not
+6. Every row has exactly 10 tab-separated columns (including empty trailing columns)
+
+## Step 7: Validate and Correct
+
+After writing all output files:
+
+1. **Verify all files were written** — confirm the output file exists and is not empty
+2. **Run the validation script:**
+
+```bash
+scala-cli run scripts/validate_annotations.scala -- <output_file.tsv>
+```
+
+3. **Fix all errors** reported by the validator (unknown IDs, label mismatches,
+   malformed syntax, missing Related Entities for relational qualities, wrong
+   column count)
+4. **Re-run the validator** until it reports zero errors. Warnings may be
+   acceptable but review them to confirm they are intentional.
+
+The validator checks all IDs against the ontology, parses Manchester syntax
+expressions, verifies ID/label correspondence, and flags relational quality
+issues. It catches the most common annotation mistakes automatically.
 
 ## Completion Report
 
-After writing the output file, report only: the output file path, the number of
-rows written, and any errors or proposed terms. Do not repeat or summarize the
-annotations themselves.
+After writing the output file and passing validation, report only: the output
+file path, the number of rows written, the validation result, and any errors or
+proposed terms. Do not repeat or summarize the annotations themselves.

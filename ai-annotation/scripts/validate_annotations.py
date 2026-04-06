@@ -71,9 +71,15 @@ KNOWN_RELATION_IDS = {
     "UBERON:has_muscle_insertion": "has_muscle_insertion",
 }
 
-# Pattern to extract CURIEs from Manchester syntax expressions
-# Handles standard numeric IDs (UBERON:0001424) and non-numeric IDs (PHENOSCAPE:complement_of)
-CURIE_PATTERN = re.compile(r"[A-Z_]+:[A-Za-z_]\w*|[A-Z_]+:\d+")
+# Pattern to extract CURIEs from Manchester syntax expressions.
+# Supports:
+# - standard numeric IDs: UBERON:0001424
+# - named relation IDs: PHENOSCAPE:complement_of
+# - provisional UUID-like IDs used in local OBOs: UBERONTEMP:a8fd6c8c-5029-4740-8e0c-99856641de75
+#
+# The local part must start with an alphanumeric or underscore and may contain
+# letters, digits, underscores, and hyphens after that.
+CURIE_PATTERN = re.compile(r"[A-Z_]+:[A-Za-z0-9_][A-Za-z0-9_-]*")
 
 # Pattern to extract labels from label expressions
 # Labels are either single unquoted words or single-quoted multi-word strings

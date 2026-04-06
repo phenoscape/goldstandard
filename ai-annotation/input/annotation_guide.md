@@ -384,9 +384,10 @@ The composition order matters for non-symmetric relationships.
 | has_part (BFO:0000051) | mereological | E and (has_part some E2) |
 | bearer_of (BFO:0000053) | quality | E and (bearer_of some Q) |
 | inheres_in (BFO:0000052) | quality | Q and (inheres_in some E) |
-| connects (RO:0002150) | connectedness | joint and (connects some E1) and (connects some E2) |
-| attaches_to (RO:0002220) | connectedness | E and (attaches_to some E2) |
-| connected_to | connectedness | E and (connected_to some E2) |
+| connects (RO:0002176) | connectedness | joint and (connects some E1) and (connects some E2) |
+| connected_to (RO:0002170) | connectedness | E and (connected_to some E2) |
+| continuous_with (RO:0002150) | connectedness | E and (continuous_with some E2) |
+| attaches_to (RO:0002371) | connectedness | E and (attaches_to some E2) |
 | anteriorly_connected_to | connectedness | E and (anteriorly_connected_to some E2) |
 | posteriorly_connected_to | connectedness | E and (posteriorly_connected_to some E2) |
 | distally_connected_to | connectedness | E and (distally_connected_to some E2) |
@@ -395,13 +396,13 @@ The composition order matters for non-symmetric relationships.
 | has_muscle_insertion | muscle | muscle and (has_muscle_insertion some E) |
 | has_muscle_origin | muscle | muscle and (has_muscle_origin some E) |
 | serves_as_attachment_site_for | muscle | E and (serves_as_attachment_site_for some muscle) |
-| adjacent_to (BSPO:0000096) | spatial | E and (adjacent_to some E2) |
-| anterior_to (BSPO:0000098) | spatial | E and (anterior_to some E2) |
+| adjacent_to (RO:0002220) | spatial | E and (adjacent_to some E2) |
+| anterior_to (BSPO:0000096) | spatial | E and (anterior_to some E2) |
 | posterior_to (BSPO:0000099) | spatial | E and (posterior_to some E2) |
-| dorsal_to (BSPO:0000120) | spatial | E and (dorsal_to some E2) |
-| ventral_to (BSPO:0000121) | spatial | E and (ventral_to some E2) |
-| in_left_side_of (BSPO:0000102) | spatial | E and (in_left_side_of some E2) |
-| in_right_side_of (BSPO:0000103) | spatial | E and (in_right_side_of some E2) |
+| dorsal_to (BSPO:0000098) | spatial | E and (dorsal_to some E2) |
+| ventral_to (BSPO:0000102) | spatial | E and (ventral_to some E2) |
+| in_left_side_of (BSPO:0000120) | spatial | E and (in_left_side_of some E2) |
+| in_right_side_of (BSPO:0000121) | spatial | E and (in_right_side_of some E2) |
 | distal_to | spatial | E and (distal_to some E2) |
 | encloses | spatial | E and (encloses some E2) |
 | surrounds | spatial | E and (surrounds some E2) |

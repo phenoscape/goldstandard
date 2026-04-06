@@ -14,6 +14,18 @@ Entity-Quality (EQ) phenotype annotations using ontology terms.
 - `input/annotation_guide.md` — detailed reference for annotation patterns and conventions
 - `input/papers` — source publications for characters being annotated
 
+## Validation
+
+After producing annotation output, run the structural validator:
+
+```bash
+scala-cli run scripts/validate_annotations.scala -- <output_file.tsv>
+```
+
+This checks: column count, CURIE existence in ontologies, label correctness,
+Manchester syntax parsing, obsolete terms, and relational quality / Related
+Entity consistency. Fix all errors before considering the annotation complete.
+
 ## Important Constraints
 
 - Do not look at files outside this workspace.
