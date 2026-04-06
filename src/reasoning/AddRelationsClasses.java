@@ -23,13 +23,13 @@ public class AddRelationsClasses {
 	{
 		
 		
-		File file=new File( "../../Ontologies/MergedOntology_GS.owl");
-		File outputfile = new File("../../Ontologies/MergedOntology_GS_Relations.owl");
+		File file=new File( "../Ontologies/MergedOntology_GS.owl");
+		File outputfile = new File("../Ontologies/MergedOntology_GS_Relations.owl");
 		String base="http://purl.obolibrary.org/obo/";
-		
+
 		OWLOntologyManager manager = OWLManager.createOWLOntologyManager();
 	    OWLDataFactory factory = manager.getOWLDataFactory();
-	    String objectpropertyfile="../../data/PropertiesInData.txt";
+	    String objectpropertyfile="../data/PropertiesInData.txt";
 	    
 	    BufferedReader reader = null;
 	    reader = new BufferedReader(new FileReader(objectpropertyfile));

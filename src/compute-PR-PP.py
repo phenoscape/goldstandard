@@ -161,11 +161,22 @@ def C3_GS():
 	infile="../data/CombinedComparisons/PerEQ_NR--NI_40676--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
 	print("C3 GS Naive PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
-	
+
 	infile="../data/CombinedComparisons/PerEQ_KR--NI_40716--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
 	print("C3 GS Knowledge PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
-	
+
+
+def AI_GS():
+	# PP and PR similarity between Claude and GS
+	infile="../data/CombinedComparisons/PerEQ_AI--Claude_46--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("Claude vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+
+	# PP and PR similarity between GPT and GS
+	infile="../data/CombinedComparisons/PerEQ_AI--GPT_54--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("GPT vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 
 
 def main():
@@ -173,6 +184,7 @@ def main():
 	C1_GS()
 	C2_GS()
 	C3_GS()
+	AI_GS()
 	
 if __name__ == "__main__":
 	import operator

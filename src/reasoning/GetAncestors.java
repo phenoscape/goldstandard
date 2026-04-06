@@ -143,14 +143,18 @@ public class GetAncestors
        {
            System.out.println("In nestedids");
 
+           try {
            String ancestors= dlQueryPrinter.askQuery(classExpression.trim());
         	if (ancestors.trim().length() == 0 || ancestors.trim().equalsIgnoreCase(",owl:Thing"))
 				{
         		System.out.println("No Ancestors Found"+ classExpression + "\t" +"\n");
-        		
+
 				}
-        	
+
         	parseAncestor(ancestors,classExpression, printWriter);
+           } catch (ParserException e) {
+        	System.out.println("Parse error (skipping): " + classExpression + " - " + e.getMessage());
+           }
        }
 	   
 	   
