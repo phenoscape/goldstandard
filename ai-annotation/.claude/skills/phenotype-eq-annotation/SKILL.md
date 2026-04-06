@@ -194,6 +194,16 @@ sub-entity that is present/absent. Examples:
 using BSPO region terms and `BFO:0000050` (part_of). See the Post-Composition
 Syntax section above.
 
+**Avoid redundant post-composition.** If a relationship is already implied by
+an ontology term's classification, do not re-state it. For example, `frontal
+bone` is already classified as `part_of some cranium` in UBERON — writing
+`'frontal bone' and (part_of some cranium)` adds nothing. Post-compose only
+when the context is not already captured by the chosen term. Contrast this with
+a generic term like `'anatomical projection'`, which could refer to a process
+on many different bones — here, `'anatomical projection' and (part_of some
+maxilla)` is informative because the ontology term alone does not specify which
+bone bears the projection.
+
 **Spatial post-composition checklist:** When a character includes spatial
 qualifiers, they MUST be reflected in the Entity post-composition. The examples
 below show the **Label** form; the ID form mirrors the structure exactly with
