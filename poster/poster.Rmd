@@ -23,6 +23,15 @@ output:
 bibliography: references.bib
 ---
 
+```{css, echo=FALSE}
+h2 {
+  border-left: 5px solid #2980b9;
+  padding-left: 0.5em;
+  margin-top: 0.8em;
+  font-variant: small-caps;
+}
+```
+
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(
   echo = FALSE,
@@ -99,30 +108,102 @@ High precision with low recall indicates the annotator produced correct but inco
 
 We extend the original study by introducing AI agent annotators (Claude 4.6 and GPT 5.4) as additional participants, evaluated using the same metrics and Gold Standard. Like the human curators, the AI agents annotated in two rounds, enabling direct comparison across all annotator types.
 
+## Agent Skills
+
+<!-- TODO: Describe the skill/prompt design used to guide AI agents in annotation -->
+
+## Annotating with Fully Local Agents
+
+<!-- TODO: Fill in details about local model annotation attempts -->
+
+Attempts to annotate using local on-laptop models were so far unsuccessful.
+
 # Results
 
-<!-- Replace these placeholder sections with your actual results -->
+```{r load-data, include=FALSE}
+library(ggplot2)
+library(reshape2)
 
-## Semantic Similarity
+datadir <- "../data/CombinedComparisons"
 
-```{r simj-plot, fig.cap="SimJ scores across curators and rounds.", fig.height=5}
-# TODO: Add your SimJ figure here
-# e.g., source("../src/figure3.R") or load saved plot objects
-plot.new()
-text(0.5, 0.5, "SimJ Figure Placeholder", cex = 1.5)
+# Helper: load one annotator's scores vs GS into a data frame
+load_scores <- function(label, type, sim_file, pp_file, pr_file) {
+  sim <- read.table(file.path(datadir, sim_file), header = TRUE, sep = "\t")
+  pp  <- read.table(file.path(datadir, pp_file),  header = TRUE, sep = "\t")
+  pr  <- read.table(file.path(datadir, pr_file),  header = TRUE, sep = "\t")
+  data.frame(
+    Annotator = label,
+    Type = type,
+    SimJ = sim$SimJ.Score,
+    NIC  = sim$NIC.Score,
+    PP   = pp$SimJ.Partial.Precision,
+    PR   = pr$SimJ.Partial.Recall
+  )
+}
+
+# ---- Human curators vs GS ----
+scores <- rbind(
+  load_scores("WD Naive",      "Human", "NR--WD_38484--GS_Dataset.tsv",  "PP_NR--WD_38484--GS_Dataset.tsv",  "PR_NR--WD_38484--GS_Dataset.tsv"),
+  load_scores("WD Knowledge",  "Human", "KR--WD_40717--GS_Dataset.tsv",  "PP_KR--WD_40717--GS_Dataset.tsv",  "PR_KR--WD_40717--GS_Dataset.tsv"),
+  load_scores("AD Naive",      "Human", "NR--AD_40674--GS_Dataset.tsv",  "PP_NR--AD_40674--GS_Dataset.tsv",  "PR_NR--AD_40674--GS_Dataset.tsv"),
+  load_scores("AD Knowledge",  "Human", "KR--AD_40718--GS_Dataset.tsv",  "PP_KR--AD_40718--GS_Dataset.tsv",  "PR_KR--AD_40718--GS_Dataset.tsv"),
+  load_scores("NI Naive",      "Human", "NR--NI_40676--GS_Dataset.tsv",  "PP_NR--NI_40676--GS_Dataset.tsv",  "PR_NR--NI_40676--GS_Dataset.tsv"),
+  load_scores("NI Knowledge",  "Human", "KR--NI_40716--GS_Dataset.tsv",  "PP_KR--NI_40716--GS_Dataset.tsv",  "PR_KR--NI_40716--GS_Dataset.tsv"),
+
+  # ---- SCP (CharaParser) vs GS ----
+  load_scores("SCP Best",      "SCP",   "Transformed_CP_best--GS_Dataset.tsv", "PP_Transformed_CP_best--GS_Dataset.tsv", "PR_Transformed_CP_best--GS_Dataset.tsv"),
+
+  # ---- AI agents vs GS ----
+  load_scores("Claude 4.6",    "AI",    "AI--Claude_46_R2--GS_Dataset.tsv",  "PP_AI--Claude_46_R2--GS_Dataset.tsv",  "PR_AI--Claude_46_R2--GS_Dataset.tsv"),
+  load_scores("GPT 5.4",       "AI",    "AI--GPT_54_R2--GS_Dataset.tsv",     "PP_AI--GPT_54_R2--GS_Dataset.tsv",     "PR_AI--GPT_54_R2--GS_Dataset.tsv")
+  # ---- Add new agent curators here ----
+)
+
+# Melt to long format
+scores_long <- melt(scores, id.vars = c("Annotator", "Type"),
+                    variable.name = "Metric", value.name = "Score")
+
+# Compute mean and 95% CI per annotator per metric
+library(plyr)
+score_summary <- ddply(scores_long, .(Annotator, Type, Metric), summarise,
+                       Mean = mean(Score, na.rm = TRUE),
+                       SE   = sd(Score, na.rm = TRUE) / sqrt(sum(!is.na(Score))),
+                       Lower = Mean - 1.96 * SE,
+                       Upper = Mean + 1.96 * SE)
+
+# Order annotators logically
+annotator_order <- c(
+  "WD Naive", "WD Knowledge",
+  "AD Naive", "AD Knowledge",
+  "NI Naive", "NI Knowledge",
+  "SCP Best",
+  "Claude 4.6",
+  "GPT 5.4"
+)
+score_summary$Annotator <- factor(score_summary$Annotator, levels = rev(annotator_order))
+
+# Compute human curator mean per metric for reference lines
+human_means <- ddply(score_summary[score_summary$Type == "Human", ], .(Metric), summarise,
+                     HumanMean = mean(Mean))
 ```
 
-## Partial Precision and Recall
-
-```{r pr-pp-plot, fig.cap="Partial Precision and Partial Recall by curator and round.", fig.height=5}
-# TODO: Add your PP/PR figure here
-plot.new()
-text(0.5, 0.5, "PP/PR Figure Placeholder", cex = 1.5)
+```{r results-figure, fig.cap="Mean similarity scores (with 95% CI) for each annotator vs. the Gold Standard, across four metrics. Dashed line indicates the human curator mean.", fig.height=7, fig.width=10}
+ggplot(score_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) +
+  geom_vline(data = human_means, aes(xintercept = HumanMean),
+             linetype = "dashed", color = "grey50", linewidth = 0.5) +
+  geom_point(size = 3) +
+  geom_errorbarh(aes(xmin = Lower, xmax = Upper), height = 0.2) +
+  facet_wrap(~ Metric, nrow = 1) +
+  scale_color_manual(values = c("Human" = "#2c3e50", "SCP" = "#e67e22", "AI" = "#2980b9")) +
+  scale_x_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1), limits = c(0, 1)) +
+  labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
+  theme_minimal(base_size = 14) +
+  theme(
+    legend.position = "top",
+    strip.text = element_text(face = "italic", size = 14),
+    panel.grid.minor = element_blank()
+  )
 ```
-
-## Statistical Tests
-
-<!-- TODO: Add summary of Wilcoxon signed-rank test results -->
 
 # Discussion
 
@@ -132,4 +213,10 @@ text(0.5, 0.5, "PP/PR Figure Placeholder", cex = 1.5)
 
 <!-- Summarize the main takeaways -->
 
-# References
+# Acknowledgments
+
+Thanks to Juan Garcia for helpful feedback, and to the other authors of the original study: Wasila Dahdul, Prashanti Manda, Hong Cui, Alex Dececchi, Nizar Ibrahim, Todd Vision, and Paula Mabee.
+
+## Funding
+
+This work is funded by the [Imageomics Institute](https://imageomics.osu.edu), [NSF 2118240](https://www.nsf.gov/awardsearch/show-award?AWD_ID=2118240).
