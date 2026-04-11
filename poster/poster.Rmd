@@ -1,5 +1,5 @@
 ---
-title: "Revisiting \"Annotation of phenotypes using ontologies\" with agentic curation"
+title: "Revisiting “Annotation of phenotypes using ontologies” with agentic curation"
 author:
   - name: "James P. Balhoff"
     affil: 1
@@ -53,13 +53,11 @@ knitr::opts_chunk$set(
 
 <!-- Background and motivation for the study -->
 
-Phenotype annotations using ontologies are critical for integrating morphological data across taxa. Producing high-quality annotations requires significant domain expertise, yet the consistency and accuracy of both manual and automated approaches remain underexplored.
+The vast majority of phenotypic descriptions in the scientific literature are expressed using natural language, including the comparative character matrices used in evolutionary systematic studies. The [Phenoscape project](https://kb.phenoscape.org/) spearheaded the application of structured, formal annotations to these datasets using biomedical ontologies, facilitating integration and semantic query across multiple studies in a common knowledgebase.
 
-We evaluated annotation quality by comparing curator-generated and CharaParser-automated annotations against a Gold Standard dataset using ontology-based semantic similarity metrics.
+[Dahdul et al. (2015)](https://doi.org/10.1093/database/bay110) analyzed annotation consistency across human curators and compared the performance of an automated NLP tool—*Semantic CharaParser*—against a Gold Standard dataset using ontology-based semantic similarity metrics.
 
 # Evolutionary Character States
-
-In comparative morphology, organisms are described using **characters** (observable anatomical features) and **states** (the specific forms a character takes across taxa). For example, a character might be "shape of the caudal fin" with states such as "forked" or "rounded." Character-state matrices underpin phylogenetic analyses and form the raw material for phenotype annotation.
 
 <div style="float: left; width: 45%; margin: 0 1em 0.5em 0;">
 ```{r chakrabarty-fig, fig.cap="Examples of morphological characters and states from Chakrabarty (2007).", out.width="100%"}
@@ -67,21 +65,23 @@ knitr::include_graphics("chakrabarty-characters.png")
 ```
 </div>
 
-Annotating character states with ontology terms (Entity-Quality, or EQ, statements) enables computational reasoning over phenotypic descriptions, linking free-text morphological observations to formal knowledge representations.
+In comparative morphology, organisms are described using **characters** (observable anatomical features) and **states** (the specific forms a character takes across taxa). For example, a character might be "shape of the caudal fin" with states such as "forked" or "rounded." Character–state matrices underpin phylogenetic analyses of morphological change.
+
+Phenoscape annotates character states with ontology terms using an Entity–Quality (EQ) model, enabling compatibility with model organism databases describing developmental phenotypes, linking free-text morphological observations to formal knowledge representations.
 
 <div style="clear: both;"></div>
 
 # Original Methodology
 
-**Curators and Rounds.** Three curators (WD, AD, NI) each annotated the same set of characters in two rounds: a Naive Round (NR, no training) and a Knowledge Round (KR, after training).
+**Human Curators.** Three curators (WD, AD, NI) each EQ-annotated the same set of characters in two rounds, using the Phenex annotation software: a Naive Round (NR, working with only the character–state text) and a subsequent Knowledge Round (KR, with full access to the source publication and other literature).
 
-**Automated Annotations.** CharaParser was used to generate automated annotations from the same character descriptions.
+**Automated Annotations.** Semantic CharaParser was used to generate automated annotations from the same character descriptions.
 
 ## Groupwise Semantic Similarity
 
-Because annotations reference ontology terms, similarity between two annotations is not binary (match/no-match) but graded: terms that share more ontological ancestors are more semantically similar than terms that share fewer. We use two complementary measures computed over ontology-derived ancestor sets.
+Because annotations reference ontology terms, comparison between two annotations is not binary (match/no-match) but graded: terms that share more ontological ancestors are more semantically similar than terms that share fewer. We use two complementary similarity measures computed over ontology-derived ancestor sets.
 
-**Jaccard Similarity (SimJ).** For each pair of annotation classes, we compute the full set of ontological ancestors (superclasses via the ELK reasoner over a merged ontology of UBERON, PATO, BSPO, and GO), enriched with expressions materializing additional axes of classification based on relations (e.g., _part_of_). SimJ is the ratio of shared ancestors to total ancestors:
+**Jaccard Similarity (SimJ).** For each pair of annotation classes, we compute the full set of ontological ancestors (superclasses via the ELK reasoner over a merged ontology of UBERON, PATO, BSPO, and GO, enriched with expressions materializing additional axes of classification based on relations, e.g., *part_of*). SimJ is the ratio of shared ancestors to total ancestors:
 
 $$\text{SimJ}(A, B) = \frac{|Anc(A) \cap Anc(B)|}{|Anc(A) \cup Anc(B)|}$$
 
@@ -113,9 +113,25 @@ High precision with low recall indicates the annotator produced correct but inco
 
 We extend the original study by introducing AI agent annotators (Claude 4.6 and GPT 5.4) as additional participants, evaluated using the same metrics and Gold Standard. Like the human curators, the AI agents annotated in two rounds, enabling direct comparison across all annotator types.
 
-## Agent Skills
+## Agent Workspace
 
-<!-- TODO: Describe the skill/prompt design used to guide AI agents in annotation -->
+Each AI agent is launched within a self-contained workspace:
+
+```
+ai-annotation/
+├── input/
+│   ├── characters/         ← per-character TSVs
+│   ├── papers/             ← source publication PDFs
+│   ├── ontologies/         ← UBERON, PATO, BSPO, GO
+│   └── annotation_guide.md
+├── output/                 ← agent annotation results
+├── scripts/
+│   └── validate_annotations.scala
+└── .claude/
+    └── skills/
+        └── phenotype-eq-annotation/
+            └── SKILL.md
+```
 
 ## Annotating with Fully Local Agents
 
@@ -224,14 +240,16 @@ ggplot(r1r2_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) +
   geom_errorbarh(aes(xmin = Lower, xmax = Upper), height = 0.2) +
   facet_wrap(~ Metric, nrow = 1, strip.position = "top") +
   scale_color_manual(values = c("R1" = "grey50", "R2" = "#2980b9")) +
-  scale_x_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1), labels = c("0", "", "0.5", "", "1"), limits = c(0, 1)) +
+  scale_x_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1), labels = c("0", "", "0.5", "", "1"),
+                     limits = c(0, 1), expand = c(0, 0)) +
   labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
   theme_minimal(base_size = 14) +
   theme(
     legend.position = "top",
     strip.text = element_text(face = "italic", size = 14),
+    strip.background = element_rect(fill = "grey95", color = NA),
     panel.grid.minor = element_blank(),
-    panel.spacing = unit(1.5, "lines")
+    panel.spacing = unit(1.0, "lines")
   )
 ```
 
@@ -245,15 +263,17 @@ ggplot(score_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) 
   geom_point(size = 3) +
   geom_errorbarh(aes(xmin = Lower, xmax = Upper), height = 0.2) +
   facet_wrap(~ Metric, nrow = 1, strip.position = "top") +
-  theme(panel.spacing = unit(1.5, "lines")) +
   scale_color_manual(values = c("Human" = "#2c3e50", "SCP" = "#e67e22", "AI" = "#2980b9")) +
-  scale_x_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1), labels = c("0", "", "0.5", "", "1"), limits = c(0, 1)) +
+  scale_x_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1), labels = c("0", "", "0.5", "", "1"),
+                     limits = c(0, 1), expand = c(0, 0)) +
   labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
   theme_minimal(base_size = 14) +
   theme(
     legend.position = "top",
     strip.text = element_text(face = "italic", size = 14),
-    panel.grid.minor = element_blank()
+    strip.background = element_rect(fill = "grey95", color = NA),
+    panel.grid.minor = element_blank(),
+    panel.spacing = unit(1.0, "lines")
   )
 ```
 
