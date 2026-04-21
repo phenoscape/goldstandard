@@ -168,15 +168,35 @@ def C3_GS():
 
 
 def AI_GS():
-	# PP and PR similarity between Claude and GS
+	# PP and PR similarity between Claude and GS - Round 1
 	infile="../data/CombinedComparisons/PerEQ_AI--Claude_46--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print("Claude vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+	print("Claude R1 vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 
-	# PP and PR similarity between GPT and GS
+	# PP and PR similarity between GPT and GS - Round 1
 	infile="../data/CombinedComparisons/PerEQ_AI--GPT_54--GS_Dataset.tsv"
 	simjmeanpp,simjmeanpr=compute(infile)
-	print("GPT vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+	print("GPT R1 vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+
+	# PP and PR similarity between Claude and GS - Round 2
+	infile="../data/CombinedComparisons/PerEQ_AI--Claude_46_R2--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("Claude R2 vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+
+	# PP and PR similarity between GPT and GS - Round 2
+	infile="../data/CombinedComparisons/PerEQ_AI--GPT_54_R2--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("GPT R2 vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+
+	# PP and PR similarity between GPT 5.4 Mini and GS
+	infile="../data/CombinedComparisons/PerEQ_AI--GPT_54_Mini--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("GPT Mini vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+
+	# PP and PR similarity between Sonnet 4.6 and GS
+	infile="../data/CombinedComparisons/PerEQ_AI--Sonnet_46--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("Sonnet 4.6 vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 
 
 def main():

@@ -89,9 +89,17 @@ def main():
 	# GS to CharaParser - Final Merged
 	compute("../data/MappedAnnotations/Transformed_CP_best.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
 
-	#AI Agents vs Gold Standard
+	#AI Agents vs Gold Standard - Round 1
 	compute("../data/MappedAnnotations/AI--Claude_46.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
 	compute("../data/MappedAnnotations/AI--GPT_54.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
+
+	#AI Agents vs Gold Standard - Round 2
+	compute("../data/MappedAnnotations/AI--Claude_46_R2.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
+	compute("../data/MappedAnnotations/AI--GPT_54_R2.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
+
+	#AI Agents vs Gold Standard - Additional agents
+	compute("../data/MappedAnnotations/AI--GPT_54_Mini.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
+	compute("../data/MappedAnnotations/AI--Sonnet_46.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
 
 
 def compute(inputfile1,inputfile2,qualities,ic_dict):

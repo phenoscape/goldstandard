@@ -25,6 +25,8 @@ bibliography: references.bib
 ---
 
 ```{css, echo=FALSE}
+@media print { body { -webkit-print-color-adjust: exact; } }
+
 #title {
   padding-top: 0.5em;
   padding-bottom: 0.2em;
@@ -32,9 +34,17 @@ bibliography: references.bib
 h2 {
   border-left: 5px solid #2980b9;
   padding-left: 0.5em;
-  margin-top: 0.8em;
+  margin-top: 0em;
+  margin-bottom: 0.3em;
   font-variant: small-caps;
 }
+.level2 {
+  margin-top: 0.3em;
+}
+p.caption, .caption {
+  text-align: left !important;
+}
+
 ```
 
 ```{r setup, include=FALSE}
@@ -51,21 +61,19 @@ knitr::opts_chunk$set(
 
 # Introduction
 
-<!-- Background and motivation for the study -->
+The vast majority of phenotypic descriptions in the scientific literature are expressed using natural language, including the comparative character matrices underpinning phylogenetic analyses of morphological change. The [Phenoscape project](https://kb.phenoscape.org/) spearheaded the application of structured, formal annotations to these datasets using bio-ontologies, facilitating integration and semantic query across multiple studies in a common knowledgebase.
 
-The vast majority of phenotypic descriptions in the scientific literature are expressed using natural language, including the comparative character matrices used in evolutionary systematic studies. The [Phenoscape project](https://kb.phenoscape.org/) spearheaded the application of structured, formal annotations to these datasets using biomedical ontologies, facilitating integration and semantic query across multiple studies in a common knowledgebase.
-
-[Dahdul et al. (2015)](https://doi.org/10.1093/database/bay110) analyzed annotation consistency across human curators and compared the performance of an automated NLP tool—*Semantic CharaParser*—against a Gold Standard dataset using ontology-based semantic similarity metrics.
+[Dahdul et al. (2015)](https://doi.org/10.1093/database/bay110) analyzed annotation consistency across human curators and compared the performance of an automated NLP tool, *Semantic CharaParser*, against a Gold Standard dataset using ontology-based semantic similarity metrics. Automated curation would greatly accelerate large-scale annotation, which is labor intensive.
 
 # Evolutionary Character States
 
-<div style="float: left; width: 45%; margin: 0 1em 0.5em 0;">
-```{r chakrabarty-fig, fig.cap="Examples of morphological characters and states from Chakrabarty (2007).", out.width="100%"}
+<div style="float: left; width: 35%; margin: 0 1em 0.5em 0;">
+```{r chakrabarty-fig, fig.cap="Character states from Chakrabarty 2007. *A morphological phylogenetic analysis of Middle American cichlids with special emphasis on the section 'Nandopsis' sensu Regan.* UMMZ 198 1-30.", out.width="100%"}
 knitr::include_graphics("chakrabarty-characters.png")
 ```
 </div>
 
-In comparative morphology, organisms are described using **characters** (observable anatomical features) and **states** (the specific forms a character takes across taxa). For example, a character might be "shape of the caudal fin" with states such as "forked" or "rounded." Character–state matrices underpin phylogenetic analyses of morphological change.
+In comparative morphology, organisms are described using **characters** (observable anatomical features) and **states** (the specific forms a character takes across taxa). For example, a character might be "shape of the caudal fin" with states such as "forked" or "rounded."
 
 Phenoscape annotates character states with ontology terms using an Entity–Quality (EQ) model, enabling compatibility with model organism databases describing developmental phenotypes, linking free-text morphological observations to formal knowledge representations.
 
@@ -73,45 +81,25 @@ Phenoscape annotates character states with ontology terms using an Entity–Qual
 
 # Original Methodology
 
-**Human Curators.** Three curators (WD, AD, NI) each EQ-annotated the same set of characters in two rounds, using the Phenex annotation software: a Naive Round (NR, working with only the character–state text) and a subsequent Knowledge Round (KR, with full access to the source publication and other literature).
+**Human Curators.** Three curators (WD, AD, NI) each EQ-annotated the same set of character states in two rounds, using the Phenex annotation software: a Naive Round, working with only the character state text, and a subsequent Knowledge Round, with full access to the source publication and other literature.
 
 **Automated Annotations.** Semantic CharaParser was used to generate automated annotations from the same character descriptions.
 
-## Groupwise Semantic Similarity
+**Dataset.** 29 character states were randomly selected from each of 7 publications covering a wide range of vertebrate morphology, resulting in 203 total characters (463 character states).
 
-Because annotations reference ontology terms, comparison between two annotations is not binary (match/no-match) but graded: terms that share more ontological ancestors are more semantically similar than terms that share fewer. We use two complementary similarity measures computed over ontology-derived ancestor sets.
+## Ontology-based Comparison Metrics
 
-**Jaccard Similarity (SimJ).** For each pair of annotation classes, we compute the full set of ontological ancestors (superclasses via the ELK reasoner over a merged ontology of UBERON, PATO, BSPO, and GO, enriched with expressions materializing additional axes of classification based on relations, e.g., *part_of*). SimJ is the ratio of shared ancestors to total ancestors:
+Because annotations reference ontology terms, comparison is not binary but graded: terms sharing more ontological ancestors are more semantically similar. Ancestor sets were computed via the ELK OWL reasoner over a merged ontology (UBERON, PATO, BSPO, GO) enriched with materialized relational expressions (e.g., *part_of*). Four complementary metrics were used:
 
-$$\text{SimJ}(A, B) = \frac{|Anc(A) \cap Anc(B)|}{|Anc(A) \cup Anc(B)|}$$
+**SimJ** (Jaccard similarity): ratio of shared to total ancestors — $|Anc(A) \cap Anc(B)| / |Anc(A) \cup Anc(B)|$.
 
-SimJ ranges from 0 (no shared ancestry) to 1 (identical ancestor sets). For each character-state, we take the maximum SimJ across all EQ pairings between the two annotation sets, capturing the best-case alignment.
+**NIC** (Normalized Information Content): identifies the Most Informative Common Ancestor, weighting by term specificity rather than treating all ancestors equally.
 
-**Normalized Information Content (NIC).** While SimJ treats all ancestors equally, NIC weights them by specificity. The Information Content of a term reflects how rarely it appears as an ancestor across the corpus: $IC(t) = -\log_2 \frac{freq(t)}{N}$. For each class pair, we identify the Most Informative Common Ancestor (MICA) and normalize:
+**Partial Precision (PP)** and **Partial Recall (PR)** account for imperfect matches, based on ontology semantics. *PP* measures the proportion of the semantics annotated by the Gold Standard that is retrieved by the test curator relative to the number of test curator annotations. *PR* measures the proportion of semantics that are retrieved by the test curator relative to the number of Gold Standard annotations. *PP* will decrease due to extra annotations by the test curator that are dissimilar from those in the Gold Standard, while *PR* will decrease due to extra annotations in the Gold Standard that are lacking from the test curator. Both use SimJ to measure semantic similarity and are computed at the character-state level rather than the individual EQ annotation level.
 
-$$\text{NIC}(A, B) = \frac{IC(\text{MICA}(A, B))}{IC_{\max}}$$
+# Agentic Annotation
 
-NIC complements SimJ by giving higher scores when two annotations share a specific, informative common ancestor rather than only broad, general ones.
-
-## Partial Precision and Recall
-
-A single character-state may be annotated with multiple EQ statements. To compare annotation sets of different sizes, we adapt precision and recall using best-match averaging over pairwise SimJ scores.
-
-**Partial Precision** measures how well each curator/agent EQ is represented in the Gold Standard. For each EQ in the test annotation, we find its best SimJ match among the GS EQs and average:
-
-$$PP = \frac{1}{|C|} \sum_{c \in C} \max_{g \in GS} \text{SimJ}(c, g)$$
-
-**Partial Recall** measures how well each Gold Standard EQ is captured by the test annotation. For each EQ in the GS, we find its best SimJ match among the test EQs:
-
-$$PR = \frac{1}{|GS|} \sum_{g \in GS} \max_{c \in C} \text{SimJ}(g, c)$$
-
-High precision with low recall indicates the annotator produced correct but incomplete annotations; high recall with low precision suggests over-annotation or imprecise term selection.
-
-# Extending with Agentic Annotation
-
-<!-- Describe the AI agent annotation approach and how it parallels the original study design -->
-
-We extend the original study by introducing AI agent annotators (Claude 4.6 and GPT 5.4) as additional participants, evaluated using the same metrics and Gold Standard. Like the human curators, the AI agents annotated in two rounds, enabling direct comparison across all annotator types.
+We extended the original study by introducing AI agent curators (Claude Opus 4.6, Claude Sonnet 4.6, GPT 5.4, and GPT 5.4 Mini) as additional participants, evaluated using the same metrics and Gold Standard.
 
 ## Agent Workspace
 
@@ -119,6 +107,7 @@ Each AI agent is launched within a self-contained workspace:
 
 ```
 ai-annotation/
+├── AGENTS.md
 ├── input/
 │   ├── characters/         ← per-character TSVs
 │   ├── papers/             ← source publication PDFs
@@ -127,17 +116,13 @@ ai-annotation/
 ├── output/                 ← agent annotation results
 ├── scripts/
 │   └── validate_annotations.scala
-└── .claude/
+└── .agents/
     └── skills/
         └── phenotype-eq-annotation/
             └── SKILL.md
 ```
 
-## Annotating with Fully Local Agents
-
-<!-- TODO: Fill in details about local model annotation attempts -->
-
-Attempts to annotate using local on-laptop models were so far unsuccessful.
+Emulating the "knowledge round" of human curation, the agents were provided with the characters and states for a single publication at a time. They were free to read the source publication PDF and to consult the *Phenoscape Guide to Character Annotation* in Markdown format. The mechanics of performing EQ annotation and searching source ontologies were outlined in the *phenotype-eq-annotation* skill document (following the **Agent Skills** format: https://agentskills.io/home). The skill also instructed the agent to make use of a validation script to verify their output structure and syntax and to guard against term identifier hallucinations. Agents were prompted to begin annotation of all the character files in the input folder using the *phenotype-eq-annotation* skill.
 
 # Results
 
@@ -234,7 +219,7 @@ human_means <- ddply(score_summary[score_summary$Type == "Human", ], .(Metric), 
                      HumanUpper = mean(Mean) + sd(Mean))
 ```
 
-```{r r1r2-figure, fig.cap="Improvement from Round 1 to Round 2 (all 203 characters). Instructions were refined after reviewing the first 50 characters.", fig.height=3.5, fig.width=10}
+```{r r1r2-figure, fig.cap="Mean similarity scores (with 95% CI) for AI annotators vs. the Gold Standard (all 203 characters). After a first round of annotation by Claude Opus 4.6 and GPT 5.4, a review of the first 50 characters was used to refine the instructions and validation script.", fig.height=3.5, fig.width=10}
 ggplot(r1r2_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) +
   geom_point(size = 3) +
   geom_errorbarh(aes(xmin = Lower, xmax = Upper), height = 0.2) +
@@ -253,7 +238,7 @@ ggplot(r1r2_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) +
   )
 ```
 
-```{r results-figure, fig.cap="Mean similarity scores (with 95% CI) for each annotator vs. the Gold Standard (characters 51–203 only). Shaded band shows human curator mean ± 1 SD.", fig.height=7, fig.width=10}
+```{r results-figure, fig.cap="Mean similarity scores (with 95% CI) for each annotator vs. the Gold Standard (characters 51–203 only; 344 character states). Shaded band shows human curator mean ± 1 SD. Compared annotators are knowledge round human curators (WD, AD, NI), Semantic CharaParser (SCP), and AI agents using the refined environment.", fig.height=5.5, fig.width=10}
 ggplot(score_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) +
   geom_rect(data = human_means,
             aes(xmin = HumanLower, xmax = HumanUpper, ymin = -Inf, ymax = Inf),
@@ -263,7 +248,9 @@ ggplot(score_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) 
   geom_point(size = 3) +
   geom_errorbarh(aes(xmin = Lower, xmax = Upper), height = 0.2) +
   facet_wrap(~ Metric, nrow = 1, strip.position = "top") +
-  scale_color_manual(values = c("Human" = "#2c3e50", "SCP" = "#e67e22", "AI" = "#2980b9")) +
+  scale_color_manual(values = c("Human" = "#2c3e50", "SCP" = "#e67e22", "AI" = "#2980b9"),
+                     breaks = c("Human", "SCP", "AI")) +
+  scale_shape_discrete(breaks = c("Human", "SCP", "AI")) +
   scale_x_continuous(breaks = c(0, 0.25, 0.5, 0.75, 1), labels = c("0", "", "0.5", "", "1"),
                      limits = c(0, 1), expand = c(0, 0)) +
   labs(x = "Score", y = NULL, color = NULL, shape = NULL) +
@@ -279,16 +266,14 @@ ggplot(score_summary, aes(x = Mean, y = Annotator, color = Type, shape = Type)) 
 
 # Discussion
 
-<!-- Interpret the key findings -->
-
-# Conclusions
-
-<!-- Summarize the main takeaways -->
+The AI agents all fall within the range of human variability, with the two Anthropic Claude models nearing the best human performance. Incorporation of agentic workflows would greatly increase feasibility of large-scale structured annotation of comparative free text data.
 
 # Acknowledgments
 
-Thanks to Juan Garcia for helpful feedback, and to the other authors of the original study: Wasila Dahdul, Prashanti Manda, Hong Cui, Alex Dececchi, Nizar Ibrahim, Todd Vision, and Paula Mabee.
+Thanks to J. Garcia for helpful feedback and to the other authors of the original study W. Dahdul, P. Manda, H. Cui, A. Dececchi, N. Ibrahim, T. Vision, and P. Mabee.
 
-## Funding
+- **Dahdul et al. (2015).** https://doi.org/10.1093/database/bay110
+- **Code.** https://github.com/phenoscape/goldstandard
+- **Data.** https://zenodo.org/records/1345307
 
-This work is funded by the [Imageomics Institute](https://imageomics.osu.edu), [NSF 2118240](https://www.nsf.gov/awardsearch/show-award?AWD_ID=2118240).
+This work was supported by the [Imageomics Institute](https://imageomics.org), which is funded by the NSF Harnessing the Data Revolution program, [award #2118240](https://www.nsf.gov/awardsearch/showAward?AWD_ID=2118240).

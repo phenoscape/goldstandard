@@ -59,8 +59,14 @@ def main():
     output_dir = os.path.join(base_dir, "data", "MappedAnnotations")
 
     sources = [
-        ("test-output/claude-4.6-by-paper", "AI--Claude_46.tsv"),
-        ("test-output/gpt-5.4-by-paper", "AI--GPT_54.tsv"),
+        # Round 1
+        ("test-output/round-1/claude-4.6-high", "AI--Claude_46.tsv"),
+        ("test-output/round-1/gpt-5.4-high", "AI--GPT_54.tsv"),
+        # Round 2
+        ("test-output/round-2/claude-4.6-high", "AI--Claude_46_R2.tsv"),
+        ("test-output/round-2/gpt-5.4-xhigh", "AI--GPT_54_R2.tsv"),
+        ("test-output/round-2/gpt-5.4-mini-high", "AI--GPT_54_Mini.tsv"),
+        ("test-output/round-2/sonnet-4.6-medium", "AI--Sonnet_46.tsv"),
     ]
 
     for input_subdir, output_name in sources:
