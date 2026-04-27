@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+182	Atlantal spinal nerve foramen	0	absent	UBERON:0018267	'atlantal spinal nerve foramen'	PATO:0000462	absent		
+182	Atlantal spinal nerve foramen	1	notch	UBERON:0005814	'arch of atlas'	PATO:0001495	notched		
+182	Atlantal spinal nerve foramen	2	fully enclosed	UBERON:0018267	'atlantal spinal nerve foramen'	PATO:0000467	present		

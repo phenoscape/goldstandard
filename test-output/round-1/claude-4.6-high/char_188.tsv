@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+188	Calcaneal tuber	0	absent	UBERON:4200018	'calcaneal tuber'	PATO:0000462	absent
+188	Calcaneal tuber	1	laterally directed	UBERON:4200018	'calcaneal tuber'	PATOTEMP:4cd5d463-bbe6-44ed-aacf-a77869cfb03a	'laterally directed'
+188	Calcaneal tuber	2	posteriorly directed	UBERON:4200018	'calcaneal tuber'	PATOTEMP:d6bdbb19-8950-4dfd-af6f-2794c50b1c02	'posteriorly directed'

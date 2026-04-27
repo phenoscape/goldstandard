@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+39	Pitting on dorsal osteoderms	0	absent	UBERON:0016566 and (part_of some UBERON:0018317)	pit and (part_of some 'dorsal osteoderm')	PATO:0000462	absent		
+39	Pitting on dorsal osteoderms	1	present as subspherical pits	UBERON:0016566 and (part_of some UBERON:0018317)	pit and (part_of some 'dorsal osteoderm')	PATO:0005014	subspherical		
+39	Pitting on dorsal osteoderms	2	present as elongate pits	UBERON:0016566 and (part_of some UBERON:0018317)	pit and (part_of some 'dorsal osteoderm')	PATO:0001154	elongated		
+39	Pitting on dorsal osteoderms	3	mixture of subspherical and elongate pits	UBERON:0016566 and (part_of some UBERON:0018317)	pit and (part_of some 'dorsal osteoderm')	PATO:0005014	subspherical		
+39	Pitting on dorsal osteoderms	3	mixture of subspherical and elongate pits	UBERON:0016566 and (part_of some UBERON:0018317)	pit and (part_of some 'dorsal osteoderm')	PATO:0001154	elongated		

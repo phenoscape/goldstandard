@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+38	Squamation, bony tubercles	0	absent	UBERONTEMP:3b77fb04-1e62-43af-a84b-5d5eb7388525	'bony tubercle'	PATO:0000462	absent		
+38	Squamation, bony tubercles	1	present as individual tubercular osteoderms	UBERONTEMP:3b77fb04-1e62-43af-a84b-5d5eb7388525	'bony tubercle'	PATO:0000467	present		
+38	Squamation, bony tubercles	1	present as individual tubercular osteoderms	UBERONTEMP:e721be0d-84cc-4420-be39-a96b9f84becc	osteoderm	PATO:0000467	present		
+38	Squamation, bony tubercles	2	present as osteoscutes covered with multiple tubercles	UBERONTEMP:3b77fb04-1e62-43af-a84b-5d5eb7388525	'bony tubercle'	PATO:0000467	present		
+38	Squamation, bony tubercles	2	present as osteoscutes covered with multiple tubercles	UBERONTEMP:080c03c2-7703-4e20-86a6-92044baec6b3	osteoscute	PATO:0000467	present		

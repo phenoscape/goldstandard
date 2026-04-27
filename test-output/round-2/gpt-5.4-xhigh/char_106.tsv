@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+106	Sternum, spina externa forming a ridge that extends dorsoventrally over entire sternum rostrum:	0	no	UBERON:0018358	'spina externa'	PATO:0000462	absent		
+106	Sternum, spina externa forming a ridge that extends dorsoventrally over entire sternum rostrum:	1	yes	UBERON:0018358	'spina externa'	PATO:0000467	present		
+106	Sternum, spina externa forming a ridge that extends dorsoventrally over entire sternum rostrum:	1	yes	UBERONTEMP:c378c3db-458f-4b43-a3cb-813d1a2ea85b	'sternum rostrum'	PATO:0002358	ridged		

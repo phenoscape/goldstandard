@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+133	Cerebellum with reduced anterior lobe, particularly small folia II and III, and relatively large posterior lobe:	0	no	UBERON:0002131	'anterior lobe of cerebellum'	PATO:0000117 and (PHENOSCAPE:complement_of some PATO:0000587)	size and (not some 'decreased size')		
+133	Cerebellum with reduced anterior lobe, particularly small folia II and III, and relatively large posterior lobe:	0	no	UBERON:0004002	'cerebellum posterior lobe'	PATO:0000117 and (PHENOSCAPE:complement_of some PATO:0000586)	size and (not some 'increased size')		
+133	Cerebellum with reduced anterior lobe, particularly small folia II and III, and relatively large posterior lobe:	1	yes	UBERON:0002131	'anterior lobe of cerebellum'	PATO:0000587	'decreased size'		
+133	Cerebellum with reduced anterior lobe, particularly small folia II and III, and relatively large posterior lobe:	1	yes	UBERON:0004002	'cerebellum posterior lobe'	PATO:0000586	'increased size'		

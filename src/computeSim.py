@@ -100,6 +100,7 @@ def main():
 	#AI Agents vs Gold Standard - Additional agents
 	compute("../data/MappedAnnotations/AI--GPT_54_Mini.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
 	compute("../data/MappedAnnotations/AI--Sonnet_46.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
+	compute("../data/MappedAnnotations/AI--Claude_47_Max.tsv", "../data/MappedAnnotations/GS_Dataset.tsv", 1,ic_dict)
 
 
 def compute(inputfile1,inputfile2,qualities,ic_dict):

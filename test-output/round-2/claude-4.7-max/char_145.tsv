@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+145	Maxillary tooth crown shape	0	recurved	UBERON:0003675 and (BFO:0000050 some UBERON:0011593)	'tooth crown' and (part_of some 'maxillary tooth')	PATO:0002211	recurved		
+145	Maxillary tooth crown shape	1	conical	UBERON:0003675 and (BFO:0000050 some UBERON:0011593)	'tooth crown' and (part_of some 'maxillary tooth')	PATO:0002021	conical		
+145	Maxillary tooth crown shape	2	peg-like	UBERON:0003675 and (BFO:0000050 some UBERON:0011593)	'tooth crown' and (part_of some 'maxillary tooth')	PATO:0002535	peg-like		
+145	Maxillary tooth crown shape	3	leaf-like	UBERON:0003675 and (BFO:0000050 some UBERON:0011593)	'tooth crown' and (part_of some 'maxillary tooth')	PATO:0002457	leaf-like		

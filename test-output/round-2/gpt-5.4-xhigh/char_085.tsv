@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+85	Midbody spot	0	present below upper lateral line	UBERON:0018340	'midbody melanophore spot'	PATO:0001196	'ventral to'	UBERON:0018369	'upper lateral line'
+85	Midbody spot	2	absent	UBERON:0018340	'midbody melanophore spot'	PATO:0000462	absent		
+85	Midbody spot	1	present above or straddling lateral line	UBERON:0018340	'midbody melanophore spot'	PATO:0001233	'dorsal to'	UBERON:0018369	'upper lateral line'

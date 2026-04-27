@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+77	Prootic, entocarotid fossa (GNC30)	0	present as distinct fossa within the recessus vena jugularis	UBERON:0018318 and (BFO:0000050 some UBERON:0018354)	'entocarotid fossa' and (part_of some 'recessus vena jugularis')	PATO:0000467	present		
+77	Prootic, entocarotid fossa (GNC30)	1	reduced/absent	UBERON:0018318 and (BFO:0000050 some UBERON:0018354)	'entocarotid fossa' and (part_of some 'recessus vena jugularis')	PATO:0000587	'decreased size'		
+77	Prootic, entocarotid fossa (GNC30)	1	reduced/absent	UBERON:0018318 and (BFO:0000050 some UBERON:0018354)	'entocarotid fossa' and (part_of some 'recessus vena jugularis')	PATO:0000462	absent		

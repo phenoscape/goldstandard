@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+180	Suborbital foramen	0	absent	UBERON:0018360	'suborbital foramen'	PATO:0000462	absent
+180	Suborbital foramen	1	small	UBERON:0018360	'suborbital foramen'	PATO:0000587	'decreased size'
+180	Suborbital foramen	2	large (fenestra present)	UBERON:0018360	'suborbital foramen'	PATO:0000586	'increased size'

@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+19	Premaxilla, incisive process (GNC-46)	0	single	UBERON:0017249	incisive process of premaxilla	PATO:0002034	undivided
+19	Premaxilla, incisive process (GNC-46)	1	bipartite	UBERON:0017249	incisive process of premaxilla	PATO:0002533	bipartite
+19	Premaxilla, incisive process (GNC-46)	2	absent	UBERON:0017249	incisive process of premaxilla	PATO:0000462	absent

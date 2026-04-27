@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+102	Scapula, size relative to the coracoid ()	0	subequal to, or larger than	UBERON:0006849	scapula	PATOTEMP:6e4effdc-8eb7-46bc-a140-cb47734c2b2f	'subequal size to'	UBERON:0004743	'coracoid bone'
+102	Scapula, size relative to the coracoid ()	0	subequal to, or larger than	UBERON:0006849	scapula	PATO:0000586	'increased size'	UBERON:0004743	'coracoid bone'
+102	Scapula, size relative to the coracoid ()	1	smaller than	UBERON:0006849	scapula	PATO:0000587	'decreased size'	UBERON:0004743	'coracoid bone'
+102	Scapula, size relative to the coracoid ()	2	scapula and coracoid absent	UBERON:0006849	scapula	PATO:0000462	absent
+102	Scapula, size relative to the coracoid ()	2	scapula and coracoid absent	UBERON:0004743	'coracoid bone'	PATO:0000462	absent

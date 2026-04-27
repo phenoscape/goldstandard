@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+142	Interpterygoid vacuity length	0	short; less than 15% of skull length	UBERON:0018330	'interpterygoid vacuity'	PATO:0000122 and (PATO:0002304 some (PATO:0000122 and (BFO:0000052 some UBERON:0003129)))	length and (decreased_in_magnitude_relative_to some (length and (inheres_in some skull)))		
+142	Interpterygoid vacuity length	1	absent	UBERON:0018330	'interpterygoid vacuity'	PATO:0000462	absent		
+142	Interpterygoid vacuity length	2	long; at least 15% of skull length	UBERON:0018330	'interpterygoid vacuity'	PATO:0000122 and (PATO:0002305 some (PATO:0000122 and (BFO:0000052 some UBERON:0003129)))	length and (increased_in_magnitude_relative_to some (length and (inheres_in some skull)))		

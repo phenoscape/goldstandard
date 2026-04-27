@@ -1,0 +1,10 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+48	Ectethmoid:	0	no anterior or lateral expansion	BSPO:0000071 and (BFO:0000050 some UBERON:0010889)	'anterior region' and (part_of some ectethmoid)	PATO:0000117 and (PHENOSCAPE:complement_of some PATO:0000586)	size and (not some 'increased size')		
+48	Ectethmoid:	0	no anterior or lateral expansion	BSPO:0000066 and (BFO:0000050 some UBERON:0010889)	'lateral side' and (part_of some ectethmoid)	PATO:0000117 and (PHENOSCAPE:complement_of some PATO:0000586)	size and (not some 'increased size')		
+48	Ectethmoid:	1	greatly expanded anteriorly, plate-like, with dorsal margin largely fused with frontals	BSPO:0000071 and (BFO:0000050 some UBERON:0010889)	'anterior region' and (part_of some ectethmoid)	PATO:0000586	'increased size'		
+48	Ectethmoid:	1	greatly expanded anteriorly, plate-like, with dorsal margin largely fused with frontals	UBERON:0010889	ectethmoid	PATO:0002124	laminar		
+48	Ectethmoid:	1	greatly expanded anteriorly, plate-like, with dorsal margin largely fused with frontals	UBERON:0010889	ectethmoid	PATO:0000642	'fused with'	UBERON:0000209	'tetrapod frontal bone'
+48	Ectethmoid:	2	greatly expanded anterolaterally, inflated, with dorsal margin largely fused with frontals	BSPO:0000071 and (BFO:0000050 some UBERON:0010889)	'anterior region' and (part_of some ectethmoid)	PATO:0000586	'increased size'		
+48	Ectethmoid:	2	greatly expanded anterolaterally, inflated, with dorsal margin largely fused with frontals	BSPO:0000066 and (BFO:0000050 some UBERON:0010889)	'lateral side' and (part_of some ectethmoid)	PATO:0000586	'increased size'		
+48	Ectethmoid:	2	greatly expanded anterolaterally, inflated, with dorsal margin largely fused with frontals	UBERON:0010889	ectethmoid	PATO:0002376	inflated		
+48	Ectethmoid:	2	greatly expanded anterolaterally, inflated, with dorsal margin largely fused with frontals	UBERON:0010889	ectethmoid	PATO:0000642	'fused with'	UBERON:0000209	'tetrapod frontal bone'

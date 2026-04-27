@@ -65,8 +65,8 @@ The label form mirrors the structure exactly:
 **Label conventions:**
 
 - Single-word labels are unquoted: `position`, `absent`, `maxilla`
-- Multi-word labels are single-quoted: `'anterior region'`, `'increased size'`
-- Relation labels in expressions are always unquoted: `part_of some`, `not some`
+- Multi-word labels, for either class terms or relation terms are single-quoted: `'anterior region'`, `'increased size'`
+- Single terms from the ontology that are not post-composed follow the same quoting conventions
 
 **Nesting** for spatial refinement (e.g., "anterior process of the maxilla"):
 
@@ -342,6 +342,8 @@ Produce one or more TSV rows per state. Each row has 10 columns:
 ```
 Character\tCharacter Label\tState Symbol\tState Label\tEntity ID\tEntity Label\tQuality ID\tQuality Label\tRelated Entity ID\tRelated Entity Label
 ```
+
+Verify that your output tool does not strip trailing tabs from empty columns. If a state has no Related Entity, the last two columns must be present but empty (i.e., end with `\t\t`).
 
 **Critical — ID/Label correspondence:**
 

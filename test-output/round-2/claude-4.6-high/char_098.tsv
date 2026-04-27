@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+98	Caudal fin spot position	0	dorsal to lateral line	UBERON:0018308	'caudal melanophore spot'	PATO:0001233	'dorsal to'	UBERON:0010202	'lateral line'
+98	Caudal fin spot position	2	vertical stripe across tail	UBERON:0018308	'caudal melanophore spot'	PATO:0000052	shape		
+98	Caudal fin spot position	1	straddling lateral line	UBERON:0018308	'caudal melanophore spot'	PATO:0001590	'overlap with'	UBERON:0010202	'lateral line'

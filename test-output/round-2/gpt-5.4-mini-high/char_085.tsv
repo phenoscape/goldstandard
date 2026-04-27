@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+85	Midbody spot	0	present below upper lateral line	UBERON:2002284	'body marking'	PATO:0000140 and (BSPO:0000102 some UBERON:0018369)	position and (ventral_to some 'upper lateral line')		
+85	Midbody spot	1	present above or straddling lateral line	UBERON:2002284	'body marking'	PATO:0002488	overlapping	UBERON:0010202	'lateral line'
+85	Midbody spot	2	absent	UBERON:2002284	'body marking'	PATO:0000462	absent		

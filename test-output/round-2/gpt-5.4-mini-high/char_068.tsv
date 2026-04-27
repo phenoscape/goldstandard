@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+68	Hyoid articular area on posterolateral angle of otic capsule	0	absent						
+68	Hyoid articular area on posterolateral angle of otic capsule	1	present	UBERON:0018323	'hyoid articular area'	PATO:0001633	'posterior to'	UBERON:0004637	'otic capsule'
+68	Hyoid articular area on posterolateral angle of otic capsule	1	present	UBERON:0018323	'hyoid articular area'	PATO:0001193	'lateral to'	UBERON:0004637	'otic capsule'

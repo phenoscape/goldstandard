@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+201	Egg teeth (Egek19)	0	single	UBERON:0018276	'egg tooth'	PATOTEMP:499c1f37-c1fe-456a-86be-ce5f94a44782	single		
+201	Egg teeth (Egek19)	1	double	UBERON:0018276	'egg tooth'	PATOTEMP:90107b2b-e954-4469-8e9f-f19a5c6eb557	paired		
+201	Egg teeth (Egek19)	2	absent	UBERON:0018276	'egg tooth'	PATO:0000462	absent		

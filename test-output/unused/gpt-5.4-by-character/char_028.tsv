@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+28	Caudal spot expansion	0	caudal spot restricted to caudal fin	UBERON:0018308	'caudal melanophore spot'	PATOTEMP:9d816e6d-d647-4a6a-83a4-6df7f4579052	'restricted to'	UBERON:4000164	'caudal fin'
+28	Caudal spot expansion	1	caudal spot continues across caudal peduncle as part of a horizontal band	UBERON:0018308	'caudal melanophore spot'	PATO:0005011	'continuous with'	UBERON:2000178	'caudal peduncle'
+28	Caudal spot expansion	1	caudal spot continues across caudal peduncle as part of a horizontal band	UBERON:0018308	'caudal melanophore spot'	PATOTEMP:a5ae04f1-1601-4881-b043-f326b6a2861b	'horizontal band'		

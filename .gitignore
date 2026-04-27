@@ -1,8 +1,24 @@
 __pycache__/
 *.pyc
 .venv/
+*.class
+.metals/
+.vscode/
+.bsp/
+.scala-build/
+
+supplemental-data/
+paper/
 
 # Large generated data files
 data/AllAncestors_Combinations.txt
 data/Ancestors-*.tsv
 data/CombinedComparisons_original/
+
+**/Chakrabarty_2007.pdf
+**/Hill_2005.pdf
+**/Skutschas_Gubin_2012.pdf
+**/Coates_Sequeira_2001.pdf
+**/Nesbitt_Ksepka_Clarke_2011.pdf
+**/Conrad_2008.pdf
+**/OLeary_etal_2013.pdf

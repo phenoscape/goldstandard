@@ -1,0 +1,24 @@
+Proposed new terms used in this annotation batch (Skutschas_Gubin_2012.pdf characters).
+TEMP IDs are used where no suitable UBERON/PATO term exists after exhausting label, synonym, alternate-spelling, and post-composition searches.
+
+UBERONTEMP:6be80d29-edb2-4da5-ae46-0ceed67a11fb	postatlantal vertebra	Reason: no UBERON term for vertebrae posterior to the atlas as a class. Used with BSPO:0000099 (posterior_to) in post-compositions would require a specific anchor vertebra; as a class for grouping ribs/centra of non-atlas vertebrae, no direct parent captures this. Closest: UBERON:0002412 'vertebra'. Used in char_027, char_043.
+
+UBERONTEMP:3a1a30ab-0e76-41f1-b5f9-46083dfd62e2	four facetted articulation of exoccipital and atlas	Reason: no UBERON or BSPO term for this specific four-facetted articulation. Used in char_058.
+
+UBERONTEMP:aa4c27e3-2202-4667-be4f-0db3ba1af6f7	posterior wall of nasal capsule	Reason: no direct UBERON term for the posterior wall of the nasal capsule as a discrete structure. Closest: UBERON:0002268 'nasal capsule'. Used in char_114.
+
+UBERONTEMP:3acc05fa-cf49-48ac-8c79-893dac26c991	free rib	Reason: no UBERON term for "free rib" as distinct from rib proper. Closest: UBERON:0002228 'rib'. Used in char_134.
+
+UBERONTEMP:1d4e7a81-d385-4100-8f7c-5eee3b0adb52	basilaris complex	Reason: no UBERON term for the salamander basilaris complex (papilla basilaris + recessus basilaris). Closest: UBERON:0018663 'recessus basilaris'. Used in char_166.
+
+UBERONTEMP:f8c897f0-4f0d-4814-8e4c-b6ec037a6ba6	dorsal process of maxilla	Reason: no UBERON term for the dorsal (facial) process of the maxilla as a named structure in salamanders. Used in char_196.
+
+PATOTEMP:05e2dbcc-ba43-40e1-a80c-af1fdcb368b2	bicapitate	Reason: no PATO term for "bicapitate" (two-headed rib morphology). Closest: PATO:0000052 'shape'. Used in char_027.
+
+PATOTEMP:09c64970-0329-4bad-9e19-2d2a9995742c	unicapitate	Reason: no PATO term for "unicapitate" (single-headed rib morphology). Closest: PATO:0000052 'shape'. Used in char_027.
+
+PATOTEMP:517eec99-06f8-46b2-a906-c20b72edcd9d	bar-like	Reason: no PATO term for "bar-like" shape. Closest: PATO:0000052 'shape'. Used in char_033.
+
+PATOTEMP:6734e62a-dd4a-43cc-8e59-c6ac7280e12c	pitted	Reason: no exact PATO term for "pitted" surface sculpture in the sense of dermal bone ornamentation (neurovascular pitting). PATO has 'foveate' (PATO:0000406) but that may be distinct from coarse pitting sculpture. Used in char_186.
+
+PATOTEMP:61fccf20-f648-4108-b17e-4c330b909458	weakly sculpted surface	Reason: no PATO term for weak dermal sculpture; needed for "present, weak" sculpture state distinct from pitted/ridged/unornamented. Used in char_186.

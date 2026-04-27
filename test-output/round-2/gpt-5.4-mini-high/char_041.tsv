@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+41	Pelvic plate semicircular with anterolateral concavity	0	absent	UBERONTEMP:77dc0e17-6de8-4115-a7f6-9e692dab9029	'pelvic plate'	PATO:0000462	absent		
+41	Pelvic plate semicircular with anterolateral concavity	1	present	UBERONTEMP:77dc0e17-6de8-4115-a7f6-9e692dab9029	'pelvic plate'	PATO:0002232	semicircular		
+41	Pelvic plate semicircular with anterolateral concavity	1	present	UBERONTEMP:77dc0e17-6de8-4115-a7f6-9e692dab9029	'pelvic plate'	PATO:0002005	concavity		

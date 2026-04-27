@@ -1,0 +1,7 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+33	Pterygoid process	0	triradiate with distinct anterolateral and posterolateral processes	UBERON:0010389	'pterygoid bone'	PATO:0002391	triradiate		
+33	Pterygoid process	1	with an additional distinct anteromedial process	UBERON:0004529 and (BFO:0000050 some (BSPO:0000083 and (BFO:0000050 some UBERON:0010389)))	'anatomical projection' and (part_of some ('medial region' and (part_of some 'pterygoid bone')))	PATO:0000467	present		
+33	Pterygoid process	2	boomerang-shaped with distinct anteromedial and posterolateral pr	UBERON:0010389	'pterygoid bone'	PATO:0002536	'boomerang shaped'		
+33	Pterygoid process	3	bar-like/vestigial	UBERON:0010389	'pterygoid bone'	PATOTEMP:517eec99-06f8-46b2-a906-c20b72edcd9d	bar-like		
+33	Pterygoid process	3	bar-like/vestigial	UBERON:0010389	'pterygoid bone'	PATO:0000588	vestigial		
+33	Pterygoid process	4	absent	UBERON:0010389	'pterygoid bone'	PATO:0000462	absent		

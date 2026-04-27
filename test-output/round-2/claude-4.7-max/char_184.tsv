@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+184	MAN dentary, body, inferior edge, shape in lateral view	0	straight	BSPO:0000684 and (BFO:0000050 some UBERON:0004742)	'ventral margin' and (part_of some dentary)	PATO:0002180	straight		
+184	MAN dentary, body, inferior edge, shape in lateral view	1	concave	BSPO:0000684 and (BFO:0000050 some UBERON:0004742)	'ventral margin' and (part_of some dentary)	PATO:0001857	concave		
+184	MAN dentary, body, inferior edge, shape in lateral view	2	convex	BSPO:0000684 and (BFO:0000050 some UBERON:0004742)	'ventral margin' and (part_of some dentary)	PATO:0001355	convex		
+184	MAN dentary, body, inferior edge, shape in lateral view	3	concavoconvex	BSPO:0000684 and (BFO:0000050 some UBERON:0004742)	'ventral margin' and (part_of some dentary)	PATOTEMP:e8217f0e-e93c-4fa2-8261-216a8ca47dd9	concavoconvex		

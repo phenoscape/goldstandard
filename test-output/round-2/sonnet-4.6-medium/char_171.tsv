@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+171	Pelvis, posterior portion, juncture of the ilium and the ischium, posteriorly directed point:	0	present	UBERON:0004529 and (BFO:0000050 some UBERONTEMP:ccfa76d5-b232-49d6-8140-1d141d0ac162)	'anatomical projection' and (part_of some 'illio-ischium contact')	PATO:0000467	present		
+171	Pelvis, posterior portion, juncture of the ilium and the ischium, posteriorly directed point:	1	absent	UBERON:0004529 and (BFO:0000050 some UBERONTEMP:ccfa76d5-b232-49d6-8140-1d141d0ac162)	'anatomical projection' and (part_of some 'illio-ischium contact')	PATO:0000462	absent		

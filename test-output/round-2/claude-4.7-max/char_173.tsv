@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+173	Coracoid, supracoracoid nerve foramen:	0	present	UBERON:3000778	'supracoracoid foramen'	PATO:0000467	present		
+173	Coracoid, supracoracoid nerve foramen:	1	absent	UBERON:3000778	'supracoracoid foramen'	PATO:0000462	absent		

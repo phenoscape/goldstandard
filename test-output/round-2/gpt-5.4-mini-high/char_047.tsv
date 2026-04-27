@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+47	Retroarticular process composition	0	composed of articular only	UBERON:3000543	'retroarticular process'	PATOTEMP:be5ee941-906d-4f7d-9995-8f7c5dc0fcfe	'composed of'	UBERON:2001805	'articular bone'
+47	Retroarticular process composition	1	composed of several bones (three of: surangular, articular, angular, prearticular)	UBERON:3000543	'retroarticular process'	PATOTEMP:be5ee941-906d-4f7d-9995-8f7c5dc0fcfe	'composed of'	UBERON:0011636	'surangular bone'
+47	Retroarticular process composition	1	composed of several bones (three of: surangular, articular, angular, prearticular)	UBERON:3000543	'retroarticular process'	PATOTEMP:be5ee941-906d-4f7d-9995-8f7c5dc0fcfe	'composed of'	UBERON:0011079	'angular bone'
+47	Retroarticular process composition	1	composed of several bones (three of: surangular, articular, angular, prearticular)	UBERON:3000543	'retroarticular process'	PATOTEMP:be5ee941-906d-4f7d-9995-8f7c5dc0fcfe	'composed of'	UBERON:0011637	'prearticular bone'

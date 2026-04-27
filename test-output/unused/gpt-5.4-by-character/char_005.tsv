@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+5	Inner ear, ciliary restraint for hair cells (E-140)	0	tectorial, lacking sallet systems	UBERONTEMP:9784fd41-af57-4b35-8fd6-6f64196109a7	'tectorial system'	PATO:0000467	present		
+5	Inner ear, ciliary restraint for hair cells (E-140)	0	tectorial, lacking sallet systems	UBERONTEMP:657f231c-3c4d-4853-a17f-82c710315be6	'sallet system'	PATO:0000462	absent		
+5	Inner ear, ciliary restraint for hair cells (E-140)	1	tectorial and sallet	UBERONTEMP:9784fd41-af57-4b35-8fd6-6f64196109a7	'tectorial system'	PATO:0000467	present		
+5	Inner ear, ciliary restraint for hair cells (E-140)	1	tectorial and sallet	UBERONTEMP:657f231c-3c4d-4853-a17f-82c710315be6	'sallet system'	PATO:0000467	present		
+5	Inner ear, ciliary restraint for hair cells (E-140)	2	more than 1/2 hair cells inertial	UBERONTEMP:ba10737a-6aef-4435-b85f-4761b4978e5f	'ciliary restraint'	PATOTEMP:a37eda36-7bb0-4386-a24d-383cf3a9d474	inertial		

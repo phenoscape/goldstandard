@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+191	Ring or C-shaped scales enclosing sensory canals	0	absent	UBERON:0007380	'dermal scale'	PATO:0000052 and (PHENOSCAPE:complement_of some PATO:0002539)	shape and (not some 'ring shaped')		
+191	Ring or C-shaped scales enclosing sensory canals	1	present	UBERON:0007380	'dermal scale'	PATO:0002539	'ring shaped'		
+191	Ring or C-shaped scales enclosing sensory canals	1	present	UBERON:0007380	'dermal scale'	PATOTEMP:54859750-f781-473b-914e-5fd28d57d5a1	'C shaped'		

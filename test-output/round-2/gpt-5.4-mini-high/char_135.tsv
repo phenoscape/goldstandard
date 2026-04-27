@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+135	Sutures on ventral aspect of lower pharyngobranchial toothplate	0	few < 5	UBERON:4200215	suture	PATO:0001997	'decreased amount'		
+135	Sutures on ventral aspect of lower pharyngobranchial toothplate	1	many, 5 +	UBERON:4200215	suture	PATO:0000470	'increased amount'		

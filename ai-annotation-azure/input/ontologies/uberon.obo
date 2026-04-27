@@ -1,5 +1,6 @@
 format-version: 1.2
 data-version: uberon/releases/2015-05-25/uberon.owl
+ontology: uberon
 
 [Term]
 id: CL:0000000

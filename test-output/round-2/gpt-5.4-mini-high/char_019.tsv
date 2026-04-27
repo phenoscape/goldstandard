@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+19	Premaxilla, incisive process (GNC-46)	0	single	UBERONTEMP:b0379d68-e54b-4dac-851c-0336cfb85a8f	'incisive process of premaxilla'	PATOTEMP:499c1f37-c1fe-456a-86be-ce5f94a44782	single		
+19	Premaxilla, incisive process (GNC-46)	1	bipartite	UBERONTEMP:b0379d68-e54b-4dac-851c-0336cfb85a8f	'incisive process of premaxilla'	PATO:0002533	bipartite		
+19	Premaxilla, incisive process (GNC-46)	2	absent	UBERONTEMP:b0379d68-e54b-4dac-851c-0336cfb85a8f	'incisive process of premaxilla'	PATO:0000462	absent		

@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+65	Origin of subclavian arteries	0	subclavian arteries displaced  cranially to originate from right or left third or fourth aortic arches	UBERON:0001533	'subclavian artery'	PATOTEMP:2ed71749-ce64-49f4-a0f9-fded4f421183	'originate from'	UBERON:0003120	'pharyngeal arch artery 3'
+65	Origin of subclavian arteries	0	subclavian arteries displaced  cranially to originate from right or left third or fourth aortic arches	UBERON:0001533	'subclavian artery'	PATOTEMP:2ed71749-ce64-49f4-a0f9-fded4f421183	'originate from'	UBERON:0003121	'pharyngeal arch artery 4'
+65	Origin of subclavian arteries	1	subclavian arteries originate far anteriorly, near carotids	UBERON:0001533	'subclavian artery'	PATOTEMP:6a28ed54-c745-4e42-8d39-2b9de4629fd1	'originate near'	UBERON:0005396	'carotid artery segment'
+65	Origin of subclavian arteries	2	subclavian arteries originate anterior to separation of internal and external carotids	UBERON:0001533	'subclavian artery'	PATOTEMP:2ed71749-ce64-49f4-a0f9-fded4f421183	'originate from'	UBERON:0001530	'common carotid artery plus branches'
+65	Origin of subclavian arteries	3														

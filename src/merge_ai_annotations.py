@@ -67,6 +67,7 @@ def main():
         ("test-output/round-2/gpt-5.4-xhigh", "AI--GPT_54_R2.tsv"),
         ("test-output/round-2/gpt-5.4-mini-high", "AI--GPT_54_Mini.tsv"),
         ("test-output/round-2/sonnet-4.6-medium", "AI--Sonnet_46.tsv"),
+        ("test-output/round-2/claude-4.7-max", "AI--Claude_47_Max.tsv"),
     ]
 
     for input_subdir, output_name in sources:

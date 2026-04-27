@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+182	Atlantal spinal nerve foramen	0	absent	UBERONTEMP:4fd613b3-3fd4-422e-a2f7-d7a2cde79d60	'atlantal spinal nerve foramen'	PATO:0000462	absent		
+182	Atlantal spinal nerve foramen	1	notch	UBERONTEMP:4fd613b3-3fd4-422e-a2f7-d7a2cde79d60	'atlantal spinal nerve foramen'	PATO:0001495	notched		
+182	Atlantal spinal nerve foramen	2	fully enclosed	UBERONTEMP:4fd613b3-3fd4-422e-a2f7-d7a2cde79d60	'atlantal spinal nerve foramen'	PATO:0000608	closed		

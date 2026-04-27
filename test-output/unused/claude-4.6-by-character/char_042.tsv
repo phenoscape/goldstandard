@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+42	Maxillary tooth cross-section	0	labiolingually compressed	UBERON:0011593	'maxillary tooth'	PATO:0005017	'labiolingually compressed'
+42	Maxillary tooth cross-section	1	nearly circular	UBERON:0011593	'maxillary tooth'	PATO:0002397	subcircular
+42	Maxillary tooth cross-section	2	mesiodistally compressed	UBERON:0011593	'maxillary tooth'	PATO:0005018	'mesiodistally compressed'

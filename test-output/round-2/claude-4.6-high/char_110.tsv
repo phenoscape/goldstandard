@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+110	Hemipenis, horns (Branch, 1982)	0	absent	UBERON:0017294	'horn of hemipenis'	PATO:0000462	absent		
+110	Hemipenis, horns (Branch, 1982)	1	present, simple	UBERON:0017294	'horn of hemipenis'	PATO:0005021	unicuspidate		
+110	Hemipenis, horns (Branch, 1982)	2	present, multi-cusped	UBERON:0017294	'horn of hemipenis'	PATO:0002257	multicuspidate		

@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+63	Acetabular buttress	0	small	UBERONTEMP:cb7c3969-f86b-406f-91c8-55edd9cc9afa	'acetabular buttress'	PATO:0000587	'decreased size'
+63	Acetabular buttress	1	large, overhanging acetabulum	UBERONTEMP:cb7c3969-f86b-406f-91c8-55edd9cc9afa	'acetabular buttress'	PATO:0000586	'increased size'
+63	Acetabular buttress	1	large, overhanging acetabulum	UBERONTEMP:cb7c3969-f86b-406f-91c8-55edd9cc9afa	'acetabular buttress'	PATOTEMP:4f64ba78-f8f2-49ac-a6e4-a7a45344b603	overhanging	UBERON:0001269	'acetabular part of hip bone'

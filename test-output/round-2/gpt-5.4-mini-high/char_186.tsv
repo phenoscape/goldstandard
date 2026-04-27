@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+186	Dermal sculpture on skull roof	0	present, coarse, pitted	UBERON:0003113	dermatocranium	PATOTEMP:6734e62a-dd4a-43cc-8e59-c6ac7280e12c	pitted		
+186	Dermal sculpture on skull roof	1	present, weak	UBERON:0003113	dermatocranium	PATOTEMP:61fccf20-f648-4108-b17e-4c330b909458	'weakly sculpted surface'		
+186	Dermal sculpture on skull roof	2	absent	UBERON:0003113	dermatocranium	PATO:0000462	absent		
+186	Dermal sculpture on skull roof	3	present, coarse, tubercules and ridges (NEW)	UBERON:0003113	dermatocranium	PATO:0002433	'sculpted surface'		
+186	Dermal sculpture on skull roof	3	present, coarse, tubercules and ridges (NEW)	UBERON:0003113	dermatocranium	PATO:0002358	ridged		

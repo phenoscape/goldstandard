@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+196	Frontal/maxillary contact:	0	frontal and maxilla separated by prefrontal	UBERONTEMP:d5858eeb-975b-4ad6-b564-1d71f03f25f4	'maxillary contact'	PATO:0000462	absent		
+196	Frontal/maxillary contact:	1	frontal contacts dorsal process of maxilla	UBERONTEMP:d5858eeb-975b-4ad6-b564-1d71f03f25f4	'maxillary contact'	PATO:0000467	present		
+196	Frontal/maxillary contact:	2	contact absent because of loss of maxilla	UBERONTEMP:d5858eeb-975b-4ad6-b564-1d71f03f25f4	'maxillary contact'	PATO:0000462	absent		

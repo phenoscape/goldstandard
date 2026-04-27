@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+178	Parietal, lateral flange at the frontoparietal suture (nov.)	0	gently curved, laterally tapering	UBERON:0000210	'tetrapod parietal bone'	PATO:0000406	curved		
+178	Parietal, lateral flange at the frontoparietal suture (nov.)	0	gently curved, laterally tapering	UBERON:0000210	'tetrapod parietal bone'	PATO:0001500	tapered		
+178	Parietal, lateral flange at the frontoparietal suture (nov.)	1	with broad, squared, lateral tabs such that the postfrontal margin of the frontal is parallel with the postfrontal margin of the parietal	UBERON:0000210	'tetrapod parietal bone'	PATO:0002359	broad		
+178	Parietal, lateral flange at the frontoparietal suture (nov.)	1	with broad, squared, lateral tabs such that the postfrontal margin of the frontal is parallel with the postfrontal margin of the parietal	UBERON:0000210	'tetrapod parietal bone'	PATO:0000413	square		

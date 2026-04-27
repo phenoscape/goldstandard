@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+94	Manual intermedium size relative to centrale	0	larger	UBERON:0001428	lunate	PATO:0000586	'increased size'	UBERON:0012131	centrale
+94	Manual intermedium size relative to centrale	1	smaller	UBERON:0001428	lunate	PATO:0000587	'decreased size'	UBERON:0012131	centrale
+94	Manual intermedium size relative to centrale	2	intermedium lost	UBERON:0001428	lunate	PATO:0000462	absent		

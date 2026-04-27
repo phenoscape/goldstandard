@@ -1,0 +1,17 @@
+Per-character:
+
+For each character file in input/characters/, spawn a subagent to annotate it using the phenotype-eq-annotation skill and place results in the output/ directory. The agent writes its output directly to the corresponding output file. Do not ask the agent to summarize or return its annotations — just note whether it succeeded or failed, then move to the next character. If a character fails, log the filename and continue.
+
+
+Per-paper:
+
+For each character file in input/characters/, annotate it using the phenotype-eq-annotation skill and place results in corresponding files in the output/ directory. These characters all come from the same publication, indicated in the Paper_PDF column.
+
+
+Per-paper round 2:
+
+For each character file in input/characters/, annotate it using the phenotype-eq-annotation skill and place results in corresponding files in the output/ directory. These characters all come from the same publication, indicated in the Paper_PDF column. Perform the annotation work within the main context, rather than spawning annotation agents.
+
+For qwen3-coder-next:
+
+For each character file in input/characters/, annotate it and place results in corresponding files in the output/ directory. The phenotype-eq-annotation skill contains instructions for how you should create the annotations. These characters all come from the same publication, indicated in the Paper_PDF column. Perform the annotation work within the main context, rather than spawning annotation agents.

@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+137	Radius/ulna length	0	radius shorter than ulna	UBERON:0001423	'radius bone'	PATO:0000574	'decreased length'	UBERON:0001424	ulna
+137	Radius/ulna length	1	radius longer than ulna	UBERON:0001423	'radius bone'	PATO:0000573	'increased length'	UBERON:0001424	ulna
+137	Radius/ulna length	2	radius and ulna subequal	UBERON:0001423	'radius bone'	PATOTEMP:57cab68c-c801-4761-a30c-fc13df3947df	'subequal length to'	UBERON:0001424	ulna

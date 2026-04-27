@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+150	Histology of adrenal tissue	0	generalized type 1 found in turtles and lissamphibians	UBERON:0018268	'type 1 adrenal tissue'	PATO:0000467	present		
+150	Histology of adrenal tissue	1	type 2 found in lepidosaurs	UBERON:0018269	'type 2 adrenal tissue'	PATO:0000467	present		
+150	Histology of adrenal tissue	2	type 3 found in birds and crocodiles	UBERON:0018270	'type 3 adrenal tissue'	PATO:0000467	present		
+150	Histology of adrenal tissue	3	type 4 found in mammals	UBERON:0018271	'type 4 adrenal tissue'	PATO:0000467	present		

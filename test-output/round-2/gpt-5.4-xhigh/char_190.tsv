@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+190	Squamation, cephalic scales (E147/Meszo70)	0	absent	UBERONTEMP:94f0b1bc-80a4-4342-8b3b-c101c07a8f6d	'cephalic scale'	PATO:0000462	absent		
+190	Squamation, cephalic scales (E147/Meszo70)	1	small and irregularly shaped	UBERONTEMP:94f0b1bc-80a4-4342-8b3b-c101c07a8f6d	'cephalic scale'	PATO:0000587	'decreased size'		
+190	Squamation, cephalic scales (E147/Meszo70)	1	small and irregularly shaped	UBERONTEMP:94f0b1bc-80a4-4342-8b3b-c101c07a8f6d	'cephalic scale'	PATO:0005020	'irregularly shaped'		
+190	Squamation, cephalic scales (E147/Meszo70)	2	enlarged plates	UBERONTEMP:94f0b1bc-80a4-4342-8b3b-c101c07a8f6d	'cephalic scale'	PATO:0000586	'increased size'		

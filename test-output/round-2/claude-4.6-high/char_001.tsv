@@ -1,0 +1,7 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+1	Dentition, replacement (E85)	0	develop lingually, large resorption pit	UBERON:0018296	'replacement tooth'	PATOTEMP:d4b1149b-cd77-4235-97d0-61045b2788ae	'lingual position'		
+1	Dentition, replacement (E85)	0	develop lingually, large resorption pit	UBERON:0018297	'resorption pit'	PATO:0000586	'increased size'		
+1	Dentition, replacement (E85)	1	posterolingually, resorption pit	UBERON:0018296	'replacement tooth'	PATOTEMP:36bb9fe9-9879-4809-9aaa-f4a115f36332	'posterolingual position'		
+1	Dentition, replacement (E85)	1	posterolingually, resorption pit	UBERON:0018297	'resorption pit'	PATO:0000467	present		
+1	Dentition, replacement (E85)	2	posterolingually, no resorption pit	UBERON:0018296	'replacement tooth'	PATOTEMP:36bb9fe9-9879-4809-9aaa-f4a115f36332	'posterolingual position'		
+1	Dentition, replacement (E85)	2	posterolingually, no resorption pit	UBERON:0018297	'resorption pit'	PATO:0000462	absent		

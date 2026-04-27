@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+127	Vomerine dentition:	0	transverse row, medial in the palate	UBERON:0017615	'vomerine dentition'	PATO:0002502	'transverse orientation'		
+127	Vomerine dentition:	0	transverse row, medial in the palate	UBERON:0017615	'vomerine dentition'	PATO:0001191	'medial to'	UBERON:2001978	'maxillary tooth row'
+127	Vomerine dentition:	1	marginal, tooth row parallel to premaxilla and maxilla	UBERON:0017615	'vomerine dentition'	PATO:0002272	'parallel to'	UBERON:2001978	'maxillary tooth row'
+127	Vomerine dentition:	2	longitudinal row or patch	UBERON:0017615	'vomerine dentition'	PATO:0005024	'longitudinal orientation'		
+127	Vomerine dentition:	2	longitudinal row or patch	UBERON:0017615	'vomerine dentition'	PATO:0001608	patchy		

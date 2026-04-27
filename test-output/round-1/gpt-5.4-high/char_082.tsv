@@ -1,0 +1,9 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+82	Supinator process	0	large, strongly angled relative to shaft, separated from it by groove	UBERON:4200037	'supinator process'	PATO:0000586	'increased size'		
+82	Supinator process	0	large, strongly angled relative to shaft, separated from it by groove	UBERON:4200037	'supinator process'	PATOTEMP:a4fdce41-a94e-44b8-af9f-733cad982efb	'strongly angled relative to'	UBERON:0004652	'humerus diaphysis'
+82	Supinator process	0	large, strongly angled relative to shaft, separated from it by groove	UBERON:4200037	'supinator process'	PATO:0001505	'separated from'	UBERON:0004652	'humerus diaphysis'
+82	Supinator process	1	large, parallel to shaft, separated from it by groove	UBERON:4200037	'supinator process'	PATO:0000586	'increased size'		
+82	Supinator process	1	large, parallel to shaft, separated from it by groove	UBERON:4200037	'supinator process'	PATO:0002272	'parallel to'	UBERON:0004652	'humerus diaphysis'
+82	Supinator process	1	large, parallel to shaft, separated from it by groove	UBERON:4200037	'supinator process'	PATO:0001505	'separated from'	UBERON:0004652	'humerus diaphysis'
+82	Supinator process	2	small, confluent with shaft	UBERON:4200037	'supinator process'	PATO:0000587	'decreased size'		
+82	Supinator process	2	small, confluent with shaft	UBERON:4200037	'supinator process'	PATO:0002512	'confluent with'	UBERON:0004652	'humerus diaphysis'

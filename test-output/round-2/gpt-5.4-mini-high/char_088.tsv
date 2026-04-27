@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+88	Neurology, dorsal leg muscles (E143)	0	peroneal nerve present	UBERON:0001324	'common fibular nerve'	PATO:0000467	present		
+88	Neurology, dorsal leg muscles (E143)	1	peroneal nerve absent, interosseus innervation	UBERON:0001324	'common fibular nerve'	PATO:0000462	absent		
+88	Neurology, dorsal leg muscles (E143)	1	peroneal nerve absent, interosseus innervation	GO:0060384	innervation	PATO:0000467	present		

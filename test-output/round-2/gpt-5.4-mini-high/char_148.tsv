@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+148	dp5 number of roots on Ldp5	0	one	UBERON:0003677 and (BFO:0000050 some UBERON:0018281)	'tooth root' and (part_of some 'lower deciduous premolar 5')	PATO:0001997	'decreased amount'		
+148	dp5 number of roots on Ldp5	1	incipient division of the root	UBERON:0003677 and (BFO:0000050 some UBERON:0018281)	'tooth root' and (part_of some 'lower deciduous premolar 5')	PATO:0001784	bifurcated		
+148	dp5 number of roots on Ldp5	2	two or more	UBERON:0003677 and (BFO:0000050 some UBERON:0018281)	'tooth root' and (part_of some 'lower deciduous premolar 5')	PATO:0000470	'increased amount'		

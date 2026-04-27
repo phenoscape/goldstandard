@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+166	Basilaris complex of inner ear	0	presence of both recessus basilaris	UBERON:0018663	'recessus basilaris'	PATOTEMP:90107b2b-e954-4469-8e9f-f19a5c6eb557	paired		
+166	Basilaris complex of inner ear	1	loss of papillae	UBERON:0013731	'basilar papilla'	PATO:0000462	absent		
+166	Basilaris complex of inner ear	2	loss of entire basilaris complex	UBERONTEMP:1d4e7a81-d385-4100-8f7c-5eee3b0adb52	'basilaris complex'	PATO:0000462	absent		

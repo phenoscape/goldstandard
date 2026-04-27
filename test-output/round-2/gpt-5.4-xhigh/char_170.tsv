@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+170	Vertebrae, centrum morphology (KL87-1)	0	amphiplatyan	UBERON:0001075	'vertebral centrum'	UBERONTEMP:c40bc8cf-9f68-4f86-a198-ed27473ba6f1	amphiplatyan		
+170	Vertebrae, centrum morphology (KL87-1)	1	amphicoelous	UBERON:0001075	'vertebral centrum'	UBERON:3000717	amphicoelous		
+170	Vertebrae, centrum morphology (KL87-1)	2	procoelous	UBERON:0001075	'vertebral centrum'	UBERON:3000711	procoelous		

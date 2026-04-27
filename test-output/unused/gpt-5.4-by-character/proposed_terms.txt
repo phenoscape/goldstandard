@@ -1,0 +1,1 @@
+NEW:0001	posterior opening of vidian canal	Reason: no existing term for the posterior opening itself; closest available terms are UBERON:0018373 'vidian canal' and BSPO:0000072 'posterior region'

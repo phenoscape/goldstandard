@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+36	Tooth cusps on lower pharyngobranchial toothplate	0	unicuspid (simple teeth)	UBERON:0001091 and (BFO:0000050 some UBERON:0018283)	'calcareous tooth' and (part_of some 'lower pharyngobranchial toothplate')	PATO:0005021	unicuspidate
+36	Tooth cusps on lower pharyngobranchial toothplate	1	bicuspid or molariform	UBERON:0001091 and (BFO:0000050 some UBERON:0018283)	'calcareous tooth' and (part_of some 'lower pharyngobranchial toothplate')	PATO:0002257	multicuspidate
+36	Tooth cusps on lower pharyngobranchial toothplate	1	bicuspid or molariform	UBERON:0001091 and (BFO:0000050 some UBERON:0018283)	'calcareous tooth' and (part_of some 'lower pharyngobranchial toothplate')	PATO:0005009	molariform

@@ -1,0 +1,7 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+170	Vertebrae, centrum morphology (KL87-1)	0	amphiplatyan	BSPO:0000055 and (BFO:0000050 some UBERON:0001075)	'anterior side' and (part_of some 'vertebral centrum')	PATO:0000407	flat		
+170	Vertebrae, centrum morphology (KL87-1)	0	amphiplatyan	BSPO:0000056 and (BFO:0000050 some UBERON:0001075)	'posterior side' and (part_of some 'vertebral centrum')	PATO:0000407	flat		
+170	Vertebrae, centrum morphology (KL87-1)	1	amphicoelous	BSPO:0000055 and (BFO:0000050 some UBERON:0001075)	'anterior side' and (part_of some 'vertebral centrum')	PATO:0001857	concave		
+170	Vertebrae, centrum morphology (KL87-1)	1	amphicoelous	BSPO:0000056 and (BFO:0000050 some UBERON:0001075)	'posterior side' and (part_of some 'vertebral centrum')	PATO:0001857	concave		
+170	Vertebrae, centrum morphology (KL87-1)	2	procoelous	BSPO:0000055 and (BFO:0000050 some UBERON:0001075)	'anterior side' and (part_of some 'vertebral centrum')	PATO:0001857	concave		
+170	Vertebrae, centrum morphology (KL87-1)	2	procoelous	BSPO:0000056 and (BFO:0000050 some UBERON:0001075)	'posterior side' and (part_of some 'vertebral centrum')	PATO:0001355	convex		

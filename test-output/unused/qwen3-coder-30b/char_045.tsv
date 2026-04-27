@@ -1,0 +1,5 @@
+Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label	Modifier	Negation	Paper PDF	Character State
+UBERON:0000062	anal fin	PATO:0001905	absent					Coates_Sequeira_2001.pdf	0
+UBERON:0000062	anal fin	PATO:0001904	present					Coates_Sequeira_2001.pdf	0
+UBERON:0000062	anal fin	PATO:0001905	absent					Coates_Sequeira_2001.pdf	1
+UBERON:0000062	anal fin	PATO:0001904	present					Coates_Sequeira_2001.pdf	1

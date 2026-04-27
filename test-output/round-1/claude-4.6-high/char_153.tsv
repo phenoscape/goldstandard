@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+153	Male dorsal or ventral glands:	0	absent	UBERON:3010021 and (BFO:0000050 some UBERON:0003101)	'dorsal glands' and (part_of some 'male organism')	PATO:0000462	absent
+153	Male dorsal or ventral glands:	0	absent	UBERON:3010031 and (BFO:0000050 some UBERON:0003101)	'ventral glands' and (part_of some 'male organism')	PATO:0000462	absent
+153	Male dorsal or ventral glands:	1	present	UBERON:3010021 and (BFO:0000050 some UBERON:0003101)	'dorsal glands' and (part_of some 'male organism')	PATO:0000467	present
+153	Male dorsal or ventral glands:	1	present	UBERON:3010031 and (BFO:0000050 some UBERON:0003101)	'ventral glands' and (part_of some 'male organism')	PATO:0000467	present

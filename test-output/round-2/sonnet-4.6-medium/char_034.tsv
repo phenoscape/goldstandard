@@ -1,0 +1,7 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+34	Basisphenoid, relationship with the posterior opening of the Vidian canal (E53)	0	houses it	UBERON:0018373	'vidian canal'	PATO:0002261	'located in'	UBERON:0006428	'basisphenoid bone'
+34	Basisphenoid, relationship with the posterior opening of the Vidian canal (E53)	1	share it with the prootic	UBERON:0018373	'vidian canal'	PATO:0002261	'located in'	UBERON:0006428	'basisphenoid bone'
+34	Basisphenoid, relationship with the posterior opening of the Vidian canal (E53)	1	share it with the prootic	UBERON:0018373	'vidian canal'	PATO:0002261	'located in'	UBERON:0004746	'prootic bone'
+34	Basisphenoid, relationship with the posterior opening of the Vidian canal (E53)	2	within prootic	UBERON:0018373	'vidian canal'	PATO:0002261	'located in'	UBERON:0004746	'prootic bone'
+34	Basisphenoid, relationship with the posterior opening of the Vidian canal (E53)	3	shared wtih parietal	UBERON:0018373	'vidian canal'	PATO:0002261	'located in'	UBERON:0004746	'prootic bone'
+34	Basisphenoid, relationship with the posterior opening of the Vidian canal (E53)	3	shared wtih parietal	UBERON:0018373	'vidian canal'	PATO:0002261	'located in'	UBERON:0000210	'tetrapod parietal bone'

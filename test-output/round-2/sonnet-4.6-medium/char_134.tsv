@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+134	Number of free ribs on anterior caudal vertebrae:	0	more than three pairs	UBERON:0002228 and (BFO:0000050 some UBERON:0001095)	rib and (part_of some 'caudal vertebra')	PATO:0000070	amount		
+134	Number of free ribs on anterior caudal vertebrae:	1	two to three pairs	UBERON:0002228 and (BFO:0000050 some UBERON:0001095)	rib and (part_of some 'caudal vertebra')	PATO:0000070	amount		
+134	Number of free ribs on anterior caudal vertebrae:	2	free ribs absent	UBERON:0002228 and (BFO:0000050 some UBERON:0001095)	rib and (part_of some 'caudal vertebra')	PATO:0000462	absent		

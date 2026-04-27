@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+175	Palatoquadrate otic process expanded with an anterodorsal angle	0	absent						
+175	Palatoquadrate otic process expanded with an anterodorsal angle	1	present	UBERON:3000365	'otic process'	PATO:0000600	'increased width'		
+175	Palatoquadrate otic process expanded with an anterodorsal angle	1	present	UBERON:3000365	'otic process'	PATOTEMP:16d43756-56ce-46c0-97b3-cb9e097f6029	'anterodorsal angle'		

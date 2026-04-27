@@ -1,5 +1,6 @@
 format-version: 1.2
 data-version: bspo/releases/2014-02-03/bspo.owl
+ontology: bspo
 
 [Term]
 id: BSPO:0000000

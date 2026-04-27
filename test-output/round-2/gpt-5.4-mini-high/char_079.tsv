@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+79	MEB petrosal, pars canalicularis, incus contact, presence	0	absent	UBERON:0018347	'pars canalicularis of petrosal'	PATO:0001505	'separated from'	UBERON:0001688	incus
+79	MEB petrosal, pars canalicularis, incus contact, presence	1	present	UBERON:0018347	'pars canalicularis of petrosal'	PATO:0001961	'in contact with'	UBERON:0001688	incus

@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+62	Glossopharyngeal nerve foramen exits dorsally, posterior to otic capsule	0	absent	UBERON:4300132	'glossopharyngeal nerve foramen'	PATO:0000140 and (PHENOSCAPE:complement_of some PATO:0001233)	position and (not some 'dorsal to')		
+62	Glossopharyngeal nerve foramen exits dorsally, posterior to otic capsule	0	absent	UBERON:4300132	'glossopharyngeal nerve foramen'	PATO:0000140 and (PHENOSCAPE:complement_of some PATO:0001633)	position and (not some 'posterior to')	UBERON:0004637	'otic capsule'
+62	Glossopharyngeal nerve foramen exits dorsally, posterior to otic capsule	1	present	UBERON:4300132	'glossopharyngeal nerve foramen'	PATO:0001233	'dorsal to'	UBERON:0004637	'otic capsule'
+62	Glossopharyngeal nerve foramen exits dorsally, posterior to otic capsule	1	present	UBERON:4300132	'glossopharyngeal nerve foramen'	PATO:0001633	'posterior to'	UBERON:0004637	'otic capsule'

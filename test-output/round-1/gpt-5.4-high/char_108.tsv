@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+108	Humerus, proximal portion, distal end of bicipital surface:	0	indistinct and continuous with the shaft	UBERONTEMP:1aa93660-3c3d-4aff-94fa-93ea38c82df8	'bicipital surface'	PATO:0005011	'continuous with'	UBERON:0004652	'humerus diaphysis'
+108	Humerus, proximal portion, distal end of bicipital surface:	1	distinct and extends ventral to the shaft	UBERONTEMP:1aa93660-3c3d-4aff-94fa-93ea38c82df8	'bicipital surface'	PATOTEMP:292cb96b-99ee-4c20-94f6-e8b356c13fc4	'distinct from'	UBERON:0004652	'humerus diaphysis'
+108	Humerus, proximal portion, distal end of bicipital surface:	1	distinct and extends ventral to the shaft	UBERONTEMP:1aa93660-3c3d-4aff-94fa-93ea38c82df8	'bicipital surface'	PATO:0001196	'ventral to'	UBERON:0004652	'humerus diaphysis'

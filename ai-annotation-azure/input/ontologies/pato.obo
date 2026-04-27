@@ -1,5 +1,6 @@
 format-version: 1.2
 data-version: pato/2015-02-12/pato-simple.owl
+ontology: pato
 
 [Term]
 id: PATO:0000000

@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+128	Quadratoqugal	0	present	UBERON:0011267	'quadratojugal bone'	PATO:0000467	present
+128	Quadratoqugal	1	absent	UBERON:0011267	'quadratojugal bone'	PATO:0000462	absent

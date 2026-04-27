@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+21	Manual phalanx II-1, dorsal fossa:	0	single depression	UBERON:0004704 and (BFO:0000050 some (BSPO:0000079 and (BFO:0000050 some UBERON:0004328)))	'bone fossa' and (part_of some ('dorsal region' and (part_of some 'proximal phalanx of manual digit 2')))	PATO:0002034	undivided		
+21	Manual phalanx II-1, dorsal fossa:	1	divided into two depressions or fenestrae separated by a distinct oblique bulge	UBERON:0004704 and (BFO:0000050 some (BSPO:0000079 and (BFO:0000050 some UBERON:0004328)))	'bone fossa' and (part_of some ('dorsal region' and (part_of some 'proximal phalanx of manual digit 2')))	PATO:0002533	bipartite		

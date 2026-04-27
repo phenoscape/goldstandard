@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+175	Palatoquadrate otic process expanded with an anterodorsal angle	0	absent	UBERON:3000365	'otic process'	PATO:0000001 and (PHENOSCAPE:complement_of some PATO:0000586)	quality and (not some 'increased size')		
+175	Palatoquadrate otic process expanded with an anterodorsal angle	0	absent	BSPO:0000026 and (BFO:0000050 some UBERON:3000365)	'antero-dorsal region' and (part_of some 'otic process')	PATO:0000133 and (PHENOSCAPE:complement_of some PATO:0002326)	orientation and (not some angle)		
+175	Palatoquadrate otic process expanded with an anterodorsal angle	1	present	UBERON:3000365	'otic process'	PATO:0000586	'increased size'		
+175	Palatoquadrate otic process expanded with an anterodorsal angle	1	present	BSPO:0000026 and (BFO:0000050 some UBERON:3000365)	'antero-dorsal region' and (part_of some 'otic process')	PATO:0002326	angle		

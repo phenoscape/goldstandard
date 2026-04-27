@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+39	Pitting on dorsal osteoderms	0	absent	UBERON:0018317	'dorsal osteoderm'	PATO:0000701	smooth		
+39	Pitting on dorsal osteoderms	1	present as subspherical pits	UBERON:0018317	'dorsal osteoderm'	PATOTEMP:31bc4d29-9a48-4581-be6f-41132c77efb7	'subspherical pitting'		
+39	Pitting on dorsal osteoderms	2	present as elongate pits	UBERON:0018317	'dorsal osteoderm'	PATOTEMP:90175bd2-30b1-4133-8ff4-223f0f820d83	'elongate pitting'		
+39	Pitting on dorsal osteoderms	3	mixture of subspherical and elongate pits	UBERON:0018317	'dorsal osteoderm'	PATOTEMP:31bc4d29-9a48-4581-be6f-41132c77efb7	'subspherical pitting'		
+39	Pitting on dorsal osteoderms	3	mixture of subspherical and elongate pits	UBERON:0018317	'dorsal osteoderm'	PATOTEMP:90175bd2-30b1-4133-8ff4-223f0f820d83	'elongate pitting'		

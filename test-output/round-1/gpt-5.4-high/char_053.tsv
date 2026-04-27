@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+53	BRC parietal, parietal foramina, number	0	one or two foramina	UBERON:0013685 and (BFO:0000050 some UBERON:0000210)	'foramen of skull' and (part_of some 'tetrapod parietal bone')	PATOTEMP:499c1f37-c1fe-456a-86be-ce5f94a44782	single		
+53	BRC parietal, parietal foramina, number	0	one or two foramina	UBERON:0013685 and (BFO:0000050 some UBERON:0000210)	'foramen of skull' and (part_of some 'tetrapod parietal bone')	PATOTEMP:0c40ec8a-5635-4721-9bea-e57057db26f6	two		
+53	BRC parietal, parietal foramina, number	1	numerous foramina	UBERON:0013685 and (BFO:0000050 some UBERON:0000210)	'foramen of skull' and (part_of some 'tetrapod parietal bone')	PATO:0002118	multiple		

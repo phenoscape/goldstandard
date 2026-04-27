@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+92	Cervical ribs	0	straight and extending posterolaterally, without anterior process	UBERON:0018144	'cervical rib'	PATO:0002180	straight		
+92	Cervical ribs	0	straight and extending posterolaterally, without anterior process	UBERON:0018144	'cervical rib'	PATOTEMP:d6bdbb19-8950-4dfd-af6f-2794c50b1c02	'posteriorly directed'	UBERON:0001075	'vertebral centrum'
+92	Cervical ribs	1	plowshare-shaped, with rib shafts parallel to centra	UBERON:0018144	'cervical rib'	PATOTEMP:1bf5985d-5bbc-49df-ac82-969979dd9c3c	'plowshare-shaped'		
+92	Cervical ribs	1	plowshare-shaped, with rib shafts parallel to centra	UBERON:0018144	'cervical rib'	PATO:0002272	'parallel to'	UBERON:0001075	'vertebral centrum'

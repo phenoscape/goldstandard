@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+85	Midbody spot	0	present below upper lateral line	UBERONTEMP:49c8535b-5a5e-42ca-8c77-945b254605f5	'midbody spot'	PATO:0001196	'ventral to'	UBERON:0018369	'upper lateral line'
+85	Midbody spot	2	absent	UBERONTEMP:49c8535b-5a5e-42ca-8c77-945b254605f5	'midbody spot'	PATO:0000462	absent		
+85	Midbody spot	1	present above or straddling lateral line	UBERONTEMP:49c8535b-5a5e-42ca-8c77-945b254605f5	'midbody spot'	PATO:0001233	'dorsal to'	UBERON:0018369	'upper lateral line'
+85	Midbody spot	1	present above or straddling lateral line	UBERONTEMP:49c8535b-5a5e-42ca-8c77-945b254605f5	'midbody spot'	PATOTEMP:1077a5a0-91fa-4b04-bf06-0ab12a965272	straddling	UBERON:0018369	'upper lateral line'

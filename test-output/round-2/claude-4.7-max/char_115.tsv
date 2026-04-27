@@ -1,0 +1,9 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+115	Braincase, occipital condyle (Egek9)	0	single unit made of basioccipital and exoccipitals; ovoid or subovoid	UBERON:0006811	'occipital condyle'	PATOTEMP:499c1f37-c1fe-456a-86be-ce5f94a44782	single		
+115	Braincase, occipital condyle (Egek9)	0	single unit made of basioccipital and exoccipitals; ovoid or subovoid	UBERON:0006811	'occipital condyle'	PATO:0001891	ovate		
+115	Braincase, occipital condyle (Egek9)	0	single unit made of basioccipital and exoccipitals; ovoid or subovoid	UBERON:0006811	'occipital condyle'	PATO:0002537	subovoid		
+115	Braincase, occipital condyle (Egek9)	1	bipartate, constructed of exoccipitals	UBERON:0006811	'occipital condyle'	PATO:0002533	bipartite		
+115	Braincase, occipital condyle (Egek9)	1	bipartate, constructed of exoccipitals	UBERON:0006811	'occipital condyle'	PATO:0002261	'located in'	UBERON:0001693	'exoccipital bone'
+115	Braincase, occipital condyle (Egek9)	2	single unit made of basioccipital and exoccipitals; U-shaped	UBERON:0006811	'occipital condyle'	PATOTEMP:499c1f37-c1fe-456a-86be-ce5f94a44782	single		
+115	Braincase, occipital condyle (Egek9)	2	single unit made of basioccipital and exoccipitals; U-shaped	UBERON:0006811	'occipital condyle'	PATO:0001879	U-shaped		
+115	Braincase, occipital condyle (Egek9)	3	formed only by the basioccipital	UBERON:0006811	'occipital condyle'	PATO:0002261	'located in'	UBERON:0001692	'basioccipital bone'

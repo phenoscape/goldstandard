@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+196	Frontal/maxillary contact:	0	frontal and maxilla separated by prefrontal	UBERON:0000209	'tetrapod frontal bone'	PATO:0001505	'separated from'	UBERON:0002397	maxilla
+196	Frontal/maxillary contact:	1	frontal contacts dorsal process of maxilla	UBERON:0000209	'tetrapod frontal bone'	PATO:0001961	'in contact with'	UBERONTEMP:f8c897f0-4f0d-4814-8e4c-b6ec037a6ba6	'dorsal process of maxilla'
+196	Frontal/maxillary contact:	2	contact absent because of loss of maxilla	UBERON:0002397	maxilla	PATO:0000462	absent		
+196	Frontal/maxillary contact:	2	contact absent because of loss of maxilla	UBERON:0000209	'tetrapod frontal bone'	PATO:0001505	'separated from'	UBERON:0002397	maxilla

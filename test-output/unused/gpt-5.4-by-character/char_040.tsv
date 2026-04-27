@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+40	RPL nasal, anterior edge, shape	0	midline is positioned posterior to lateral extremity	BSPO:0000671 and (part_of some UBERON:0001681)	'anterior margin' and (part_of some 'nasal bone')	PATO:0001857	concave		
+40	RPL nasal, anterior edge, shape	1	relatively straight	BSPO:0000671 and (part_of some UBERON:0001681)	'anterior margin' and (part_of some 'nasal bone')	PATO:0002180	straight		
+40	RPL nasal, anterior edge, shape	2	midline is positioned anterior to lateral extremity	BSPO:0000671 and (part_of some UBERON:0001681)	'anterior margin' and (part_of some 'nasal bone')	PATO:0001355	convex		

@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+43	Shape of atlas centrum in ventral view:	0	roughly equal in length to postatlantals	UBERON:4200196	'atlas intercentrum'	PATO:0000122 and (PATO:0002306 some (PATO:0000122 and (BFO:0000052 some UBERONTEMP:6be80d29-edb2-4da5-ae46-0ceed67a11fb)))	length and (similar_in_magnitude_relative_to some (length and (inheres_in some 'postatlantal vertebra')))		
+43	Shape of atlas centrum in ventral view:	1	much shorter	UBERON:4200196	'atlas intercentrum'	PATO:0000574	'decreased length'		
+43	Shape of atlas centrum in ventral view:	2	longer	UBERON:4200196	'atlas intercentrum'	PATO:0000573	'increased length'		

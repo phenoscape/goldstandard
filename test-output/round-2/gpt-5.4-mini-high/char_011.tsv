@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+11	Humerus, distal end, ventral supracondylar tubercle:	0	low tubercle	UBERON:0018371	'ventral supracondylar tubercle'	PATO:0000569	'decreased height'		
+11	Humerus, distal end, ventral supracondylar tubercle:	1	elongated and narrow process	UBERON:0018371	'ventral supracondylar tubercle'	PATO:0001154	elongated		
+11	Humerus, distal end, ventral supracondylar tubercle:	1	elongated and narrow process	UBERON:0018371	'ventral supracondylar tubercle'	PATO:0002212	slender		

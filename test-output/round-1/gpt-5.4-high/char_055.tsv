@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+55	Coracoid foramen	0	enclosed by coracoid only	UBERON:2001737	'coracoid foramen'	PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	'enclosed by'	UBERON:0004743	'coracoid bone'
+55	Coracoid foramen	1	enclosed by scapula and coracoid	UBERON:2001737	'coracoid foramen'	PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	'enclosed by'	UBERON:0006849	scapula
+55	Coracoid foramen	1	enclosed by scapula and coracoid	UBERON:2001737	'coracoid foramen'	PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	'enclosed by'	UBERON:0004743	'coracoid bone'
+55	Coracoid foramen	2	absent	UBERON:2001737	'coracoid foramen'	PATO:0000462	absent		

@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+98	Caudal fin spot position	0	dorsal to lateral line	PATO:0001632 and (BFO:0000050 some UBERON:0002106)	anterior to and (part_of some 'caudal fin spot')				
+98	Caudal fin spot position	2	vertical stripe across tail	PATO:0000052 and (BFO:0000050 some UBERON:0002106)	shape and (part_of some 'caudal fin spot')				
+98	Caudal fin spot position	1	straddling lateral line	PATO:0000140 and (BFO:0000050 some UBERON:0002106)	position and (part_of some 'caudal fin spot')				

@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+104	Retroarticular process	0	absent or small and narrow	UBERON:3000543	'retroarticular process'	PATO:0000462	absent		
+104	Retroarticular process	1	transversely broad, dorsally concave	UBERON:3000543	'retroarticular process'	PATO:0002359	broad		
+104	Retroarticular process	1	transversely broad, dorsally concave	UBERON:3000543	'retroarticular process'	PATO:0001857	concave		

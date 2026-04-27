@@ -198,6 +198,11 @@ def AI_GS():
 	simjmeanpp,simjmeanpr=compute(infile)
 	print("Sonnet 4.6 vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
 
+	# PP and PR similarity between Claude 4.7 Max and GS
+	infile="../data/CombinedComparisons/PerEQ_AI--Claude_47_Max--GS_Dataset.tsv"
+	simjmeanpp,simjmeanpr=compute(infile)
+	print("Claude 4.7 Max vs GS PP --- PR", np.round(simjmeanpp,3),np.round(simjmeanpr,3))
+
 
 def main():
 	CP_GS()

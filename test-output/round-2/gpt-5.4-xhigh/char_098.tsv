@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+98	Caudal fin spot position	0	dorsal to lateral line	UBERONTEMP:a8fd6c8c-5029-4740-8e0c-99856641de75	'caudal spot'	PATO:0001233	'dorsal to'	UBERON:0010202	'lateral line'
+98	Caudal fin spot position	2	vertical stripe across tail	UBERONTEMP:f5082db7-70f4-44be-a15b-329301005f0c	'vertical stripe'	PATO:0000467	present		
+98	Caudal fin spot position	1	straddling lateral line	UBERONTEMP:a8fd6c8c-5029-4740-8e0c-99856641de75	'caudal spot'	PATO:0002488	overlapping	UBERON:0010202	'lateral line'

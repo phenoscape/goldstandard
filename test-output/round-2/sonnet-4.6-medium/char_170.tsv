@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+170	Vertebrae, centrum morphology (KL87-1)	0	amphiplatyan	UBERONTEMP:c40bc8cf-9f68-4f86-a198-ed27473ba6f1	amphiplatyan	PATO:0000467	present		
+170	Vertebrae, centrum morphology (KL87-1)	1	amphicoelous	UBERON:3000717	amphicoelous	PATO:0000467	present		
+170	Vertebrae, centrum morphology (KL87-1)	2	procoelous	UBERON:3000711	procoelous	PATO:0000467	present		

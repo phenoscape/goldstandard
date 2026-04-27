@@ -1,0 +1,3 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+3	Hemipenis, m. retractor lateralis posterior substantial situation within hemipenial sheath (FE-63)	0	absent	UBERONTEMP:000a0d60-aa06-477d-936c-ba14ac4f0c2d and (located_in some UBERON:4100111)	'm. retractor lateralis posterior' and (located_in some 'hemipenal sheath')	PATO:0000462	absent		
+3	Hemipenis, m. retractor lateralis posterior substantial situation within hemipenial sheath (FE-63)	1	present	UBERONTEMP:000a0d60-aa06-477d-936c-ba14ac4f0c2d and (located_in some UBERON:4100111)	'm. retractor lateralis posterior' and (located_in some 'hemipenal sheath')	PATO:0000467	present		

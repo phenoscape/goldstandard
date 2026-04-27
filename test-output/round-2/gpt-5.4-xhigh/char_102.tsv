@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+102	Scapula, size relative to the coracoid ()	0	subequal to, or larger than	UBERON:0006849	scapula	PATO:0000117 and (PATO:0002306 some (PATO:0000117 and (BFO:0000052 some UBERON:0004743)))	size and (similar_in_magnitude_relative_to some (size and (inheres_in some 'coracoid bone')))		
+102	Scapula, size relative to the coracoid ()	0	subequal to, or larger than	UBERON:0006849	scapula	PATO:0000117 and (PATO:0002305 some (PATO:0000117 and (BFO:0000052 some UBERON:0004743)))	size and (increased_in_magnitude_relative_to some (size and (inheres_in some 'coracoid bone')))		
+102	Scapula, size relative to the coracoid ()	1	smaller than	UBERON:0006849	scapula	PATO:0000117 and (PATO:0002304 some (PATO:0000117 and (BFO:0000052 some UBERON:0004743)))	size and (decreased_in_magnitude_relative_to some (size and (inheres_in some 'coracoid bone')))		
+102	Scapula, size relative to the coracoid ()	2	scapula and coracoid absent	UBERON:0006849	scapula	PATO:0000462	absent		
+102	Scapula, size relative to the coracoid ()	2	scapula and coracoid absent	UBERON:0004743	'coracoid bone'	PATO:0000462	absent		

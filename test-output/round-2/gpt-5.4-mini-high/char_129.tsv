@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+129	Mandible with intraramal joint and posterior half of mandibular rami greatly widened (mediolateral width greater than dorsoventral extension) and dorsoventrally flattened:	0	no	UBERON:0001684	mandible	PATO:0000117 and (PHENOSCAPE:complement_of some PATO:0000600)	size and (not some 'increased width')		
+129	Mandible with intraramal joint and posterior half of mandibular rami greatly widened (mediolateral width greater than dorsoventral extension) and dorsoventrally flattened:	1	yes	UBERON:0001684	mandible	PATO:0000600	'increased width'		
+129	Mandible with intraramal joint and posterior half of mandibular rami greatly widened (mediolateral width greater than dorsoventral extension) and dorsoventrally flattened:	1	yes	UBERON:0001684	mandible	PATO:0002053	'dorso-ventrally flattened'		

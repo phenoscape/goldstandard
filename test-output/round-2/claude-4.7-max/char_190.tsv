@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+190	Squamation, cephalic scales (E147/Meszo70)	0	absent	UBERON:0018310	'cephalic dermal scale'	PATO:0000462	absent		
+190	Squamation, cephalic scales (E147/Meszo70)	1	small and irregularly shaped	UBERON:0018310	'cephalic dermal scale'	PATO:0000587	'decreased size'		
+190	Squamation, cephalic scales (E147/Meszo70)	1	small and irregularly shaped	UBERON:0018310	'cephalic dermal scale'	PATO:0005020	'irregularly shaped'		
+190	Squamation, cephalic scales (E147/Meszo70)	2	enlarged plates	UBERON:0018310	'cephalic dermal scale'	PATO:0000586	'increased size'		

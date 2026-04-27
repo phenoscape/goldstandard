@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+201	Egg teeth (Egek19)	0	single	UBERON:0018276	'egg tooth'	PATO:0000467	present		
+201	Egg teeth (Egek19)	1	double	UBERON:0018276	'egg tooth'	PATO:0000070	amount		
+201	Egg teeth (Egek19)	2	absent	UBERON:0018276	'egg tooth'	PATO:0000462	absent		

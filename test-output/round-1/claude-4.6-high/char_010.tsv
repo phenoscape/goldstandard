@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+10	Craniomandibular joint	0	posterior to occiput	UBERONTEMP:160a7d88-ce21-4e9f-bc46-5cb40d86b259	craniomandibular joint	PATO:0001633	posterior to	UBERON:0005902	occipital region
+10	Craniomandibular joint	1	even with occiput	UBERONTEMP:160a7d88-ce21-4e9f-bc46-5cb40d86b259	craniomandibular joint	PATO:0002443	level with	UBERON:0005902	occipital region
+10	Craniomandibular joint	2	anterior to occiput	UBERONTEMP:160a7d88-ce21-4e9f-bc46-5cb40d86b259	craniomandibular joint	PATO:0001632	anterior to	UBERON:0005902	occipital region

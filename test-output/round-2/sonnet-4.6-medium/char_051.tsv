@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+51	Parietal, supratemporal processes length from the level of the parietal notch compared to the parietal anterior to that point (G30)	0	greater than 1/2	UBERON:0018365	'supratemporal process'	PATO:0000573	'increased length'	UBERON:0000210	'tetrapod parietal bone'
+51	Parietal, supratemporal processes length from the level of the parietal notch compared to the parietal anterior to that point (G30)	1	less than 1/2	UBERON:0018365	'supratemporal process'	PATO:0000574	'decreased length'	UBERON:0000210	'tetrapod parietal bone'
+51	Parietal, supratemporal processes length from the level of the parietal notch compared to the parietal anterior to that point (G30)	2	absent	UBERON:0018365	'supratemporal process'	PATO:0000462	absent		

@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+8	Thoracic vertebrae 1 and 2:	0	ventral process absent or present and blade-like	UBERON:0018367	processus ventralis of thoracic vertebra	PATO:0000462	absent
+8	Thoracic vertebrae 1 and 2:	0	ventral process absent or present and blade-like	UBERON:0018367	processus ventralis of thoracic vertebra	PATO:0002235	blade-like
+8	Thoracic vertebrae 1 and 2:	1	trifid processus ventralis with 2 lateral projections on thoracic 1 and 2	UBERON:0018367	processus ventralis of thoracic vertebra	PATO:0001890	tripartite
+8	Thoracic vertebrae 1 and 2:	1	trifid processus ventralis with 2 lateral projections on thoracic 1 and 2	UBERON:0018368	processus ventrolateralis of thoracic vertebra	PATO:0000467	present

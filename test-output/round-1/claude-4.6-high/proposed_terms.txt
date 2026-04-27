@@ -1,0 +1,10 @@
+Proposed Terms
+==============
+
+PROPOSED:median-fossa
+  Label: slot-shaped median fossa
+  Ontology: UBERON (anatomy)
+  Definition: A slot-shaped median fossa in the braincase into which the endolymphatic ducts open. Found in some early gnathostomes.
+  Parent: UBERON:0004704 (bone fossa)
+  Used in: char_140.tsv
+  Note: No existing UBERON term for "median fossa" as a specific cranial structure. The closest existing terms are "bone fossa" (UBERON:0004704) as a general class. The quality "slot-shaped" is available as PATOTEMP:37a095ce-53fc-4746-80ff-f7ce2a70ffa4 but the entity itself (the median fossa) needs a new term.

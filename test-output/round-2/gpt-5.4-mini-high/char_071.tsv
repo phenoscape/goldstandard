@@ -1,0 +1,8 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+71	Foramen orbitonasale	0	absent	UBERON:3000190	'foramen orbitonasale mediale'	PATO:0000462	absent		
+71	Foramen orbitonasale	1	represented by a medial indentation on the lacrimal and a dorsal indentation on the palatine	UBERON:0001680	'lacrimal bone'	PATO:0001495	notched		
+71	Foramen orbitonasale	1	represented by a medial indentation on the lacrimal and a dorsal indentation on the palatine	UBERON:0001682	'palatine bone'	PATO:0001495	notched		
+71	Foramen orbitonasale	2	enclosed between the prefrontal, lacrimal and palatine (or prefrontal, maxilla and palatine)	UBERON:3000190	'foramen orbitonasale mediale'	PATO:0000467	present		
+71	Foramen orbitonasale	2	enclosed between the prefrontal, lacrimal and palatine (or prefrontal, maxilla and palatine)	UBERON:3000190	'foramen orbitonasale mediale'	PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	'enclosed by'	UBERON:0010750	'prefrontal bone'
+71	Foramen orbitonasale	2	enclosed between the prefrontal, lacrimal and palatine (or prefrontal, maxilla and palatine)	UBERON:3000190	'foramen orbitonasale mediale'	PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	'enclosed by'	UBERON:0001680	'lacrimal bone'
+71	Foramen orbitonasale	2	enclosed between the prefrontal, lacrimal and palatine (or prefrontal, maxilla and palatine)	UBERON:3000190	'foramen orbitonasale mediale'	PATOTEMP:00070c57-8765-451b-978f-0b8f877bb858	'enclosed by'	UBERON:0001682	'palatine bone'

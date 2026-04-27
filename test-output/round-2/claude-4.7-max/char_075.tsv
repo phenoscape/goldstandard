@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+75	Parasphenoid wings	0	present, parasphenoid broad posteriorly	UBERONTEMP:7cc05fde-b247-4277-9fe9-be69f299ee72	'parasphenoid wing'	PATO:0000467	present		
+75	Parasphenoid wings	0	present, parasphenoid broad posteriorly	BSPO:0000072 and (BFO:0000050 some UBERON:0004745)	'posterior region' and (part_of some parasphenoid)	PATO:0000600	'increased width'		
+75	Parasphenoid wings	1	absent, parasphenoid narrow posteriorly	UBERONTEMP:7cc05fde-b247-4277-9fe9-be69f299ee72	'parasphenoid wing'	PATO:0000462	absent		
+75	Parasphenoid wings	1	absent, parasphenoid narrow posteriorly	BSPO:0000072 and (BFO:0000050 some UBERON:0004745)	'posterior region' and (part_of some parasphenoid)	PATO:0000599	'decreased width'		

@@ -64,7 +64,7 @@ public class GetAncestors
 	    		"UBERON", "UBERONTEMP", "BSPOTEMP", "PATOTEMP", "PATO", "BSPO", "UNKNOWNTEMP");
 	    List<String> ids = new ArrayList<String>();
 	    List<String> nestedids=new ArrayList<String>();
-	    String [] hangs={"PATO_0000070 and inheres_in some (UBERON_0017258)","PATO_0001997 and inheres_in some (UBERON_0010008)","PATO_0000470 and inheres_in some (UBERON_0010008)","PATOTEMP_2c9f9e29-141a-4967-aec3-202cf1773e52 and inheres_in some (UBERON_0010008)","PATOTEMP_a10fad4c-eac4-4098-b00a-2e1b9e449dba and inheres_in some (UBERON_0010008)","PATO_0000070 and inheres_in some (UBERON_0010008)", "inheres_in some (UBERON_0017258)", "inheres_in some (UBERON_0010008)"};
+	    String [] hangs={};
 		    
 	   while ((line = br.readLine()) != null && !line.trim().contains("null"))
 	    {

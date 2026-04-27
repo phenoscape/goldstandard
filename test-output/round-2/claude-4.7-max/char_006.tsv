@@ -1,0 +1,8 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+6	Dorsal process of premaxilla	0	absent or poorly defined with only partial contact with nasal bone	UBERON:3000003	'alary process of premaxilla'	PATO:0000462	absent		
+6	Dorsal process of premaxilla	0	absent or poorly defined with only partial contact with nasal bone	UBERON:3000003	'alary process of premaxilla'	PATO:0001961	'in contact with'	UBERON:0001681	'nasal bone'
+6	Dorsal process of premaxilla	1	short but well-defined, separating the tips of the nasals or overlapp	UBERON:3000003	'alary process of premaxilla'	PATO:0000574	'decreased length'		
+6	Dorsal process of premaxilla	2	strong posterior extension separating nasals and contacting frontal	UBERON:3000003	'alary process of premaxilla'	PATO:0000573	'increased length'		
+6	Dorsal process of premaxilla	2	strong posterior extension separating nasals and contacting frontal	UBERON:3000003	'alary process of premaxilla'	PATO:0001961	'in contact with'	UBERON:0000209	'tetrapod frontal bone'
+6	Dorsal process of premaxilla	3	extension of dorsa						
+6	Dorsal process of premaxilla	4	State 4						

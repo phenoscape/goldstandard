@@ -1,0 +1,5 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+85	Midbody spot	0	present below upper lateral line	UBERON:0001537 and (BFO:0000050 some UBERON:0001434)	'dorsal region' and (part_of some 'midbody region')				
+85	Midbody spot	2	absent	PATO:0000462	absent				
+									
+85	Midbody spot	1	present above or straddling lateral line	UBERON:0001537 and (BFO:0000050 some UBERON:0001434)	'dorsal region' and (part_of some 'midbody region')				

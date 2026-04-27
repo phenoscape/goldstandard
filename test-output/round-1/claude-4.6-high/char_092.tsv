@@ -1,0 +1,6 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+92	Cervical ribs	0	straight and extending posterolaterally, without anterior process	UBERON:0018144	'cervical rib'	PATO:0002180	straight
+92	Cervical ribs	0	straight and extending posterolaterally, without anterior process	UBERON:0018144	'cervical rib'	PATO:0002503	'posterolateral orientation'
+92	Cervical ribs	0	straight and extending posterolaterally, without anterior process	UBERON:0004529 and (BFO:0000050 some (BSPO:0000071 and (BFO:0000050 some UBERON:0018144)))	'anatomical projection' and (part_of some ('anterior region' and (part_of some 'cervical rib')))	PATO:0000462	absent
+92	Cervical ribs	1	plowshare-shaped, with rib shafts parallel to centra	UBERON:0018144	'cervical rib'	PATO:0002534	'plowshare shaped'
+92	Cervical ribs	1	plowshare-shaped, with rib shafts parallel to centra	UBERON:0002231 and (BFO:0000050 some UBERON:0018144)	'body of rib' and (part_of some 'cervical rib')	PATO:0002272	'parallel to'	UBERON:0001075	'bony vertebral centrum'

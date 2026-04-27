@@ -1,0 +1,4 @@
+Character	Character Label	State Symbol	State Label	Entity ID	Entity Label	Quality ID	Quality Label	Related Entity ID	Related Entity Label
+155	Angular	0	angular distinct from the prearticular	UBERON:0011079	'angular bone'	PATO:0005006	'differentiated from'	UBERON:0011637	'prearticular bone'
+155	Angular	1	no distinct angular (absent or fused to prearticular in adult)	UBERON:0011079	'angular bone'	PATO:0000462	absent		
+155	Angular	1	no distinct angular (absent or fused to prearticular in adult)	UBERON:0011079	'angular bone'	PATO:0000642	'fused with'	UBERON:0011637	'prearticular bone'
