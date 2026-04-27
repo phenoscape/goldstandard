@@ -15,6 +15,11 @@ data/AllAncestors_Combinations.txt
 data/Ancestors-*.tsv
 data/CombinedComparisons_original/
 
+# Unzipped large OWL files (zipped snapshots are tracked; regenerate via Java pipeline)
+Ontologies/MergedOntology_GS.owl
+Ontologies/MergedOntology_GS_Relations.owl
+Ontologies/uberon.owl
+
 **/Chakrabarty_2007.pdf
 **/Hill_2005.pdf
 **/Skutschas_Gubin_2012.pdf
